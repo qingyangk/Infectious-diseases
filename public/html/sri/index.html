@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/constants.js"></script>
+    <script src="./js/quadtree/boundary.js"></script>
+    <script src="./js/quadtree/rectangle.js"></script>
+    <script src="./js/quadtree/circle.js"></script>
+    <script src="./js/quadtree/quadtree.js"></script>
+    <script src="./js/sim/point.js"></script>
+    <script src="./js/sim/field.js"></script>
+    <script src="./js/senders/sender.js"></script>
+    <script src="./js/senders/simple-sender.js"></script>
+    <script src="./js/senders/central-loc-sender.js"></script>
+    <script src="./js/senders/communities-sender.js"></script>
+    <script src="./js/sim/simulation.js"></script>
+    <script src="./js/sim/sim-basic.js"></script>
+    <script src="./js/sim/sim-central.js"></script>
+    <script src="./js/sim/sim-communities.js"></script>
+    <script src="./js/canvas-ui/button.js"></script>
+    <script src="./js/canvas-ui/infectiousChart.js"></script>
+    <script src="./js/controls.js"></script>
+    <script src="./js/sketch.js"></script>
+    <script src="./js/iconfont.js"></script>
+    <title>预测模型</title>
+    <link rel="stylesheet" type="text/css" href="./css/index.css" />
+    <style>
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+        --webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4);
+      }
+      ::-webkit-scrollbar-track {
+        --webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 255, 255, 0.6);
+      }
+      * {
+        -webkit-touch-callout: none; /*系统默认菜单被禁用*/
+        -webkit-user-select: none; /*webkit浏览器*/
+        -khtml-user-select: none; /*早期浏览器*/
+        -moz-user-select: none; /*火狐*/
+        -ms-user-select: none; /*IE10*/
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <!-- 基础模型 -->
+      <div id="ding">
+        <div class="biaoti">场景种类</div>
+        <div id="chooseASimInp"></div>
+      </div>
+      <!-- sat-第一区域 -->
+      <div id="yi">
+        <!-- 已设模型 -->
+        <div class="biaoti">已设情形</div>
+        <div class="neiron">
+          <ul>
+            <li id="dailyInteractionsPreset"></li>
+            <li id="hygienePreset"></li>
+            <li id="illnessDurationPreset"></li>
+            <li id="testCoveragePreset"></li>
+            <li id="socialDistancingPreset"></li>
+            <li id="smallSpacePreset"></li>
+            <li id="limitedTransitPreset"></li>
+            <li><div class="presetBtn s"></div></li>
+          </ul>
+        </div>
+      </div>
+      <!-- end-第一区域 -->
+      <!-- sat-第二区域 -->
+      <div id="condition">
+        <div id="biao" class="biaoti">
+          <p id="biao1">参数设置</p>
+          <p id="zuo">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-zuo"></use>
+            </svg>
+          </p>
+          <p id="you">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-you"></use>
+            </svg>
+          </p>
+        </div>
+        <div id="dontOverrideSettingsCb"></div>
+        <div id="first">
+          <ul>
+            <li>
+              <div id="simSpeedTxt"></div>
+              <div id="simSpeedInp"></div>
+            </li>
+            <li>
+              <div id="hospResTxt"></div>
+              <div id="hospResInp"></div>
+            </li>
+            <li>
+              <div id="popSizeTxt"></div>
+              <div id="popSizeInp"></div>
+            </li>
+            <li>
+              <div id="comSizeTxt"></div>
+              <div id="comSizeInp"></div>
+            </li>
+            <li>
+              <div id="cenVisitIntTxt"></div>
+              <div id="cenVisitIntInp"></div>
+            </li>
+            <li>
+              <div id="cenLeaveIntTxt"></div>
+              <div id="cenLeaveIntInp"></div>
+            </li>
+            <li>
+              <div id="comCrossIntTxt"></div>
+              <div id="comCrossIntInp"></div>
+            </li>
+          </ul>
+        </div>
+        <div id="second">
+          <ul>
+            <li>
+              <div id="quarantineWithSymptomsCb"></div>
+            </li>
+            <li>
+              <div id="vaccinationTxt"></div>
+              <div id="vaccinationInp"></div>
+            </li>
+            <li>
+              <div id="testPropTxt"></div>
+              <div id="testPropInp"></div>
+            </li>
+            <li>
+              <div id="sdistancingTxt"></div>
+              <div id="sdistancingInp"></div>
+            </li>
+            <li>
+              <div id="isdistancingTxt"></div>
+              <div id="isdistancingInp"></div>
+            </li>
+            <li>
+              <div id="quarantineWithSymptomsDelayTxt"></div>
+              <div id="quarantineWithSymptomsDelayInp"></div>
+            </li>
+          </ul>
+        </div>
+        <div id="third">
+          <ul>
+            <li>
+              <div id="infectionRadiusTxt"></div>
+              <div id="infectionRadiusInp"></div>
+            </li>
+            <li>
+              <div id="infectionChanceTxt"></div>
+              <div id="infectionChanceInp"></div>
+            </li>
+            <li>
+              <div id="initialPopInfTxt"></div>
+              <div id="initialPopInfInp"></div>
+            </li>
+            <li>
+              <div id="inf1DurationTxt"></div>
+              <div id="inf1DurationInp"></div>
+            </li>
+            <li>
+              <div id="inf2DurationTxt"></div>
+              <div id="inf2DurationInp"></div>
+            </li>
+            <li>
+              <div id="deathChanceTxt"></div>
+              <div id="deathChanceInp"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- end-第二区域 -->
+      <div id="cv">
+        <div id="diyi">
+          <canvas id="chartcv1" style="height: 280px; width: 550px"></canvas>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 标签文字
+      const biao = document.getElementById("biao1");
+      biao.innerText = "参数设置-基础参数";
+      // 参数层级
+      const first = document.getElementById("first");
+      const second = document.getElementById("second");
+      const third = document.getElementById("third");
+      first.style.zIndex = 99;
+      first.style.opacity = 1;
+      // 切换
+      var c = 0;
+      const zuo = document.getElementById("zuo");
+      const you = document.getElementById("you");
+      zuo.style.display = "none";
+      you.addEventListener("click", function () {
+        c = c + 1;
+        if (c === 1) {
+          first.style.zIndex = -99;
+          first.style.opacity = 0;
+          second.style.zIndex = 99;
+          second.style.opacity = 1;
+          third.style.zIndex = -99;
+          third.style.opacity = 0;
+          zuo.style.display = "block";
+          biao.innerText = "参数设置-疾病预防";
+        }
+        if (c === 2) {
+          first.style.zIndex = -99;
+          first.style.opacity = 0;
+          second.style.zIndex = -99;
+          second.style.opacity = 0;
+          third.style.zIndex = 99;
+          third.style.opacity = 1;
+          you.style.display = "none";
+          biao.innerText = "参数设置-疾病属性";
+        }
+      });
+      zuo.addEventListener("click", function () {
+        c = c - 1;
+        if (c === 1) {
+          first.style.zIndex = -99;
+          first.style.opacity = 0;
+          second.style.zIndex = 99;
+          second.style.opacity = 1;
+          third.style.zIndex = -99;
+          third.style.opacity = 0;
+          you.style.display = "block";
+          biao.innerText = "参数设置-疾病预防";
+        }
+        if (c === 0) {
+          first.style.zIndex = 99;
+          first.style.opacity = 1;
+          second.style.zIndex = -99;
+          second.style.opacity = 0;
+          third.style.zIndex = -99;
+          third.style.opacity = 0;
+          zuo.style.display = "none";
+          biao.innerText = "参数设置-基础参数";
+        }
+      });
+    </script>
+  </body>
+</html>

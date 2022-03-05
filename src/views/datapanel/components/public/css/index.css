@@ -1,0 +1,165 @@
+.detailed {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: url("../img/back.png") no-repeat center center;
+  /* 背景图不平铺 */
+  background-size: cover;
+  /* 让背景图基于容器大小伸缩 */
+  background-attachment: fixed;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-color: #CCCCCC;
+  /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  transition: all 1s;
+}
+.detailed ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.detailed .public {
+  display: inline-block;
+  vertical-align: top;
+}
+.detailed .publiz {
+  border: 1px solid rgba(25, 186, 139, 0.2);
+  background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+}
+/* 左 */
+.detailed .top {
+  position: absolute;
+  width: calc(32.5% - 5px);
+  height: calc(100% - 10px);
+  top: 5px;
+  left: 5px;
+}
+/* 左上 */
+.detailed .top .public:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  height: calc(35%);
+  top: 0;
+}
+/* 左中 */
+.detailed .top .public:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  height: calc(35% - 10px);
+  top: calc(35% + 5px);
+}
+.detailed .top .public:nth-child(2) .public:nth-child(1) {
+  position: absolute;
+  width: calc(50% - 2.5px);
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.detailed .top .public:nth-child(2) .public:nth-child(2) {
+  position: absolute;
+  width: calc(50% - 2.5px);
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+/* 左下 */
+.detailed .top .public:nth-child(3) {
+  position: absolute;
+  width: 100%;
+  height: calc(30%);
+  bottom: 0;
+}
+/* 中 */
+.detailed .center {
+  position: absolute;
+  width: calc(35% - 10px);
+  height: calc(100% - 10px);
+  top: 5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/* 中上 */
+.detailed .center .public:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  height: calc(70% - 5px);
+  top: 0;
+}
+/* 中下 */
+.detailed .center .public:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  height: calc(30%);
+  bottom: 0;
+}
+/* 右 */
+.detailed .botton {
+  position: absolute;
+  width: calc(32.5% - 5px);
+  height: calc(100% - 10px);
+  top: 5px;
+  right: 5px;
+}
+/* 右上 */
+.detailed .botton .public:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  height: calc(35%);
+  top: 0;
+}
+.detailed .botton .public:nth-child(1) .public:nth-child(1),
+.detailed .botton .public:nth-child(2) .public:nth-child(1) {
+  position: absolute;
+  width: calc(50% - 2.5px);
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+/* 右中 */
+.detailed .botton .public:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  height: calc(35% - 10px);
+  top: calc(35% + 5px);
+}
+.detailed .botton .public:nth-child(1) .public:nth-child(2),
+.detailed .botton .public:nth-child(2) .public:nth-child(2) {
+  position: absolute;
+  width: calc(50% - 2.5px);
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+/* 右下 */
+.detailed .botton .public:nth-child(3) {
+  position: absolute;
+  width: 100%;
+  height: calc(30%);
+  bottom: 0;
+}
+/* 公共 */
+/* 边框样式 */
+.detailed ul .publiz::after {
+  position: absolute;
+  content: "";
+  bottom: -1px;
+  right: -1px;
+  height: 10px;
+  width: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+  transition: all 1.5s;
+  z-index: 0;
+}
+.detailed ul .publiz::before {
+  position: absolute;
+  content: "";
+  top: -1px;
+  left: -1px;
+  height: 10px;
+  width: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+  transition: all 1.5s;
+  z-index: 0;
+}

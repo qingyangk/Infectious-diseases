@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> -->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= webpackConfig.name %></title>
+    <!-- BaiDuMap  -->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=TOPze4m1nu13pkifQwZaPdCLhfzQAALZ"></script>
+    <!-- inMap  -->
+    <script type="text/javascript" src="http://unpkg.com/inmap/dist/inmap.min.js"></script>
+    <!-- echarts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <!-- <script src="./js/echarts3Extent.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script src = 'https://unpkg.com/@antv/l7'></script>
+    <!-- Gaode  -->
+    <script src="https://webapi.amap.com/maps?v=2.0&key=e5fa47cafb347c48e4c9fb740327907c&plugin=Map3D,AMap.AutoComplete,AMap.Geolocation,AMap.Geocoder,AMap.Geolocation,AMap.MarkerClusterer"></script>
+    <script src="//webapi.amap.com/loca?v=2.0.0&key=e5fa47cafb347c48e4c9fb740327907c"></script>
+    <script src="//a.amap.com/Loca/static/dist/jquery.min.js"></script>
+    <!-- mapbox -->
+    <!-- <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js' charset='utf-8'></script> -->
+    <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' /> -->
+    <script src='https://d3js.org/d3.v3.min.js' charset='utf-8'></script>
+    <!-- <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-language/v0.10.0/mapbox-gl-language.js'></script> -->
+    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+    <!-- antv -->
+    <!-- 引入在线资源 -->
+    <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.l7-1.4.6/build/L7-min.js"></script>
+    <!-- deck.gl -->
+    <!-- <script src="https://unpkg.com/deck.gl@^6.2.0/deckgl.min.js"></script> -->
+    <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <!-- <script src="http://www.echartsjs.com/dist/echarts-gl.min.js"></script> -->
+    <!-- mapgis -->
+    <!-- <script include="mapboxgl,mapv" src="./js/include-mapboxgl-local.js"></script> -->
+    <link href="./css/mapbox/style.css" rel="stylesheet" type="text/css" />
+    <!-- 模型 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <style>
+      body .el-table th.gutter {
+        display: table-cell !important;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 10px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 5px;
+        --webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4);
+      }
+      ::-webkit-scrollbar-track {
+        --webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.4);
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 255, 255, 0.6);
+      }
+      * {
+        -webkit-touch-callout:none;  /*系统默认菜单被禁用*/   
+	      -webkit-user-select:none; /*webkit浏览器*/   
+	      -khtml-user-select:none; /*早期浏览器*/   
+	      -moz-user-select:none;/*火狐*/   
+	      -ms-user-select:none; /*IE10*/   
+	      user-select:none; 
+      }
+      .esri-attribution{
+        display: none !important;
+        /* opacity: 0 !important; */
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= webpackConfig.name %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <script src="./static/iconfont.js"></script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

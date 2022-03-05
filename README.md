@@ -1,2 +1,1 @@
-# Infectious-diseases
-传染病修改
+# Epidemic Big Data Monitoring Intelligent Analysis system

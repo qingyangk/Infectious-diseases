@@ -1,0 +1,127 @@
+.datapanel {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: url("../img/back.png") no-repeat center center;
+  /* 背景图不平铺 */
+  background-size: cover;
+  /* 让背景图基于容器大小伸缩 */
+  background-attachment: fixed;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-color: #CCCCCC;
+  /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  transition: all 1s;
+}
+.datapanel ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.datapanel ul .publiz {
+  display: inline-block;
+  vertical-align: top;
+  border: 1px solid rgba(184, 1, 41, 0.2);
+  background: url("../img/bg.png")no-repeat center center rgba(255, 255, 255, 0.1);
+  background-size: 100% 100%;
+  /* cursor: pointer; */
+}
+/* 上 */
+.datapanel .top {
+  position: absolute;
+  height: calc(50% - 20px);
+  width: calc(100% - 10px);
+}
+.datapanel .top ul .public:nth-child(1) {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+}
+.datapanel .top ul .public:nth-child(2) {
+  position: absolute;
+  height: calc(100% + 15px + 50% ) ;
+  width: calc(40% - 10px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 10;
+}
+.datapanel .top ul .public:nth-child(3) {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+  right: 0;
+  z-index: 10;
+}
+.datapanel .top ul .public:nth-child(3) .publiz:nth-child(1) {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: calc(70% - 5px);
+}
+.datapanel .top ul .public:nth-child(3) .publiz:nth-child(2) {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: calc(30%);
+}
+/* 中 */
+.datapanel .center {
+  position: absolute;
+  height: calc(25%);
+  width: calc(100% - 10px);
+  top: calc(50% - 10px);
+  z-index: 8;
+}
+.datapanel .center ul .public {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+}
+.datapanel .center ul .public:nth-child(2) {
+  right: 0;
+}
+/* 下 */
+.datapanel .botton {
+  position: absolute;
+  height: calc(25%);
+  width: calc(100% - 10px);
+  bottom: 5px;
+}
+.datapanel .botton ul .public {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+}
+.datapanel .botton ul .public:nth-child(2) {
+  width: calc(40% - 10px);
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.datapanel .botton ul .public:nth-child(3) {
+  right: 0;
+}
+/* 边框样式 */
+.datapanel ul .publiz::after {
+  position: absolute;
+  content: "";
+  bottom: -1px;
+  right: -1px;
+  height: 10px;
+  width: 10px;
+  border-bottom: 0px solid #02a6b5 !important;
+  border-right: 0px solid #02a6b5 !important;
+  transition: all 1.5s;
+  z-index: 0;
+}
+.datapanel ul .publiz::before {
+  position: absolute;
+  content: "";
+  top: -1px;
+  left: -1px;
+  height: 10px;
+  width: 10px;
+  border-bottom: 0px solid #02a6b5 !important;
+  border-right: 0px solid #02a6b5 !important;
+  transition: all 1.5s;
+  z-index: 0;
+}

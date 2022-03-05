@@ -1,0 +1,329 @@
+.leftnav{
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    background-color: rgba(40, 43, 57, 0.2);
+    border: 1px solid #333;
+    border-left: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 20%;
+    height: 95%;
+    min-height: 636px;
+  }
+  .bottom{
+    position: absolute;
+    top: 15%;
+    border: 0;
+  }
+  /* 单选按钮 */
+  .el-radio{
+    color: #fff;
+  }
+  .el-checkbox-button__inner, .el-radio{
+    font-weight: 700;
+  }
+  /* 确证人数样式 */
+  .quezheng{
+    position: absolute;
+    text-align: left;
+    left: 0;
+    top: 0;
+    border-bottom: 1px solid #333;
+    width: 33.3%;
+    margin: 0;
+    height: 90px;
+    font-size: 19px;
+    color: #dd400e;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #000, 1px 1px 1px #fff;
+  }
+  .quezheng .shu{
+    color: #dd400e;
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .zhiyu{
+    border-bottom: 1px solid #333;
+    position: relative;
+    text-align: left;
+    left: 33.3%;
+    width: 33.3%;
+    margin: 0;
+    height: 90px;
+    font-size: 19px;
+    color: #3474ec;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #000, 1px 1px 1px #fff;
+  }
+  .zhiyu .shu{
+      font-size: 22px;
+      font-weight: 500;
+      color: rgba(52, 116, 236, 0.9);
+  }
+  .siwang{
+    border-bottom: 1px solid #333;
+    border-top-right-radius: 5px;
+    position: absolute;
+    text-align: left;
+    right: 0;
+    top: 0;
+    width: 33.3%;
+    margin: 0;
+    height: 90px;
+    font-size: 19px;
+    color: #908b8b;
+    font-weight: 700;
+    text-shadow: 1px 1px 1px #000, 1px 1px 1px #fff;
+  }
+  .siwang .shu{
+    font-size: 22px;
+    font-weight: 500;
+    color: #908b8b;
+  }
+  .zhong{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    padding: 2px;
+    font-weight: 0;
+    font-size: 13px;
+    color: rgba(238, 238, 238, 0.75);
+    font-family: KuHei;
+  }
+  /* el-table */
+  .el-table, .el-table__expanded-cell {
+    background: transparent !important;
+  }
+  .el-table th, .el-table tr {
+    background: transparent !important;
+  }
+  .el-table--striped .el-table__body tr.el-table__row--striped td {
+    background: transparent !important;
+  }
+  /* 按钮 */
+  .btn1,.btn2,.btn3,.btn4,.btn5{
+    position: absolute;
+    right: 23%;
+    background-color: rgba(40, 43, 57, 0.2);
+    color: white;
+    padding: 8px;
+  }
+  .btn1{
+    top: 80px;
+  }
+  .btn2{
+    top: 120px;
+  }
+  .btn3{
+    top: 160px;
+  }
+  .btn4{
+    top: 200px;
+  }
+  .btn5{
+    top: 240px;
+  }
+  /* 专题图 */
+  #ButtonContainer {
+      position: absolute;
+      width: 22%;
+      height: 40%;
+      bottom: 0;
+      background: rgba(33, 36, 37, .63);
+      z-index: 999;
+      right: 0;
+      top: 15%;
+      border-radius: 5px;
+      color: white;
+      font-family: KuHei;
+    }
+   .Container {
+      position: relative;
+      height: 17%;
+      width: 100%;
+      cursor: pointer;
+      line-height: 43px;
+      border-radius: 5px;
+    }
+  
+    .Container:hover {
+      background: rgba(87, 87, 219, 0.99);
+    }
+    .Text {
+      float: left;
+      padding-left: 5px
+    }
+    .H {
+      position: relative;
+      width: 93px;
+      height: 10px;
+      background-image: linear-gradient(to right, rgb(000, 000, 255), rgb(000, 255, 255), rgb(000, 255, 000), rgb(255, 255, 000), rgb(243, 81, 17));
+      float: left;
+      top: 48%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+  
+    .F {
+      position: relative;
+      width: 93px;
+      height: 10px;
+      background-image: linear-gradient(to right, rgb(255, 235, 214), rgb(196, 10, 10));
+      float: left;
+      top: 48%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+  
+    .Q {
+      position: relative;
+      width: 93px;
+      height: 10px;
+      background-image: linear-gradient(to right, rgb(186, 176, 165), rgb(212, 68, 11));
+      float: left;
+      top: 48%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+  
+    .Z {
+      position: relative;
+      width: 93px;
+      height: 10px;
+      background-image: linear-gradient(to right, rgb(255, 235, 214), rgb(10, 100, 196));
+      float: left;
+      top: 48%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+    .Circle11 {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(236, 42, 87, .7);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+    .Circle21 {
+      position: relative;
+      width: 15px;
+      height: 15px;
+      background-color: rgba(236, 42, 87, .7);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 24px;
+    }
+  
+    .Circle31 {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(236, 42, 87, .7);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 32px;
+    }
+  
+    .Circle41 {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      background-color: rgba(236, 42, 87, .7);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 40px;
+    }
+  
+    .Circle1 {
+      position: relative;
+      width: 10px;
+      height: 10px;
+      background-color: rgba(42, 151, 236, 0.5);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 15px;
+    }
+  
+    .Circle2 {
+      position: relative;
+      width: 15px;
+      height: 15px;
+      background-color: rgba(42, 151, 236, 0.5);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 24px;
+    }
+  
+    .Circle3 {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(42, 151, 236, 0.5);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 32px;
+    }
+  
+    .Circle4 {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      background-color: rgba(42, 151, 236, 0.5);
+      border-radius: 50%;
+      float: left;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 40px;
+    }
+  .maxbottom{
+    position: absolute;
+    bottom:2%;
+    right: 0;
+    width: 80%;
+    height: 42%;
+  }
+  #bottomleft,#bottommiddle,#bottomright{
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+  #bottomleft{
+    left: 0;
+    width: 40%;
+    background-color: rgba(33, 36, 37, .68);
+  }
+  #bottommiddle{
+    left: 40%;
+    width: 32%;
+    background-color: rgba(33, 36, 37, .68);
+  }
+  #bottomright{
+    right: 0;
+    width:28%;
+    background-color: rgba(33, 36, 37, .68);
+    border: 1px solid black;
+    border-bottom-left-radius: 5px;
+  }
+  .ganranqushi,.meiriqushi{
+    background: cornsilk;
+    width: 100%;
+    height: 93%;
+    border-bottom: 1px solid #333;
+    border-bottom-left-radius: 5px
+  }

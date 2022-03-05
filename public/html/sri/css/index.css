@@ -1,0 +1,371 @@
+@font-face {
+    src: url("../font/KuHei.ttf");
+    font-family: "KuHei";
+}
+
+@font-face {
+    src: url("../font/Microsoft-YaHei.ttf");
+    font-family: "YaHei";
+}
+
+@font-face {
+    src: url("../font/DS-DIGIT.ttf");
+    font-family: "DIGIT";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: KuHei;
+    color: #fff;
+}
+
+ul,
+p {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("../img/back.png") no-repeat center center;
+    /* 背景图不平铺 */
+    background-size: cover;
+    /* 让背景图基于容器大小伸缩 */
+    background-attachment: fixed;
+    /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+    background-color: #CCCCCC;
+    overflow: hidden;
+}
+
+/* 第一区域 */
+#ding {
+    position: absolute;
+    width: calc(50% - 45px) !important;
+    height: 70px;
+    top: 5px;
+    border: 2px solid rgba(25, 186, 139, 0.2);
+    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    left: 45px;
+    z-index: 10;
+}
+
+#ding .biaoti {
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 2px dashed rgba(219, 219, 219, 0.555);
+    /* font-weight: bold; */
+    letter-spacing: 5px;
+}
+
+#ding #chooseASimInp {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 30px);
+    text-align: center;
+    top: 30px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#ding .simBtn {
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 5px;
+    color: black;
+    background-color: rgba(17, 101, 189, .5);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+#ding .simBtn:hover {
+    background-color: rgba(17, 101, 189, .9);
+}
+
+/* 已设置 */
+#yi {
+    position: absolute;
+    width: calc(50% - 45px) !important;
+    height: 180px;
+    border: 2px solid rgba(25, 186, 139, 0.2);
+    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    left: 45px;
+    top: 85px;
+    z-index: 10;
+}
+
+#yi .biaoti {
+    position: absolute;
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-bottom: 2px dashed rgba(219, 219, 219, 0.555);
+    /* font-weight: bold; */
+    letter-spacing: 5px;
+}
+
+#yi .neiron {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 35px);
+    display: flex;
+    top: 35px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#yi ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#yi ul li {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(50% - 5px);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0;
+}
+
+#yi ul li:nth-child(n) {
+    float: left;
+}
+
+#yi ul li:nth-child(2n) {
+    float: right;
+}
+
+#yi ul li .presetBtn {
+    width: 180px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 5px;
+    color: black;
+    background-color: rgba(17, 101, 189, .5);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 2px;
+}
+
+#yi ul li .presetBtn:hover {
+    background-color: rgba(17, 101, 189, .9);
+}
+
+#yi ul li .s {
+    background: rgba(255, 255, 255, 0);
+    cursor: auto;
+}
+
+#yi ul li .s:hover {
+    background: rgba(255, 255, 255, 0);
+}
+
+
+/* 第二部分 */
+#condition {
+    position: absolute;
+    width: calc(50% - 45px) !important;
+    height: calc(100% - 555px);
+    top: 275px;
+    border: 2px solid rgba(25, 186, 139, 0.2);
+    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    left: 45px;
+    z-index: 10;
+}
+
+#condition .biaoti {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-bottom: 2px dashed rgba(219, 219, 219, 0.555);
+    /* font-weight: bold; */
+    letter-spacing: 5px;
+}
+
+#condition #dontOverrideSettingsCb {
+    position: absolute;
+    right: 0;
+    height: 30px;
+    line-height: 30px;
+    top: 0;
+    right: 0;
+}
+
+#condition .colInfo {
+    color: rgba(204, 204, 204, 0.65) !important;
+}
+
+#condition #biao1 {
+    position: relative;
+}
+
+#condition #zuo {
+    position: absolute;
+    top: 1px;
+    left: 250px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.5s;
+}
+
+#condition #you {
+    position: absolute;
+    top: 1px;
+    right: 250px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.5s;
+}
+
+#condition #first,
+#condition #second,
+#condition #third {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 30px);
+    top: 30px;
+    overflow: auto;
+    z-index: -99;
+    opacity: 0;
+}
+
+#quarantineWithSymptomsCb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#condition #first li,
+#condition #second li,
+#condition #third li {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% / 2 - 5px);
+    border: 1px dashed rgba(128, 128, 128, 0.8);
+    text-align: center;
+    margin: 5px 0;
+    text-align: center;
+    height: 68px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#condition #first li:nth-child(n),
+#condition #second li:nth-child(n),
+#condition #third li:nth-child(n) {
+    float: left;
+}
+#condition #first li:nth-child(2n),
+#condition #second li:nth-child(2n),
+#condition #third li:nth-child(2n) {
+    float: right;
+}
+
+#er {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+}
+
+/* 第三部分 */
+#diyi {
+    position: absolute;
+    height: 250px;
+    width: calc(50% - 45px) !important;
+    left: 45px;
+    bottom: 16px;
+    border: 2px solid rgba(25, 186, 139, 0.2);
+    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+#cv #chartcv1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+#cv #defaultCanvas0 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100% !important;
+    width: 50% !important;
+}
+
+#condition::after,
+#ding::after,
+#diyi::after,
+#yi::after {
+    position: absolute;
+    content: "";
+    bottom: -2px;
+    right: -2px;
+    height: 10px;
+    width: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+    transition: all 1.5s;
+    z-index: 0;
+}
+
+#condition::before,
+#ding::before,
+#diyi::before,
+#yi::before {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    height: 10px;
+    width: 10px;
+    border-top: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+    transition: all 1.5s;
+    z-index: 0;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}

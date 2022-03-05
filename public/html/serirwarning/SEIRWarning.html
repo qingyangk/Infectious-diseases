@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="SEIRWarningCSS.css" />
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-161620217-1");
+  </script>
+  <script src="./canvasjs.min.js"></script>
+  <script src="./popper.min.js"></script>
+  <style>
+    @font-face {
+      src: url("./IMG/KuHei.ttf");
+      font-family: "KuHei";
+    }
+
+    body {
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .WarningNumber {
+      position: absolute !important;
+      left: 45px;
+      top: 5px;
+      width: 245px;
+    }
+
+    #simulationContainer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    #chartContainer {
+      height: 40%;
+      width: 30%;
+      bottom: 5px;
+      left: 45px;
+    }
+
+    .canvasjs-chart-toolbar {
+      display: none !important;
+    }
+
+    .SEIRWarningTool222 {
+      position: absolute;
+      z-index: 10;
+      background-color: rgba(40, 43, 57, 0.1);
+      border: 2px solid rgba(25, 186, 139, 0.2);
+      width: 400px;
+      height: calc(100% - 92.5px);
+      top: 72.5px;
+      right: 5px;
+      padding: 5px;
+    }
+
+    #top {
+      height: 335px;
+      width: calc(100% - 12.5px);
+      position: absolute;
+      top: 5px;
+      border: 2px solid rgba(25, 186, 139, 0.2);
+      background: url("./IMG/bg.png") rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-family: KuHei;
+    }
+
+    #bottom {
+      height: calc(100% - 355px);
+      width: calc(100% - 12.5px);
+      position: absolute;
+      top: 347.5px;
+      border: 2px solid rgba(25, 186, 139, 0.2);
+      background: url("./IMG/bg.png") rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-family: KuHei;
+    }
+
+    #top .sz {
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      width: 100%;
+      border-bottom: 2px dashed rgba(219, 219, 219, 0.555);
+    }
+
+    .SEIRTool1,
+    .SEIRTool2,
+    .SEIRTool3,
+    .SEIRTool4 {
+      height: 75px;
+      text-align: center;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .SEIRTool5 .soc,
+    .SEIRTool6 .soc {
+      height: 50px;
+      text-align: center;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .SEIRTool6 {
+      border-bottom: 2px dashed rgba(219, 219, 219, 0.555);
+    }
+
+    .SEIRTool1 .soc,
+    .SEIRTool2 .soc,
+    .SEIRTool3 .soc,
+    .SEIRTool4 .soc {
+      position: absolute;
+      width: 50%;
+      vertical-align: top;
+      display: inline-block;
+    }
+
+    .SEIRTool1 .soc:nth-child(1),
+    .SEIRTool2 .soc:nth-child(1),
+    .SEIRTool3 .soc:nth-child(1),
+    .SEIRTool4 .soc:nth-child(1) {
+      left: 0;
+    }
+
+    .SEIRTool1 .soc:nth-child(2),
+    .SEIRTool2 .soc:nth-child(2),
+    .SEIRTool3 .soc:nth-child(2),
+    .SEIRTool4 .soc:nth-child(2) {
+      right: 0;
+    }
+
+    /* 修饰 */
+    #top::after,
+    #bottom::after {
+      position: absolute;
+      content: "";
+      bottom: -2px;
+      right: -2px;
+      height: 10px;
+      width: 10px;
+      border-bottom: 2px solid #02a6b5;
+      border-right: 2px solid #02a6b5;
+      transition: all 1.5s;
+      z-index: 0;
+    }
+
+    #top::before,
+    #bottom::before {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      height: 10px;
+      width: 10px;
+      border-top: 2px solid #02a6b5;
+      border-left: 2px solid #02a6b5;
+      transition: all 1.5s;
+      z-index: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 展示数字 -->
+  <div class="WarningNumber">
+    <div id="susceptibleCount"></div>
+    <div id="infectedCount"></div>
+    <div id="removedCount"></div>
+    <div id="asymptomaticCount"></div>
+  </div>
+  <canvas id="simulationContainer" width="1500" height="800"></canvas>
+  <div id="chartContainer"></div>
+
+  <div class="SEIRWarningTool222">
+    <div id="top">
+      <div class="sz">
+        参数设置
+      </div>
+      <div class="SEIRTool1">
+        <div class="PopSpeed soc">
+          <p style="color: #D0D0D0">人口流动速度</p>
+          <input type="range" min="0" max="3" value="1.5" step="0.1" class="slider" id="populationSpeed" />
+          <output id="populationSpeedOut" for="populationSpeed" style="color: #D0D0D0">1.5</output>
+        </div>
+        <div class="SocialDistance soc">
+          <p style="color: #D0D0D0">社交距离系数</p>
+          <input type="range" min="0" max="1" value="0.9" step="0.1" class="slider" id="socialDistancingRate" />
+          <output id="socialDistancingRateOut" for="socialDistancingRate" style="color: #D0D0D0">90%</output>
+        </div>
+      </div>
+      <div class="SEIRTool2">
+        <div class="Quarantined soc">
+          <p style="color: #D0D0D0">感染者隔离率</p>
+          <input type="range" min="0" max="1" value="0.3" step="0.1" class="slider" id="quarantinePercentage" />
+          <output id="quarantinePercentageOut" for="quarantinePercentage" style="color: #D0D0D0">30%</output>
+        </div>
+        <div class="timeToSym soc">
+          <p style="color: #D0D0D0">潜伏期</p>
+          <input type="range" min="7" max="14" value="7" class="slider" id="timeToSymptoms" />
+          <output id="timeToSymptomsOut" for="timeToSymptoms" style="color: #D0D0D0">7 days</output>
+        </div>
+      </div>
+      <div class="SEIRTool3">
+        <div class="timeUntilDetect soc">
+          <p style="color: #D0D0D0">暴露时间</p>
+          <input type="range" min="1" max="14" value="7" id="timeUntilDetection" />
+          <output id="timeUntilDetectionOut" for="timeUntilDetection" style="color: #D0D0D0">7 days</output>
+        </div>
+        <div class="infectionCircle soc">
+          <p style="color: #D0D0D0">感染半径</p>
+          <input type="range" min="5" max="20" value="8" id="infectionCircleRadius" />
+          <output id="timeUntilDetectionOut" for="timeUntilDetection" style="color: #D0D0D0">
+          </output>
+        </div>
+      </div>
+      <div class="SEIRTool4">
+        <div class="asymptomatic soc">
+          <p style="color: #D0D0D0">无症状感染比例</p>
+          <input type="range" min="0" max="1" value="0.5" step="0.1" id="asymptomaticProbability" />
+          <output id="asymptomaticProbabilityOut" for="asymptomaticProbability" style="color: #D0D0D0">50%</output>
+        </div>
+        <div class="enableSocialDistance soc">
+          <input type="checkbox" id="enableSocialDistancing" name="enableSocialDistancing"
+            value="enableSocialDistancing" />
+          <label for="enableSocialDistancing"
+            style="color: #D0D0D0;position: relative;top: -2px;cursor: pointer">启用社交隔离</label><br />
+        </div>
+      </div>
+    </div>
+
+    <div id="bottom">
+      <div class="SEIRTool5">
+        <div class="initSusceptible soc">
+          <label for="initSusceptibleCount" style="color: #D0D0D0">初始易感人数</label>
+          <input type="number" id="initSusceptibleCount" name="initSusceptibleCount" min="100" max="500" value="450" />
+        </div>
+        <div class="initInfected soc">
+          <label for="initInfectedCount" style="color: #D0D0D0">初始感染人数</label>
+          <input type="number" id="initInfectedCount" name="initInfectedCount" min="1" max="20" value="20" />
+        </div>
+      </div>
+      <div class="SEIRTool6">
+        <div class="numberHos soc">
+          <label for="numberBeds" style="color: #D0D0D0">医院床位数目</label>
+          <input type="number" id="numberBeds" name="numberBeds" min="1" max="1000" value="100" />
+        </div>
+        <div class="startSimulate soc">
+          <button id="startSimulation" style="margin: 0 10px;">开始模拟</button>
+          <button id="reload">Reload</button>
+          <p style="color: #D0D0D0;position: relative;right: 23px;float: right;bottom: -20px;font-size: 14px;"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./model.js"></script>
+  <script></script>
+</body>
+
+</html>
