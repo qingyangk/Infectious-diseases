@@ -272,10 +272,12 @@ export default {
   height: 80px;
   margin: 0 12.5px 15px 12.5px;
   text-align: center;
-  background-color: rgba(18, 18, 18, 0.4);
+  background-image: url("../components/public/img/bk.png");
+  /* no-repeat center center; */
+  background-size: 100% 100%;
   /* border: 1px solid rgba(180, 180, 180, 0.5); */
-  color: rgba(238, 234, 234, 0.9);
-  font-size: 14px;
+  color: rgba(134, 230, 233, 0.9);
+  font-size: 17px;
   font-weight: bold;
 }
 #exhibition .ecenter {
@@ -292,7 +294,7 @@ export default {
   transition: all 0.5s;
 }
 #exhibition .ecenter p:nth-child(1):hover {
-  color: rgb(238, 234, 234);
+  color: rgb(61, 121, 250);
 }
 #exhibition .ecenter p:nth-child(2) {
   height: 37px;
@@ -303,7 +305,7 @@ export default {
 }
 /* 另外一种情况 */
 #exhibition .ecenter li {
-  display: inline-block;
+  /* display: inline-block; */
   vertical-align: top;
 }
 #exhibition .ecenter li:nth-child(2) {
@@ -315,32 +317,32 @@ export default {
 }
 /* 样式 */
 #exhibition .publiv .mType {
-  background-color: rgb(194, 196, 89);
+  /* background-color: rgb(194, 196, 89); */
   width: 100%;
   height: 8px;
 }
 #exhibition .publiv .mQuantity {
-  background-color: #ec5c19ee;
+  /* background-color: #ec5c19ee; */
   width: 100%;
   height: 8px;
 }
 #exhibition .publiv .mProbability {
-  background-color: rgb(253, 141, 0);
+  /* background-color: rgb(253, 141, 0); */
   width: 100%;
   height: 8px;
 }
 #exhibition .publiv .dProbability {
-  background-color: #ff7979;
+  /* background-color: #ff7979; */
   width: 100%;
   height: 8px;
 }
 #exhibition .publiv .yQuantity {
-  background-color: rgb(228, 193, 249);
+  /* background-color: rgb(228, 193, 249); */
   width: 100%;
   height: 8px;
 }
 #exhibition .publiv .rQuantity {
-  background-color: rgba(17, 173, 224, 0.829);
+  /* background-color: rgba(17, 173, 224, 0.829); */
   width: 100%;
   height: 8px;
 }
@@ -417,14 +419,14 @@ export default {
 }
 #exhibition .yang {
   position: relative;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(209, 69, 26);
 }
 #exhibition .yang::before {
   position: absolute;
   content: '▶';
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: rgb(209, 69, 26);
   left: 25%;
   top: 50%;
   transform: translateY(calc(50% - 24px));
@@ -435,7 +437,7 @@ export default {
   content: '◀';
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: rgb(209, 69, 26);
   right: 25%;
   top: 50%;
   transform: translateY(calc(50% - 24px));
@@ -447,9 +449,9 @@ export default {
   width: 100%;
 }
 #exhibition .el-icon-caret-top {
-  color: rgb(180, 0, 0);
+  color: rgb(243, 13, 13);
 }
 #exhibition .el-icon-caret-bottom {
-  color: #79bc45;
+  color: #93e951;
 }
 </style>

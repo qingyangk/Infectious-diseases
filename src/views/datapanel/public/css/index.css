@@ -22,7 +22,7 @@
   display: inline-block;
   vertical-align: top;
   border: 1px solid rgba(184, 1, 41, 0.2);
-  background: url("../img/bg.png")no-repeat center center rgba(255, 255, 255, 0.1);
+  background: url("../img/ba.png")no-repeat center center;
   background-size: 100% 100%;
   /* cursor: pointer; */
 }

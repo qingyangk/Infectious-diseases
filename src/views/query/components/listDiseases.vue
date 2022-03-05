@@ -129,17 +129,19 @@ export default {
   border-radius: 5px;
   font-size: 13px;
   transition: all 1s;
+  background-image: rgb(249,248,248)
+  /* url("../components/public/img/bk.png"); */
 }
 #listDiseases .Lpublic:nth-child(2n) {
   margin-right: 4px;
 }
 #listDiseases .Lpublic:hover {
   color: #fff;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 26);
 }
 #listDiseases .xuan {
   color: #fff;
-  background-color: #ff7979 !important;
+  background-color: rgb(209, 69, 26) !important;
 }
 </style>
 // --------------------------------------- 分割线
@@ -179,9 +181,9 @@ export default {
 /* 悬浮 */
 #listDiseases >>> .el-tabs__item.is-active,
 #listDiseases >>> .el-tabs__item:hover {
-  color: #ff7979;
+  color: rgb(209, 69, 26);
 }
 #listDiseases >>> .el-tabs__active-bar {
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 26);
 }
 </style>

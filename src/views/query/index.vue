@@ -1422,7 +1422,7 @@ export default {
                   style: 'circle',
                   size: 10,
                   // 点颜色
-                  color: '#E84855'
+                  color: 'rgb(209, 69, 26)'
                 }
                 centerGraphic = new Graphic({
                   geometry: centerPoint,
@@ -1766,7 +1766,7 @@ export default {
   color: rgb(202, 202, 202);
   /* background-color: rgba(40, 43, 57, 0.65); */
   background-color: rgba(18, 18, 18, 0.4);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   transition: all 0.5s;
   margin-bottom: 5px;
 }
@@ -1784,7 +1784,7 @@ export default {
   width: 400px;
   height: 200px;
   background-color: rgba(40, 43, 57, 1);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   font-family: KuHei;
   color: rgb(202, 202, 202);
 }
@@ -1899,7 +1899,7 @@ export default {
   font-family: KuHei;
   font-size: 14px;
   border-radius: 2px;
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
 }
 #query .condition .top {
   position: absolute;
@@ -1907,9 +1907,10 @@ export default {
   left: 5px;
   top: 5px;
   height: calc(40% - 5px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* background: url("./public/img/bx.png") rgba(255, 255, 255, 0.1); */
+  background: url("./public/img/bx.png") ;
+  background-size: 100% 100%;
 }
 #query .condition .centers {
   position: absolute;
@@ -1917,9 +1918,12 @@ export default {
   left: 5px;
   top: calc(40% + 5px);
   height: calc(10% - 5px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* border: 2px solid rgba(25, 186, 139, 0.2); */
+  border:none;
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bx.png");
+  background-size: 100% 100%;
+  /* 背景 */
 }
 #query .condition .centerx {
   position: absolute;
@@ -1927,9 +1931,11 @@ export default {
   left: 5px;
   top: calc(50% + 5px);
   height: calc(50% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* border: 2px solid rgba(25, 186, 139, 0.2); */
+  border: none;
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bx.png");
+   background-size: 100% 100%;
 }
 /* 图表 */
 #query .chart {
@@ -1940,7 +1946,7 @@ export default {
   z-index: 10;
   padding: 5px;
   background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 300px;
   height: calc(100% - 10px);
   color: #fff;
@@ -1951,7 +1957,7 @@ export default {
 #query .chart .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
   height: calc((100% / 3) - 6.67px);
@@ -1980,8 +1986,8 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5; */
+  /* border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -1996,8 +2002,8 @@ export default {
   left: -1px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5; */
+  /* border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -2007,11 +2013,11 @@ export default {
   position: absolute;
   width: calc(100% - 720px);
   height: 245px;
-  background-color: rgba(40, 43, 57, 0.65);
+  background-color: rgba(57, 40, 46, 0.65);
   bottom: 5px;
   left: 310px;
   padding: 5px;
-  border: 2px solid rgba(27, 197, 146, 0.3);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   color: #fff;
   transition: all 1s;
 }

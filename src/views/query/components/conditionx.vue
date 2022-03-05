@@ -372,11 +372,11 @@ export default {
   top: 53.3%;
 }
 #conditionx ul .cpublic:nth-child(3) >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+  color: rgb(209, 69, 26);
 }
 #conditionx ul .cpublic:nth-child(3) >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 26);
+  background: rgb(209, 69, 26);
 }
 #conditionx ul .cpublic:nth-child(4) >>> .el-input__suffix {
   display: block;
