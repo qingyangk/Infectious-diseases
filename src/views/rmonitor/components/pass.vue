@@ -994,7 +994,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   /* z-index: 20; */
 }
@@ -1084,11 +1084,11 @@ export default {
   top: 53.3%;
 }
 #sentiment #setup .fMonitor >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
 }
 #sentiment #setup .fMonitor >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 2);
+  background: rgb(209, 69, 2);
 }
 /* 播放 */
 #sentiment #setup .play {
@@ -1134,7 +1134,7 @@ export default {
   height: 35%;
   bottom: 3px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   z-index: 20;
 }
@@ -1186,7 +1186,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;
@@ -1267,7 +1267,7 @@ export default {
   color: rgb(202, 202, 202);
   /* background-color: rgba(40, 43, 57, 0.65); */
   background-color: rgba(18, 18, 18, 0.4);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   transition: all 0.5s;
   margin-bottom: 5px;
 }

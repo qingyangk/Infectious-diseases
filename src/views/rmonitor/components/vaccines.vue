@@ -711,10 +711,10 @@ export default {
             symbol: 'emptyCircle',
             progress: {
               itemStyle: {
-                color: '#ff7979'
+                color: 'rgb(209, 69, 2)'
               },
               lineStyle: {
-                color: '#ff7979'
+                color: 'rgb(209, 69, 2)'
               }
             },
             autoPlay: true, // 自动播放
@@ -722,14 +722,14 @@ export default {
             data: that.xValue,
             // 默认颜色
             lineStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             itemStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             // 选择颜色
             checkpointStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             controlStyle: {
               show: false
@@ -812,31 +812,31 @@ export default {
             symbol: 'emptyCircle',
             progress: {
               itemStyle: {
-                color: '#ff7979'
+                color: 'rgb(209, 69, 2)'
               },
               lineStyle: {
-                color: '#ff7979'
+                color: 'rgb(209, 69, 2)'
               }
             },
             autoPlay: true, // 自动播放
             playInterval: 2000,
             data: that.xValue,
             lineStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             itemStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             // 选择颜色
             checkpointStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             controlStyle: {
               show: false
             },
             top: '5px'
           },
-          color: '#ff7979',
+          color: 'rgb(209, 69, 2)',
           yAxis: {
             type: 'value',
             scale: true,
@@ -1018,7 +1018,7 @@ export default {
               show: true,
               color: '#fff'
             }, data: name }, series: { type: 'bar', itemStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             }, data: way }})
           // 为地图
           }
@@ -1215,7 +1215,7 @@ export default {
               trigger: 'item'
             },
             itemStyle: {
-              color: '#ff7979'
+              color: 'rgb(209, 69, 2)'
             },
             areaStyle: {},
             data: [
@@ -1461,8 +1461,9 @@ export default {
   right: 5px;
   top: 5px;
   height: calc(40% - 5px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  /* border: 2px solid rgba(25, 186, 139, 0.2); */
+  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background-size: 100% 100%;
 }
 /* 参数 */
 #vaccines #setup {
@@ -1473,7 +1474,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   color: #fff;
 }
@@ -1563,11 +1564,11 @@ export default {
   top: 53.3%;
 }
 #vaccines #setup .fMonitor >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
 }
 #vaccines #setup .fMonitor >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 2);
+  background: rgb(209, 69, 2);
 }
 /* 播放 */
 #vaccines #setup .play {
@@ -1620,8 +1621,9 @@ export default {
   height: 100%;
   left: 0;
   width: calc(100% - 405px);
-  border: 1px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  /* border: 1px solid rgba(38, 106, 233, 0.3); */
+  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background-size: 100% 100%;
   z-index: 20;
 }
 #vaccines #monitors .left >>> .el-carousel {
@@ -1639,8 +1641,8 @@ export default {
   height: 100%;
   right: 0;
   width: 400px;
-  border: 1px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background-size: 100% 100%;
   z-index: 20;
 }
 #vaccines #monitors .right >>> .el-carousel {
@@ -1654,10 +1656,8 @@ export default {
   height: 100%;
 }
 /* 四角 */
-#vaccines .condition .top::after,
-#vaccines #setup::after,
-#vaccines #monitors .right::after,
-#vaccines #monitors .left::after {
+/* #vaccines .condition .top::after, */
+#vaccines #setup::after {
   position: absolute;
   content: "";
   bottom: -1px;
@@ -1669,10 +1669,8 @@ export default {
   transition: all 1.5s;
   z-index: 0;
 }
-#vaccines .condition .top::before,
-#vaccines #setup::before,
-#vaccines #monitors .right::before,
-#vaccines #monitors .left::before {
+/* #vaccines .condition .top::before, */
+#vaccines #setup::before{
   position: absolute;
   content: "";
   top: -1px;
@@ -1705,7 +1703,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

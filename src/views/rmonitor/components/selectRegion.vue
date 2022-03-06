@@ -4,7 +4,9 @@
     <div class="city">
       <ul>
         <li @click="stretch()"><i :class="ioc" /></li>
-        <li @click="tan()"><span>{{ json.name }}</span></li>
+        <li @click="tan()">
+          <span>{{ json.name }}</span>
+        </li>
         <li><icon-svg icon-class="icon-chengshi" /></li>
       </ul>
     </div>
@@ -20,14 +22,24 @@
         <el-tabs v-model="activeName" type="border-card">
           <el-tab-pane label="历史" name="fourth">
             <ul>
-              <li v-for="(value, item) in citys" :key="item" class="publiz" @click="xuan(value)">
+              <li
+                v-for="(value, item) in citys"
+                :key="item"
+                class="publiz"
+                @click="xuan(value)"
+              >
                 {{ value.name }}
               </li>
             </ul>
           </el-tab-pane>
           <el-tab-pane label="省份" name="first">
             <ul>
-              <li v-for="(value, item) in sheng" :key="item" class="publiz" @click="shengD(value)">
+              <li
+                v-for="(value, item) in sheng"
+                :key="item"
+                class="publiz"
+                @click="shengD(value)"
+              >
                 {{ value.name }}
               </li>
             </ul>
@@ -35,7 +47,12 @@
           <el-tab-pane label="城市" name="second">
             <div v-if="shiji.length === 0" class="nothing">暂无数据</div>
             <ul v-if="shiji.length !== 0">
-              <li v-for="(value, item) in shiji" :key="item" class="publiz" @click="shijiD(value)">
+              <li
+                v-for="(value, item) in shiji"
+                :key="item"
+                class="publiz"
+                @click="shijiD(value)"
+              >
                 {{ value.name }}
               </li>
             </ul>
@@ -43,7 +60,12 @@
           <el-tab-pane label="县区" name="third">
             <div v-if="xians.length === 0" class="nothing">暂无数据</div>
             <ul v-if="xians.length !== 0">
-              <li v-for="(value, item) in xians" :key="item" class="publiz" @click="xiansD(value)">
+              <li
+                v-for="(value, item) in xians"
+                :key="item"
+                class="publiz"
+                @click="xiansD(value)"
+              >
                 {{ value.name }}
               </li>
             </ul>
@@ -53,9 +75,7 @@
       <!-- 尾部 -->
       <div class="center">
         <div class="left">
-          <div v-if="shengZ === ''">
-            <span>现已选择：</span>{{ json.name }}
-          </div>
+          <div v-if="shengZ === ''"><span>现已选择：</span>{{ json.name }}</div>
           <div v-if="shengZ !== ''">
             <span>现已选择：{{ shengZ }}</span>
             <span v-if="shijiZ !== ''"> - {{ shijiZ }}</span>
@@ -70,265 +90,264 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
-import eventBus from '../public/js/EvebtBus'
-import city from '../public/js/city.json'
+import { mapGetters } from "vuex";
+import eventBus from "../public/js/EvebtBus";
+import city from "../public/js/city.json";
 
 export default {
-  name: 'SelectRegion',
+  name: "SelectRegion",
   data() {
     return {
       json: {
-        name: '中国',
+        name: "中国",
         where: 0,
-        code: ''
+        code: "",
       },
       citys: [], // 常用记录
       sheng: [], // 省
       shiji: [], // 市
       xians: [], // 县
-      shengZ: '',
-      shijiZ: '',
-      xiansZ: '',
-      ioc: 'el-icon-arrow-left',
+      shengZ: "",
+      shijiZ: "",
+      xiansZ: "",
+      ioc: "el-icon-arrow-left",
       s: 0,
-      activeName: 'fourth',
+      activeName: "fourth",
       // 移动
-      canMove: false
-    }
+      canMove: false,
+    };
   },
   computed: {
-    ...mapGetters([
-      'roles'
-    ])
+    ...mapGetters(["roles"]),
   },
   created() {
-    this.citys = JSON.parse(window.localStorage.getItem('city')) // 读取值
+    this.citys = JSON.parse(window.localStorage.getItem("city")); // 读取值
   },
   mounted() {
-    var that = this
+    var that = this;
     for (let i = 0; i < city.length; i++) {
-      var gong = {}
-      gong.name = city[i].name // 地名
-      gong.where = 1 // 层级
-      gong.code = city[i].code // 编号
-      that.sheng.push(gong)
+      var gong = {};
+      gong.name = city[i].name; // 地名
+      gong.where = 1; // 层级
+      gong.code = city[i].code; // 编号
+      that.sheng.push(gong);
     }
     // 样式
-    setTimeout(function() {
-      that.Style()
-    }, 200)
-    this.jihuo()
+    setTimeout(function () {
+      that.Style();
+    }, 200);
+    this.jihuo();
   },
   methods: {
     async jihuo() {
       // 获得全部路由
-      var path = this.$route.path
-      path = path.slice(path.lastIndexOf('/') + 1)
-      var city = document.querySelector('.city')
+      var path = this.$route.path;
+      path = path.slice(path.lastIndexOf("/") + 1);
+      var city = document.querySelector(".city");
       // 样式
-      if (path === 'vaccines') {
-        city.style.right = '410px'
-      } else if (path === 'index') {
-        city.style.right = '310px'
+      if (path === "vaccines") {
+        city.style.right = "410px";
+      } else if (path === "index") {
+        city.style.right = "310px";
       } else {
-        city.style.right = '5px'
+        city.style.right = "5px";
       }
     },
     // 弹出弹出层
     tan() {
-      document.getElementsByClassName('city')[0].style.opacity = 0
-      setTimeout(function() {
-        document.getElementsByClassName('city')[0].style.zIndex = -10
-      }, 1000)
-      document.getElementById('choice').style.zIndex = 1000
-      document.getElementById('choice').style.opacity = '1'
-      document.getElementById('choice').style.animation = 'appear 1s'
-      document.getElementById('choice').style.animationDuration = '1s'
+      document.getElementsByClassName("city")[0].style.opacity = 0;
+      setTimeout(function () {
+        document.getElementsByClassName("city")[0].style.zIndex = -10;
+      }, 1000);
+      document.getElementById("choice").style.zIndex = 1000;
+      document.getElementById("choice").style.opacity = "1";
+      document.getElementById("choice").style.animation = "appear 1s";
+      document.getElementById("choice").style.animationDuration = "1s";
     },
     // 关闭
     close() {
-      document.getElementsByClassName('city')[0].style.opacity = 1
-      document.getElementsByClassName('city')[0].style.zIndex = 10
-      document.getElementById('choice').style.animation = 'nappear 1s'
-      document.getElementById('choice').style.animationDuration = '1s'
-      setTimeout(function() {
-        document.getElementById('choice').style.opacity = '0'
-        document.getElementById('choice').style.zIndex = -1000
-      }, 1000)
+      document.getElementsByClassName("city")[0].style.opacity = 1;
+      document.getElementsByClassName("city")[0].style.zIndex = 10;
+      document.getElementById("choice").style.animation = "nappear 1s";
+      document.getElementById("choice").style.animationDuration = "1s";
+      setTimeout(function () {
+        document.getElementById("choice").style.opacity = "0";
+        document.getElementById("choice").style.zIndex = -1000;
+      }, 1000);
     },
     // 提交
     Submit() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
       } else {
-        eventBus.$emit('json', this.json)
-        this.close()
+        eventBus.$emit("json", this.json);
+        this.close();
       }
     },
     // 历史记录
     xuan(e) {
-      var that = this
-      this.shiji = [] // 清空市
-      this.xians = [] // 清空县
-      this.shengZ = '' // 省
-      this.shijiZ = '' // 市
-      this.xiansZ = '' // 县
+      var that = this;
+      this.shiji = []; // 清空市
+      this.xians = []; // 清空县
+      this.shengZ = ""; // 省
+      this.shijiZ = ""; // 市
+      this.xiansZ = ""; // 县
       // 样式
-      setTimeout(function() {
-        that.Style()
-      }, 200)
-      that.json.name = e.name
-      that.json.where = e.where
-      that.json.code = e.code
+      setTimeout(function () {
+        that.Style();
+      }, 200);
+      that.json.name = e.name;
+      that.json.where = e.where;
+      that.json.code = e.code;
     },
     // 省
     shengD(e) {
-      var that = this
-      this.shiji = [] // 清空市
-      this.xians = [] // 清空县
-      this.shijiZ = '' // 市
-      this.xiansZ = '' // 县
+      var that = this;
+      this.shiji = []; // 清空市
+      this.xians = []; // 清空县
+      this.shijiZ = ""; // 市
+      this.xiansZ = ""; // 县
       // 找到省
-      var s = 0
+      var s = 0;
       for (let i = 0; i < city.length; i++) {
         if (city[i].name === e.name) {
-          s = i
-          break
+          s = i;
+          break;
         }
       }
       // 给市赋值
       for (let i = 0; i < city[s].sub.length; i++) {
-        var gong = {}
-        gong.name = city[s].sub[i].name // 地名
-        gong.where = 2 // 层级
-        gong.code = city[s].sub[i].code // 编号
-        that.shiji.push(gong)
+        var gong = {};
+        gong.name = city[s].sub[i].name; // 地名
+        gong.where = 2; // 层级
+        gong.code = city[s].sub[i].code; // 编号
+        that.shiji.push(gong);
       }
-      that.shiji = that.shiji.sort(function(a, b) {
-        return a.name.localeCompare(b.name, 'zh')
-      })
-      that.json.name = e.name
-      that.json.where = e.where
-      that.json.code = e.code
-      that.shengZ = e.name
-      that.activeName = 'second'
+      that.shiji = that.shiji.sort(function (a, b) {
+        return a.name.localeCompare(b.name, "zh");
+      });
+      that.json.name = e.name;
+      that.json.where = e.where;
+      that.json.code = e.code;
+      that.shengZ = e.name;
+      that.activeName = "second";
       // 样式
-      setTimeout(function() {
-        that.Style()
-      }, 200)
+      setTimeout(function () {
+        that.Style();
+      }, 200);
     },
     // 市
     shijiD(e) {
-      var that = this
-      this.xians = [] // 清空县
-      this.xiansZ = '' // 县
+      var that = this;
+      this.xians = []; // 清空县
+      this.xiansZ = ""; // 县
       // 找到省
-      var s = 0
+      var s = 0;
       for (let i = 0; i < city.length; i++) {
         if (city[i].name === that.shengZ) {
-          s = i
-          break
+          s = i;
+          break;
         }
       }
       // 找到市
-      var d = 0
+      var d = 0;
       for (let i = 0; i < city[s].sub.length; i++) {
         if (city[s].sub[i].name === e.name) {
-          d = i
-          break
+          d = i;
+          break;
         }
       }
       // 给县赋值
       for (let i = 0; i < city[s].sub[d].sub.length; i++) {
-        var gong = {}
-        gong.name = city[s].sub[d].sub[i].name // 地名
-        gong.where = 3 // 层级
-        gong.code = city[s].sub[d].sub[i].code // 编号
-        that.xians.push(gong)
+        var gong = {};
+        gong.name = city[s].sub[d].sub[i].name; // 地名
+        gong.where = 3; // 层级
+        gong.code = city[s].sub[d].sub[i].code; // 编号
+        that.xians.push(gong);
       }
-      that.xians = that.xians.sort(function(a, b) {
-        return a.name.localeCompare(b.name, 'zh')
-      })
-      that.json.name = e.name
-      that.json.where = e.where
-      that.json.code = e.code
-      that.shijiZ = e.name
-      that.activeName = 'third'
+      that.xians = that.xians.sort(function (a, b) {
+        return a.name.localeCompare(b.name, "zh");
+      });
+      that.json.name = e.name;
+      that.json.where = e.where;
+      that.json.code = e.code;
+      that.shijiZ = e.name;
+      that.activeName = "third";
       // 样式
-      setTimeout(function() {
-        that.Style()
-      }, 200)
+      setTimeout(function () {
+        that.Style();
+      }, 200);
     },
     // 县
     xiansD(e) {
-      var that = this
-      that.json.name = e.name
-      that.json.where = e.where
-      that.json.code = e.code
-      that.xiansZ = e.name
+      var that = this;
+      that.json.name = e.name;
+      that.json.where = e.where;
+      that.json.code = e.code;
+      that.xiansZ = e.name;
     },
     // 伸缩
     stretch() {
       if (this.s === 0) {
-        this.s = 1
-        this.ioc = 'el-icon-arrow-right'
-        document.getElementsByClassName('city')[0].style.width = '225px'
+        this.s = 1;
+        this.ioc = "el-icon-arrow-right";
+        document.getElementsByClassName("city")[0].style.width = "225px";
       } else {
-        this.s = 0
-        this.ioc = 'el-icon-arrow-left'
-        document.getElementsByClassName('city')[0].style.width = '180px'
+        this.s = 0;
+        this.ioc = "el-icon-arrow-left";
+        document.getElementsByClassName("city")[0].style.width = "180px";
       }
     },
     // 移动
     m1(event) {
-      var that = this
-      const choice = document.getElementById('choice')
-      const x = event.pageX - choice.offsetLeft
-      const y = event.pageY - choice.offsetTop
-      this.canMove = true
-      document.onmouseup = function() {
-        that.canMove = false
-        document.onmousemove = null
-        document.onmouseup = null
-      }
-      document.onmousemove = function(e) {
+      var that = this;
+      const choice = document.getElementById("choice");
+      const x = event.pageX - choice.offsetLeft;
+      const y = event.pageY - choice.offsetTop;
+      this.canMove = true;
+      document.onmouseup = function () {
+        that.canMove = false;
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+      document.onmousemove = function (e) {
         if (that.canMove) {
-          var left = e.clientX - x
-          var top = e.clientY - y
-          if (left < 400) left = choice.offsetWidth / 2
-          if (top < 280) top = choice.offsetHeight / 2
-          var maxLeft = window.innerWidth - choice.offsetWidth / 2
-          var maxTop = window.innerHeight / 2 + choice.offsetHeight
-          if (left > maxLeft) left = maxLeft
-          if (top > maxTop) top = maxTop
-          choice.style.left = left + 'px'
-          choice.style.top = top + 'px'
+          var left = e.clientX - x;
+          var top = e.clientY - y;
+          if (left < 400) left = choice.offsetWidth / 2;
+          if (top < 280) top = choice.offsetHeight / 2;
+          var maxLeft = window.innerWidth - choice.offsetWidth / 2;
+          var maxTop = window.innerHeight / 2 + choice.offsetHeight;
+          if (left > maxLeft) left = maxLeft;
+          if (top > maxTop) top = maxTop;
+          choice.style.left = left + "px";
+          choice.style.top = top + "px";
         }
-      }
+      };
     },
     // 样式
     Style() {
-      var publizs = document.querySelectorAll('.publiz')
+      var publizs = document.querySelectorAll(".publiz");
       for (let i = 0; i < publizs.length; i++) {
-        publizs[i].addEventListener('click', function() {
+        publizs[i].addEventListener("click", function () {
           for (var j = 0; j < publizs.length; j++) {
-            publizs[j].setAttribute('index', j)
-            publizs[j].classList.remove('xuan')
+            publizs[j].setAttribute("index", j);
+            publizs[j].classList.remove("xuan");
           }
-          this.className = this.className + ' ' + 'xuan'
-        })
+          this.className = this.className + " " + "xuan";
+        });
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style>
-@keyframes appear { /* 出现动画 */
+@keyframes appear {
+  /* 出现动画 */
   0% {
     width: 0;
     height: 0;
@@ -344,7 +363,8 @@ export default {
     background-color: rgba(40, 43, 57, 1);
   }
 }
-@keyframes nappear { /* 隐藏动画 */
+@keyframes nappear {
+  /* 隐藏动画 */
   0% {
     width: 800px;
     height: 420px;
@@ -366,13 +386,14 @@ export default {
   src: url("../public/font/KuHei.ttf");
   font-family: "KuHei";
 }
-ul, p {
+ul,
+p {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 .xuan {
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
 }
 /* 城市 */
 #selectRegion .city {
@@ -386,7 +407,7 @@ ul, p {
   right: 410px;
   /* background-color: rgba(40, 43, 57, 0.8); */
   background-color: rgba(18, 18, 18, 0.4);
-  border: 1px solid rgba(175, 233, 215, 0.4);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   color: #fff;
   font-family: KuHei;
   font-size: 14px;
@@ -401,7 +422,7 @@ ul, p {
   top: -2px;
   width: 25px;
   font-size: 15px;
-  border-right: 1px solid rgba(175, 233, 215, 0.4);
+  border-right: 2px solid rgba(38, 106, 233, 0.3);
   cursor: pointer;
 }
 #selectRegion .city li:nth-child(2) {
@@ -418,14 +439,14 @@ ul, p {
   top: -2px;
   width: 35px;
   font-size: 18px;
-  border-left: 1px solid rgba(175, 233, 215, 0.4);
+  border-left: 2px solid rgba(38, 106, 233, 0.3);
 }
 /* 弹出层 */
 #selectRegion #choice {
   opacity: 0;
   position: absolute;
   z-index: -1000;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background-color: rgba(40, 43, 57, 1);
   top: 50%;
   left: 50%;
@@ -488,7 +509,7 @@ ul, p {
   letter-spacing: 4px;
   font-size: 18px;
 }
-#selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header {
+#selectRegion #choice .bottom >>> .el-tabs--border-card > .el-tabs__header {
   border: none;
   background-color: #ff797900;
 }
@@ -499,22 +520,38 @@ ul, p {
   border-bottom: 2px solid #fff;
   color: #fff;
 }
-#selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
-  color: #ff7979;
+#selectRegion
+  #choice
+  .bottom
+  >>> .el-tabs--border-card
+  > .el-tabs__header
+  .el-tabs__item.is-active {
+  color: rgb(209, 69, 2);
   background-color: rgba(40, 43, 57, 1);
   border: none;
-  border-bottom: 2px solid #ff7979;
+  border-bottom: 2px solid rgb(209, 69, 2);
   font-weight: bold;
 }
-#selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item+.el-tabs__item,
-#selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item:first-child {
+#selectRegion
+  #choice
+  .bottom
+  >>> .el-tabs--border-card
+  > .el-tabs__header
+  .el-tabs__item
+  + .el-tabs__item,
+#selectRegion
+  #choice
+  .bottom
+  >>> .el-tabs--border-card
+  > .el-tabs__header
+  .el-tabs__item:first-child {
   width: calc(100% / 4 + 1.1px);
   height: 50px;
   line-height: 50px;
   text-align: center;
 }
 /* 卡片底部 */
-#selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__content {
+#selectRegion #choice .bottom >>> .el-tabs--border-card > .el-tabs__content {
   padding: 0;
   width: 100%;
   height: 246px;
@@ -522,7 +559,10 @@ ul, p {
   font-family: KuHei;
   text-align: center;
 }
-#selectRegion #choice .bottom >>> .el-tabs__item:focus.is-active.is-focus:not(:active) {
+#selectRegion
+  #choice
+  .bottom
+  >>> .el-tabs__item:focus.is-active.is-focus:not(:active) {
   box-shadow: none !important;
 }
 #selectRegion #choice .bottom .nothing {

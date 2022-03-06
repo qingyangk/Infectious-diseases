@@ -1246,7 +1246,7 @@ export default {
             data: BoxWr,
             itemStyle: {
               normal: {
-                borderColor: '#ff7979',
+                borderColor: 'rgb(209, 69, 2)',
                 borderWidth: 2,
                 color: '#D9EAFF'
               }
@@ -1547,7 +1547,9 @@ export default {
   z-index: 10;
 }
 #rmonitor #type li {
-  background-color: rgba(18, 18, 18, 0.4);
+  /* background-color: rgba(18, 18, 18, 0.4); */
+  background-image: url("./public/img/bk.png");
+  background-size: 100% 100%;
   height: 90px;
   margin: 5px 0;
   position: relative;
@@ -1642,7 +1644,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background-color: rgba(40, 43, 57, 1);
   z-index: 11;
 }
@@ -1741,7 +1743,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
 }
@@ -1825,11 +1827,11 @@ export default {
   color: #fff;
 }
 #rmonitor #functionBar .pattern >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
 }
 #rmonitor #functionBar .pattern >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 2);
+  background: rgb(209, 69, 2);
 }
 #rmonitor #functionBar .title {
   position: absolute;
@@ -1902,7 +1904,7 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 11;
   background-color: rgba(40, 43, 57, 0.8);
-  border: 1px solid rgba(175, 233, 215, 0.4);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   border-radius: 3px;
 }
 #rmonitor #setup .top {
@@ -2003,11 +2005,11 @@ export default {
   color: #fff;
 }
 #rmonitor #setup .center li .neibu >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
 }
 #rmonitor #setup .center li .neibu >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 2);
+  background: rgb(209, 69, 2)9;
 }
 #rmonitor #setup .center li .neibu .neirong p >>> .el-input__suffix {
   margin-top: -7px;
@@ -2041,9 +2043,10 @@ export default {
   bottom: 5px;
   height: 20%;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
-  /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
+  border: 2.1px solid rgba(38, 106, 233, 0.3);
   background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  /* background-image: url("./public/img/ba.png");
+  background-size: 100% 100%; */
 }
 /* 修饰 */
 #rmonitor #functionBar::after,
@@ -2054,8 +2057,8 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -2067,8 +2070,8 @@ export default {
   left: -2px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -2094,7 +2097,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

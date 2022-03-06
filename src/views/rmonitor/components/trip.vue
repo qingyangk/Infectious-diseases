@@ -4,14 +4,27 @@
     <!-- 参数 -->
     <div id="setup">
       <!-- 标题 -->
-      <div class="title">
-        通行码监测
-      </div>
+      <div class="title">通行码监测</div>
       <!-- 时间 -->
       <div class="fTime">
-        <i class="el-icon-d-arrow-left img" style="font-size:21px" @click="ReduceTime()" />
-        <el-date-picker v-model="timx" type="date" placeholder="选择日期" :picker-options="pickerOptions" :editable="false" @change="STime()" />
-        <i class="el-icon-d-arrow-right img" style="font-size:21px" @click="IncreaseTime()" />
+        <i
+          class="el-icon-d-arrow-left img"
+          style="font-size: 21px"
+          @click="ReduceTime()"
+        />
+        <el-date-picker
+          v-model="timx"
+          type="date"
+          placeholder="选择日期"
+          :picker-options="pickerOptions"
+          :editable="false"
+          @change="STime()"
+        />
+        <i
+          class="el-icon-d-arrow-right img"
+          style="font-size: 21px"
+          @click="IncreaseTime()"
+        />
       </div>
       <!-- 监测 -->
       <div class="fMonitor">
@@ -26,7 +39,7 @@
     </div>
     <!-- 监测 -->
     <div id="monitor">
-      <div id="chart" style="height: 100%;width: 100%;z-index: 1;" />
+      <div id="chart" style="height: 100%; width: 100%; z-index: 1" />
     </div>
     <!-- 城市选择 -->
     <selectRegion />
@@ -34,49 +47,47 @@
     <router />
     <!-- 加载动画 -->
     <div id="bg">
-      <div id="xuan">
-        <span /><span /><span /><span />
-      </div>
+      <div id="xuan"><span /><span /><span /><span /></div>
     </div>
   </div>
 </template>
 <script>
-import * as echarts from 'echarts'
+import * as echarts from "echarts";
 // eslint-disable-next-line no-unused-vars
-import { Scene, Marker } from '@antv/l7'
-import { Mapbox } from '@antv/l7-maps'
-import mapboxgl from 'mapbox-gl'
-import Router from './router'
-import SelectRegion from './selectRegion'
-import eventBus from '../public/js/EvebtBus'
+import { Scene, Marker } from "@antv/l7";
+import { Mapbox } from "@antv/l7-maps";
+import mapboxgl from "mapbox-gl";
+import Router from "./router";
+import SelectRegion from "./selectRegion";
+import eventBus from "../public/js/EvebtBus";
 
 export default {
-  name: 'Trip',
+  name: "Trip",
   components: {
     Router,
-    SelectRegion
+    SelectRegion,
   },
   data() {
     return {
       json: {
-        name: '中国',
-        where: '',
-        code: ''
+        name: "中国",
+        where: "",
+        code: "",
       },
-      timx: '', // 时间
+      timx: "", // 时间
       pickerOptions: {
-        disabledDate: time => {
-          return time > new Date().getTime()
-        }
+        disabledDate: (time) => {
+          return time > new Date().getTime();
+        },
       },
       // 数据
       datas: [],
-      x: '24',
+      x: "24",
       xValue: [],
       myChart: null,
       option: null,
       bfang: true,
-      ioc: 'icon-zanting',
+      ioc: "icon-zanting",
       // map
       map: null,
       // antv
@@ -87,661 +98,765 @@ export default {
       cityLayer: null, // 市
       countyLayer: null, // 县
       // 地图数据
-      allMapData: []
-    }
+      allMapData: [],
+    };
   },
   beforeDestroy() {
-    eventBus.$off('json')
-    document.getElementById('Trip').style.display = 'none'
-    this.CAdestroy()
+    eventBus.$off("json");
+    document.getElementById("Trip").style.display = "none";
+    this.CAdestroy();
   },
   mounted() {
-    var that = this
+    var that = this;
     // 地图
-    this.int()
+    this.int();
     // 城市选择
-    eventBus.$on('json', json => {
-      that.json.name = json.name
-      that.json.where = json.where
-      that.json.code = json.code
-      if (that.json.name !== '中国') {
-        that.getHJson()
+    eventBus.$on("json", (json) => {
+      that.json.name = json.name;
+      that.json.where = json.where;
+      that.json.code = json.code;
+      if (that.json.name !== "中国") {
+        that.getHJson();
         // 地图定位
-        that.getbianJson(1)
+        that.getbianJson(1);
       }
-    })
+    });
     // X轴
-    that.xZhou()
+    that.xZhou();
     // 今日时间
-    that.timx = that.checkTime2(new Date())
+    that.timx = that.checkTime2(new Date());
     // 切换时间是否展示
-    if ((new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000)) < (new Date()).getTime()) {
-      document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
+    if (
+      new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000) <
+      new Date().getTime()
+    ) {
+      document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
     } else {
-      document.querySelectorAll('.fTime .img')[1].style.zIndex = -10
+      document.querySelectorAll(".fTime .img")[1].style.zIndex = -10;
     }
     // 动画
-    document.getElementById('play').addEventListener('mouseover', function() {
-      document.querySelector('.xuanfu').style.opacity = 1
-    })
-    document.getElementById('play').addEventListener('mouseout', function() {
-      document.querySelector('.xuanfu').style.opacity = 0
-    })
+    document.getElementById("play").addEventListener("mouseover", function () {
+      document.querySelector(".xuanfu").style.opacity = 1;
+    });
+    document.getElementById("play").addEventListener("mouseout", function () {
+      document.querySelector(".xuanfu").style.opacity = 0;
+    });
   },
   methods: {
     // 创建地图
     int() {
-      mapboxgl.accessToken = 'pk.eyJ1Ijoid3VqaW5odWkwIiwiYSI6ImNrdDFoZWphNDBhaGszMXBoazZ1dWdwMWkifQ.AX5nvyCpK8yKsCqyz36rsw' // 你的accessToken
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoid3VqaW5odWkwIiwiYSI6ImNrdDFoZWphNDBhaGszMXBoazZ1dWdwMWkifQ.AX5nvyCpK8yKsCqyz36rsw"; // 你的accessToken
       this.map = new mapboxgl.Map({
-        container: 'tripMap', // 地图容器的id
+        container: "tripMap", // 地图容器的id
         center: [107.01292828127248, 34.12077517311424], // 中心点
         zoom: 3, // 地图初始化时的层级
         maxZoom: 22,
         style: {
-          'version': 8,
-          'sources': {
-            'raster-tiles': {
-              'type': 'raster',
-              'tiles': [
-                'https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}'
+          version: 8,
+          sources: {
+            "raster-tiles": {
+              type: "raster",
+              tiles: [
+                "https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}",
               ],
-              'tileSize': 256
-            }
+              tileSize: 256,
+            },
           },
-          'layers': [
+          layers: [
             {
-              'id': 'simple-tiles',
-              'type': 'raster',
-              'source': 'raster-tiles',
-              'minzoom': 0,
-              'maxzoom': 22
-            }
+              id: "simple-tiles",
+              type: "raster",
+              source: "raster-tiles",
+              minzoom: 0,
+              maxzoom: 22,
+            },
           ],
-          'glyphs': 'mapbox://fonts/mapbox/{fontstack}/{range}.pbf'
-        }
-      })
-      var that = this
+          glyphs: "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+        },
+      });
+      var that = this;
       this.scene = new Scene({
-        id: 'tripMap',
+        id: "tripMap",
         map: new Mapbox({
-          mapInstance: that.map
-        })
-      })
-      this.map.on('load', () => {
-        that.getbianJson(0)
-      })
+          mapInstance: that.map,
+        }),
+      });
+      this.map.on("load", () => {
+        that.getbianJson(0);
+      });
     },
     getbianJson(e) {
-      var that = this
-      var data = {}
-      data.timx = that.checkTime4(new Date((new Date(that.json.timx)).getTime() + 24 * 60 * 60 * 1000))
-      data.timz = that.checkTime4(new Date((new Date(that.json.timz)).getTime() + 24 * 60 * 60 * 1000))
-      that.$store.dispatch('ndatapanel/QJson', that.json.name).then((dataz) => {
-        that.boundary = dataz
+      var that = this;
+      var data = {};
+      data.timx = that.checkTime4(
+        new Date(new Date(that.json.timx).getTime() + 24 * 60 * 60 * 1000)
+      );
+      data.timz = that.checkTime4(
+        new Date(new Date(that.json.timz).getTime() + 24 * 60 * 60 * 1000)
+      );
+      that.$store.dispatch("ndatapanel/QJson", that.json.name).then((dataz) => {
+        that.boundary = dataz;
         // 数据
         if (e === 0) {
-          that.bian(dataz, 0)
+          that.bian(dataz, 0);
         } else if (e === 1) {
-          that.bian(that.boundary, 1) // 清除原始边界
+          that.bian(that.boundary, 1); // 清除原始边界
         }
-      })
+      });
     },
     // 边界
     bian(dataz, e) {
-      var that = this
-      var bound = []
+      var that = this;
+      var bound = [];
       if (e === 1) {
         if (that.length !== undefined) {
           for (let i = 0; i < that.length; i++) {
-            that.map.removeLayer('maine' + i) // 清除范围
-            that.map.removeSource('maine' + i)
+            that.map.removeLayer("maine" + i); // 清除范围
+            that.map.removeSource("maine" + i);
           }
         } else {
-          that.map.removeLayer('maine') // 清除范围
-          that.map.removeSource('maine')
+          that.map.removeLayer("maine"); // 清除范围
+          that.map.removeSource("maine");
         }
       }
       if (dataz.json.features.length !== undefined) {
-        if (that.json.name !== '中国') {
+        if (that.json.name !== "中国") {
           for (let i = 0; i < dataz.json.features.length; i++) {
-            const ele = dataz.json.features[i].geometry.coordinates
+            const ele = dataz.json.features[i].geometry.coordinates;
             for (let j = 0; j < ele.length; j++) {
-              const element = ele[j][0]
+              const element = ele[j][0];
               for (let z = 0; z < element.length; z++) {
-                const element3 = element[z]
-                bound.push(element3)
+                const element3 = element[z];
+                bound.push(element3);
               }
             }
             that.map.addLayer({
-              'id': 'maine' + i,
-              'type': 'fill',
-              'source': {
-                'type': 'geojson',
-                'data': dataz.json.features[i].geometry
+              id: "maine" + i,
+              type: "fill",
+              source: {
+                type: "geojson",
+                data: dataz.json.features[i].geometry,
               },
-              'layout': {},
-              'paint': {
-                'fill-color': '#088',
-                'fill-opacity': 0.2
-              }
-            })
+              layout: {},
+              paint: {
+                "fill-color": "#088",
+                "fill-opacity": 0.2,
+              },
+            });
           }
           // eslint-disable-next-line no-undef
-          var line = turf.lineString(bound)
+          var line = turf.lineString(bound);
           // eslint-disable-next-line no-undef
-          var bbox = turf.bbox(line)
+          var bbox = turf.bbox(line);
           that.map.fitBounds(bbox, {
-            padding: { bottom: 60 }
-          })
-          that.length = dataz.json.features.length
+            padding: { bottom: 60 },
+          });
+          that.length = dataz.json.features.length;
         } else {
-          var hball = []
-          var features = []
+          var hball = [];
+          var features = [];
           // console.log(china_con)
-          const hbfeatures = [[dataz.json.features[2].geometry.coordinates[0][0]], [dataz.json.features[2].geometry.coordinates[0][1]], dataz.json.features[2].geometry.coordinates[1]]
+          const hbfeatures = [
+            [dataz.json.features[2].geometry.coordinates[0][0]],
+            [dataz.json.features[2].geometry.coordinates[0][1]],
+            dataz.json.features[2].geometry.coordinates[1],
+          ];
           for (let index = 0; index < hbfeatures.length; index++) {
-            const element = hbfeatures[index]
-            hball.push({ id: 33 + index, type: 'Feature', properties: { name: '河北省' }, geometry: { coordinates: element, type: 'Polygon' }})
+            const element = hbfeatures[index];
+            hball.push({
+              id: 33 + index,
+              type: "Feature",
+              properties: { name: "河北省" },
+              geometry: { coordinates: element, type: "Polygon" },
+            });
           }
           for (let index = 0; index < dataz.json.features.length; index++) {
-            const element = dataz.json.features[index]
+            const element = dataz.json.features[index];
             if (index === 2) {
-              features.push(hball[0])
-              features.push(hball[1])
-              features.push(hball[2])
+              features.push(hball[0]);
+              features.push(hball[1]);
+              features.push(hball[2]);
             } else {
-              features.push(element)
+              features.push(element);
             }
           }
           var qtbian = {
-            'type': 'FeatureCollection',
-            'features': features
-          }
+            type: "FeatureCollection",
+            features: features,
+          };
           that.map.addLayer({
-            'id': 'maine0',
-            'type': 'fill',
-            'source': {
-              'type': 'geojson',
-              'data': qtbian
+            id: "maine0",
+            type: "fill",
+            source: {
+              type: "geojson",
+              data: qtbian,
             },
-            'layout': {},
-            'paint': {
-              'fill-color': '#088',
-              'fill-opacity': 0.2
-            }
-          })
-          that.length = 1
+            layout: {},
+            paint: {
+              "fill-color": "#088",
+              "fill-opacity": 0.2,
+            },
+          });
+          that.length = 1;
         }
       } else {
         that.map.addLayer({
-          'id': 'maine',
-          'type': 'fill',
-          'source': {
-            'type': 'geojson',
-            'data': dataz.json.features.geometry
+          id: "maine",
+          type: "fill",
+          source: {
+            type: "geojson",
+            data: dataz.json.features.geometry,
           },
-          'layout': {},
-          'paint': {
-            'fill-color': '#088',
-            'fill-opacity': 0.2
-          }
-        })
+          layout: {},
+          paint: {
+            "fill-color": "#088",
+            "fill-opacity": 0.2,
+          },
+        });
         // eslint-disable-next-line no-undef
-        const line1 = turf.lineString(dataz.json.features.geometry.coordinates[0][0])
+        const line1 = turf.lineString(
+          dataz.json.features.geometry.coordinates[0][0]
+        );
         // eslint-disable-next-line no-undef
-        const bbox1 = turf.bbox(line1)
+        const bbox1 = turf.bbox(line1);
         that.map.fitBounds(bbox1, {
-          padding: { bottom: 60 }
-        })
-        that.length = dataz.json.features.length
+          padding: { bottom: 60 },
+        });
+        that.length = dataz.json.features.length;
       }
-      console.log(that.length)
+      console.log(that.length);
     },
     // 初始化图层
     loadMapData(data) {
-      var that = this
-      var isExistence = false
-      if (this.map.getSource('earthquakes') !== undefined) {
-        isExistence = true
+      var that = this;
+      var isExistence = false;
+      if (this.map.getSource("earthquakes") !== undefined) {
+        isExistence = true;
       }
       if (isExistence === false) {
-        that.map.addSource('earthquakes', {
-          type: 'geojson',
+        that.map.addSource("earthquakes", {
+          type: "geojson",
           data: data,
           cluster: true,
           clusterMaxZoom: 14, // Max zoom to cluster points on
-          clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-        })
-        that.map.addSource('people', {
-          type: 'geojson',
-          data: data
-        })
+          clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
+        });
+        that.map.addSource("people", {
+          type: "geojson",
+          data: data,
+        });
         // 热力图
         that.map.addLayer({
-          'id': 'earthquakes-heat',
-          'type': 'heatmap',
-          'source': 'people',
-          'maxzoom': 16,
-          'paint': {
-            'heatmap-weight': [
-              'interpolate',
-              ['linear'],
-              ['get', 'mag'],
-              0, 0,
-              6, 1
+          id: "earthquakes-heat",
+          type: "heatmap",
+          source: "people",
+          maxzoom: 16,
+          paint: {
+            "heatmap-weight": [
+              "interpolate",
+              ["linear"],
+              ["get", "mag"],
+              0,
+              0,
+              6,
+              1,
             ],
-            'heatmap-intensity': [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              0, 1,
-              9, 3
+            "heatmap-intensity": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0,
+              1,
+              9,
+              3,
             ],
-            'heatmap-color': [
-              'interpolate',
-              ['linear'],
-              ['heatmap-density'],
-              0, 'rgba(33,102,172,0)',
-              0.2, 'rgb(103,169,207)',
-              0.4, 'rgb(209,229,240)',
-              0.6, 'rgb(253,219,199)',
-              0.8, 'rgb(239,138,98)',
-              1, 'rgb(178,24,43)'
+            "heatmap-color": [
+              "interpolate",
+              ["linear"],
+              ["heatmap-density"],
+              0,
+              "rgba(33,102,172,0)",
+              0.2,
+              "rgb(103,169,207)",
+              0.4,
+              "rgb(209,229,240)",
+              0.6,
+              "rgb(253,219,199)",
+              0.8,
+              "rgb(239,138,98)",
+              1,
+              "rgb(178,24,43)",
             ],
             // Adjust the heatmap radius by zoom level
-            'heatmap-radius': [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              0, 2,
-              9, 20
+            "heatmap-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0,
+              2,
+              9,
+              20,
             ],
             // Transition from heatmap to circle layer by zoom level
-            'heatmap-opacity': [
-              'interpolate',
-              ['linear'],
-              ['zoom'],
-              10, 0.9,
-              11, 0.8,
-              12, 0.7,
-              13, 0.6,
-              14, 0.5,
-              15, 0
-            ]
-          }
-        })
+            "heatmap-opacity": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              10,
+              0.9,
+              11,
+              0.8,
+              12,
+              0.7,
+              13,
+              0.6,
+              14,
+              0.5,
+              15,
+              0,
+            ],
+          },
+        });
         // 聚合图
         that.map.addLayer({
-          id: 'clusters',
-          type: 'circle',
-          source: 'earthquakes',
-          filter: ['has', 'point_count'],
+          id: "clusters",
+          type: "circle",
+          source: "earthquakes",
+          filter: ["has", "point_count"],
           paint: {
-            'circle-color': [
-              'step',
-              ['get', 'point_count'],
-              '#51bbd6',
+            "circle-color": [
+              "step",
+              ["get", "point_count"],
+              "#51bbd6",
               100,
-              '#f1f075',
+              "#f1f075",
               750,
-              '#f28cb1'
+              "#f28cb1",
             ],
-            'circle-radius': [
-              'step',
-              ['get', 'point_count'],
+            "circle-radius": [
+              "step",
+              ["get", "point_count"],
               20,
               100,
               30,
               750,
-              40
-            ]
-          }
-        })
+              40,
+            ],
+          },
+        });
 
         that.map.addLayer({
-          id: 'cluster-count',
-          type: 'symbol',
-          source: 'earthquakes',
-          filter: ['has', 'point_count'],
+          id: "cluster-count",
+          type: "symbol",
+          source: "earthquakes",
+          filter: ["has", "point_count"],
           layout: {
-            'text-field': '{point_count_abbreviated}',
-            'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-            'text-size': 12
-          }
-        })
+            "text-field": "{point_count_abbreviated}",
+            "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+            "text-size": 12,
+          },
+        });
 
         that.map.addLayer({
-          id: 'unclustered-point',
-          type: 'circle',
-          source: 'earthquakes',
-          filter: ['!', ['has', 'point_count']],
+          id: "unclustered-point",
+          type: "circle",
+          source: "earthquakes",
+          filter: ["!", ["has", "point_count"]],
           paint: {
-            'circle-color': '#11b4da',
-            'circle-radius': 4,
-            'circle-stroke-width': 1,
-            'circle-stroke-color': '#fff'
-          }
-        })
-        that.map.on('click', 'clusters', function(e) {
-          var features = that.map.queryRenderedFeatures(e.point, { layers: ['clusters'] })
-          var clusterId = features[0].properties.cluster_id
-          that.map.getSource('earthquakes').getClusterExpansionZoom(clusterId, function(err, zoom) {
-            if (err) { return }
+            "circle-color": "#11b4da",
+            "circle-radius": 4,
+            "circle-stroke-width": 1,
+            "circle-stroke-color": "#fff",
+          },
+        });
+        that.map.on("click", "clusters", function (e) {
+          var features = that.map.queryRenderedFeatures(e.point, {
+            layers: ["clusters"],
+          });
+          var clusterId = features[0].properties.cluster_id;
+          that.map
+            .getSource("earthquakes")
+            .getClusterExpansionZoom(clusterId, function (err, zoom) {
+              if (err) {
+                return;
+              }
 
-            that.map.easeTo({
-              center: features[0].geometry.coordinates,
-              zoom: zoom
-            })
-          })
-        })
+              that.map.easeTo({
+                center: features[0].geometry.coordinates,
+                zoom: zoom,
+              });
+            });
+        });
 
-        that.map.on('mouseenter', 'clusters', function() {
-          that.map.getCanvas().style.cursor = 'pointer'
-        })
-        that.map.on('mouseleave', 'clusters', function() {
-          that.map.getCanvas().style.cursor = ''
-        })
+        that.map.on("mouseenter", "clusters", function () {
+          that.map.getCanvas().style.cursor = "pointer";
+        });
+        that.map.on("mouseleave", "clusters", function () {
+          that.map.getCanvas().style.cursor = "";
+        });
       } else {
-        this.map.getSource('earthquakes').setData(data)
-        this.map.getSource('people').setData(data)
+        this.map.getSource("earthquakes").setData(data);
+        this.map.getSource("people").setData(data);
       }
     },
     initCharts(options) {
-      var that = this
-      this.myChart = echarts.init(document.getElementById('chart'))
+      var that = this;
+      this.myChart = echarts.init(document.getElementById("chart"));
       this.option = {
         baseOption: {
           timeline: {
-            axisType: 'category',
+            axisType: "category",
             show: true,
-            symbol: 'emptyCircle',
+            symbol: "emptyCircle",
             progress: {
               itemStyle: {
-                color: '#ff7979'
+                color: "#ff7979",
               },
               lineStyle: {
-                color: '#ff7979'
-              }
+                color: "#ff7979",
+              },
             },
             autoPlay: true, // 自动播放
             playInterval: 2000,
             data: that.xValue,
             // 默认颜色
             lineStyle: {
-              color: '#ff7979'
+              color: "#ff7979",
             },
             itemStyle: {
-              color: '#ff7979'
+              color: "#ff7979",
             },
             // 选择颜色
             checkpointStyle: {
-              color: '#ff7979'
+              color: "#ff7979",
             },
             controlStyle: {
-              show: false
+              show: false,
             },
-            top: '5px'
+            top: "5px",
           },
           xAxis: {
             axisLabel: {
               show: true,
-              color: '#fff'
-            }
+              color: "#fff",
+            },
           },
           yAxis: {
-            type: 'value',
+            type: "value",
             scale: true,
             splitLine: false,
-            name: '次',
+            name: "次",
             axisLabel: {
               show: true,
-              color: '#fff'
-            }
+              color: "#fff",
+            },
           },
           tooltip: {
-            trigger: 'axis',
+            trigger: "axis",
             axisPointer: {
-              type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
-            }
+              type: "shadow", // 默认为直线，可选为：'line' | 'shadow'
+            },
           },
           grid: {
-            top: '60px',
-            left: '10px',
-            right: '10px',
-            bottom: '40px',
-            containLabel: true
+            top: "60px",
+            left: "10px",
+            right: "10px",
+            bottom: "40px",
+            containLabel: true,
           },
           dataZoom: [
             {
-              type: 'slider',
+              type: "slider",
               show: true,
               height: 15,
               start: 0,
               end: 30,
-              bottom: '6%',
-              showDetail: false
-            }
-          ]
+              bottom: "6%",
+              showDetail: false,
+            },
+          ],
         },
-        options: options
-      }
-      window.addEventListener('resize', function() {
-        this.myChart = echarts.init(document.getElementById('chart'))
+        options: options,
+      };
+      window.addEventListener("resize", function () {
+        this.myChart = echarts.init(document.getElementById("chart"));
         if (this.myChart) {
-          this.myChart.resize() // 不报错
+          this.myChart.resize(); // 不报错
         }
-      })
-      this.myChart.setOption(this.option)
+      });
+      this.myChart.setOption(this.option);
       // 监听时间轴
-      this.myChart.on('timelinechanged', function(timeLineIndex) {
-        const index = timeLineIndex.currentIndex
-        that.loadMapData(that.allMapData[index])
-      })
+      this.myChart.on("timelinechanged", function (timeLineIndex) {
+        const index = timeLineIndex.currentIndex;
+        that.loadMapData(that.allMapData[index]);
+      });
       // 点击事件
-      this.myChart.on('click', function(params) {
-      })
+      this.myChart.on("click", function (params) {});
     },
     // X轴
     xZhou() {
-      this.xValue = []
+      this.xValue = [];
       for (let i = 0; i < this.x * 1; i++) {
-        this.xValue.push(i + '时')
+        this.xValue.push(i + "时");
       }
     },
     // 切换时间间隔
     bmonitor(e) {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
         if (e * 1 === 12) {
-          this.x = '24'
+          this.x = "24";
         } else {
-          this.x = '12'
+          this.x = "12";
         }
       } else {
-        this.x = e + ''
-        this.xZhou()
-        this.getHJson()
+        this.x = e + "";
+        this.xZhou();
+        this.getHJson();
       }
     },
     // 自动播放
     bofang() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
       } else {
         if (this.bfang === false) {
-          this.option.baseOption.timeline.autoPlay = true
-          this.myChart.setOption(this.option)
-          this.bfang = true
-          this.ioc = 'icon-zanting'
+          this.option.baseOption.timeline.autoPlay = true;
+          this.myChart.setOption(this.option);
+          this.bfang = true;
+          this.ioc = "icon-zanting";
         } else {
-          this.option.baseOption.timeline.autoPlay = false
-          this.myChart.setOption(this.option)
-          this.bfang = false
-          this.ioc = 'icon-bofang'
+          this.option.baseOption.timeline.autoPlay = false;
+          this.myChart.setOption(this.option);
+          this.bfang = false;
+          this.ioc = "icon-bofang";
         }
       }
     },
     // 请求数据
     getHJson() {
-      document.getElementById('bg').style.display = 'block' // 遮罩
-      var that = this
-      that.CAdestroy()
-      var data = {}
-      data.where = that.json.where
-      data.name = that.json.name
-      data.timz = that.checkTime4(new Date(that.timx))
-      data.timx = that.checkTime4(new Date((new Date(data.timz)).getTime() + 24 * 60 * 60 * 1000))
+      document.getElementById("bg").style.display = "block"; // 遮罩
+      var that = this;
+      that.CAdestroy();
+      var data = {};
+      data.where = that.json.where;
+      data.name = that.json.name;
+      data.timz = that.checkTime4(new Date(that.timx));
+      data.timx = that.checkTime4(
+        new Date(new Date(data.timz).getTime() + 24 * 60 * 60 * 1000)
+      );
       // 重置
-      that.datas = []
+      that.datas = [];
       for (let i = 0; i < this.x * 1; i++) {
-        var shu = []
-        that.datas.push(shu)
+        var shu = [];
+        that.datas.push(shu);
       }
-      that.$store.dispatch('ncity/RQuarters', data).then((datas) => {
+      that.$store.dispatch("ncity/RQuarters", data).then((datas) => {
         for (let i = 0; i < datas.length; i++) {
           if (that.x * 1 === 24) {
-            that.datas[datas[i].hour].push(datas[i])
+            that.datas[datas[i].hour].push(datas[i]);
           } else {
             if (datas[i].hour % 2 === 0) {
-              that.datas[datas[i].hour / 2].push(datas[i])
+              that.datas[datas[i].hour / 2].push(datas[i]);
             } else {
-              that.datas[(datas[i].hour - 1) / 2].push(datas[i])
+              that.datas[(datas[i].hour - 1) / 2].push(datas[i]);
             }
           }
         }
         for (let i = 0; i < that.datas.length; i++) {
-          that.datas[i].sort(function(a, b) {
-            return b.value - a.value
-          })
+          that.datas[i].sort(function (a, b) {
+            return b.value - a.value;
+          });
         }
-        document.getElementById('bg').style.display = 'none' // 遮罩
-        that.allMapData = []
+        document.getElementById("bg").style.display = "none"; // 遮罩
+        that.allMapData = [];
         // 时间值
-        var options = []
+        var options = [];
         for (let i = 0; i < that.datas.length; i++) {
           // 为echarts
-          var name = []
-          var way = []
-          var mapdata = []
+          var name = [];
+          var way = [];
+          var mapdata = [];
           for (let j = 0; j < that.datas[i].length; j++) {
-            name.push(that.datas[i][j].name)
-            way.push(that.datas[i][j].value)
-            mapdata.push({ 'type': 'Feature', 'properties': { 'name': that.datas[i][j].name, 'value': that.datas[i][j].value * 1 }, 'geometry': { 'type': 'Point', 'coordinates': [that.datas[i][j].x * 1, that.datas[i][j].y * 1] }})
+            name.push(that.datas[i][j].name);
+            way.push(that.datas[i][j].value);
+            mapdata.push({
+              type: "Feature",
+              properties: {
+                name: that.datas[i][j].name,
+                value: that.datas[i][j].value * 1,
+              },
+              geometry: {
+                type: "Point",
+                coordinates: [that.datas[i][j].x * 1, that.datas[i][j].y * 1],
+              },
+            });
           }
-          options.push({ xAxis: { type: 'category', axisLabel: {
-            show: true,
-            color: '#fff'
-          }, data: name }, series: { type: 'bar',
-            itemStyle: {
-              color: '#ff7979'
-            }, data: way }})
+          options.push({
+            xAxis: {
+              type: "category",
+              axisLabel: {
+                show: true,
+                color: "#fff",
+              },
+              data: name,
+            },
+            series: {
+              type: "bar",
+              itemStyle: {
+                color: "#ff7979",
+              },
+              data: way,
+            },
+          });
           // 为地图
           that.allMapData.push({
-            'type': 'FeatureCollection',
-            'crs': { 'type': 'name', 'properties': { 'name': 'urn:ogc:def:crs:OGC:1.3:CRS84' }}, 'features': mapdata
-          })
+            type: "FeatureCollection",
+            crs: {
+              type: "name",
+              properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" },
+            },
+            features: mapdata,
+          });
         }
-        that.loadMapData(that.allMapData[0])
-        that.initCharts(options)
-      })
+        that.loadMapData(that.allMapData[0]);
+        that.initCharts(options);
+      });
     },
     // 选择时间时触发
     STime() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
-        this.timx = this.checkTime2(new Date())
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
+        this.timx = this.checkTime2(new Date());
       } else {
-        if ((new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000)) < (new Date()).getTime()) {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
+        if (
+          new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000) <
+          new Date().getTime()
+        ) {
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
         } else {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = -10
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = -10;
         }
-        this.getHJson()
+        this.getHJson();
       }
     },
     // 减少时间
     ReduceTime() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
       } else {
-        this.timx = this.checkTime2(new Date((new Date(this.timx)).getTime() - 24 * 60 * 60 * 1000))
-        document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
-        this.getHJson()
+        this.timx = this.checkTime2(
+          new Date(new Date(this.timx).getTime() - 24 * 60 * 60 * 1000)
+        );
+        document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
+        this.getHJson();
       }
     },
     // 增加时间
     IncreaseTime() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
       } else {
-        this.timx = this.checkTime2(new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000))
-        if ((new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000)) < (new Date()).getTime()) {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
+        this.timx = this.checkTime2(
+          new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000)
+        );
+        if (
+          new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000) <
+          new Date().getTime()
+        ) {
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
         } else {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = -10
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = -10;
         }
-        this.getHJson()
+        this.getHJson();
       }
     },
     // 时间处理
     checkTime(i) {
       if (i < 10) {
-        i = '0' + i
+        i = "0" + i;
       }
-      return i
+      return i;
     },
     // 时间处理2
     checkTime2(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate()) + ' ' + that.checkTime(i.getHours()) + ':' + that.checkTime(i.getMinutes())
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate()) +
+        " " +
+        that.checkTime(i.getHours()) +
+        ":" +
+        that.checkTime(i.getMinutes())
+      );
     },
     // 时间处理3
     checkTime3(i) {
-      var that = this
-      return that.checkTime(i.getHours()) + ':' + that.checkTime(i.getMinutes())
+      var that = this;
+      return (
+        that.checkTime(i.getHours()) + ":" + that.checkTime(i.getMinutes())
+      );
     },
     // 时间处理4
     checkTime4(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate()) + ' ' + '00' + ':' + '00'
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate()) +
+        " " +
+        "00" +
+        ":" +
+        "00"
+      );
     },
     // 数字处理
     format(number) {
-      var str = parseInt(number).toString()
-      var len = str.length
-      if (len <= 3) { return str }
-      var r = len % 3
-      return r > 0 ? str.slice(0, r) + ',' + str.slice(r, len).match(/\d{3}/g).join(',') : str.slice(r, len).match(/\d{3}/g).join(',')
+      var str = parseInt(number).toString();
+      var len = str.length;
+      if (len <= 3) {
+        return str;
+      }
+      var r = len % 3;
+      return r > 0
+        ? str.slice(0, r) + "," + str.slice(r, len).match(/\d{3}/g).join(",")
+        : str.slice(r, len).match(/\d{3}/g).join(",");
     },
     // 创建与销毁盒子
     CAdestroy() {
       if (this.myChart !== null) {
-        this.myChart.clear()
-        this.myChart.dispose()
+        this.myChart.clear();
+        this.myChart.dispose();
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style scoped>
 @font-face {
@@ -766,14 +881,14 @@ export default {
   /* 让背景图基于容器大小伸缩 */
   background-attachment: fixed;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 /* L7logo */
-#Trip >>> .l7-left .l7-control{
+#Trip >>> .l7-left .l7-control {
   display: none !important;
 }
 /* mapboxlogo */
-#Trip >>>  .mapboxgl-ctrl-bottom-right{
+#Trip >>> .mapboxgl-ctrl-bottom-right {
   display: none !important;
 }
 /* 地图 */
@@ -791,7 +906,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   /* z-index: 20; */
 }
@@ -819,7 +934,7 @@ export default {
   display: flex;
 }
 #Trip #setup .fTime::after {
-  content: '';
+  content: "";
   position: absolute;
   height: calc(100% - 2px);
   width: 2px;
@@ -832,7 +947,7 @@ export default {
   display: none;
 }
 #Trip #setup .fTime >>> .el-input__inner {
-  background-color: rgba(255, 255, 255, 0) ;
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   font-family: KuHei;
   color: #fff;
@@ -880,12 +995,12 @@ export default {
   left: 54.2%;
   top: 53.3%;
 }
-#Trip #setup .fMonitor >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+#Trip #setup .fMonitor >>> .el-radio__input.is-checked + .el-radio__label {
+  color: rgb(209, 69, 2);
 }
 #Trip #setup .fMonitor >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 2);
+  background: rgb(209, 69, 2);
 }
 /* 播放 */
 #Trip #setup .play {
@@ -931,8 +1046,9 @@ export default {
   height: 35%;
   bottom: 3px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  /* border: 1px solid rgba(38, 106, 233, 0.3); */
+  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.2);
+  background-size: 100% 100%;
   z-index: 20;
 }
 /* 四角 */
@@ -944,10 +1060,14 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
+}
+#Trip #setup::after {
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
 }
 #Trip #setup::before,
 #Trip #monitor::before {
@@ -957,10 +1077,14 @@ export default {
   left: -1px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5; */
+  /* border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
+}
+#Trip #setup::before {
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
 }
 /**===== xuan =====*/
 #bg {
@@ -983,7 +1107,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;
@@ -1022,7 +1146,7 @@ export default {
   100% {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 @-webkit-keyframes square3 {
@@ -1036,7 +1160,7 @@ export default {
   }
   100% {
     -webkit-transform: rotate(60deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 /** END of xuan */

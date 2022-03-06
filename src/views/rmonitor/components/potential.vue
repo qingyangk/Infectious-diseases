@@ -6,14 +6,27 @@
     <div id="setup">
       <!-- 时间 -->
       <div class="fTime">
-        <i class="el-icon-d-arrow-left img" style="font-size:21px" @click="ReduceTime()" />
-        <el-date-picker v-model="timx" type="date" placeholder="选择日期" :picker-options="pickerOptions" :editable="false" @change="STime()" />
-        <i class="el-icon-d-arrow-right img" style="font-size:21px" @click="IncreaseTime()" />
+        <i
+          class="el-icon-d-arrow-left img"
+          style="font-size: 21px"
+          @click="ReduceTime()"
+        />
+        <el-date-picker
+          v-model="timx"
+          type="date"
+          placeholder="选择日期"
+          :picker-options="pickerOptions"
+          :editable="false"
+          @change="STime()"
+        />
+        <i
+          class="el-icon-d-arrow-right img"
+          style="font-size: 21px"
+          @click="IncreaseTime()"
+        />
       </div>
       <!-- 标题 -->
-      <div class="title">
-        健康打卡监测
-      </div>
+      <div class="title">健康打卡监测</div>
       <!-- 搜索 -->
       <div class="find">
         <el-input v-model="input" placeholder="请输入名称" clearable />
@@ -27,7 +40,15 @@
         <span @click="closeP()"><i class="el-icon-close" /></span>
       </div>
       <div class="center">
-        <ux-grid ref="plxTable" height="395" max-height="395" use-virtual show-body-overflow="title" :stripe="true" show-header-overflow="title">
+        <ux-grid
+          ref="plxTable"
+          height="395"
+          max-height="395"
+          use-virtual
+          show-body-overflow="title"
+          :stripe="true"
+          show-header-overflow="title"
+        >
           <!-- 索引 -->
           <ux-table-column type="index" width="80" align="center" />
           <!-- 姓名 -->
@@ -45,55 +66,77 @@
     </div>
     <!-- 体温-正常|异常 -->
     <div id="Lmonitor">
-      <div id="temper" style="height: calc(100%);width: 100%;z-index: 2;position: absolute;" />
+      <div
+        id="temper"
+        style="height: calc(100%); width: 100%; z-index: 2; position: absolute"
+      />
     </div>
     <!-- 打开数量|历史体温 -->
     <div id="Cmonitor">
       <el-carousel ref="c" :autoplay="false" indicator-position="none">
         <el-carousel-item v-for="item in ci" :key="item">
           <div v-if="item === 1">
-            <div id="history" style="height: calc(100%);width: 100%;z-index: 2;position: absolute;" />
+            <div
+              id="history"
+              style="
+                height: calc(100%);
+                width: 100%;
+                z-index: 2;
+                position: absolute;
+              "
+            />
           </div>
           <div v-if="item === 2">
-            <div id="Ptemper" style="height: calc(100%);width: 100%;z-index: 2;position: absolute;" />
+            <div
+              id="Ptemper"
+              style="
+                height: calc(100%);
+                width: 100%;
+                z-index: 2;
+                position: absolute;
+              "
+            />
           </div>
         </el-carousel-item>
       </el-carousel>
     </div>
     <!-- 身体异常 -->
     <div id="emotional">
-      <div id="unusual" style="height: calc(100%);width: 100%;z-index: 2;position: absolute;" />
+      <div
+        id="unusual"
+        style="height: calc(100%); width: 100%; z-index: 2; position: absolute"
+      />
     </div>
     <!-- 图例 -->
     <div id="legend">
       <table>
         <tr>
           <td width="40">
-            <p><img src="../../../../public/img/healthy.png"></p>
+            <p><img src="../../../../public/img/healthy.png" /></p>
           </td>
           <td>无异常特征</td>
         </tr>
         <tr>
           <td>
-            <p><img src="../../../../public/img/temperature.png"></p>
+            <p><img src="../../../../public/img/temperature.png" /></p>
           </td>
           <td>体温异常</td>
         </tr>
         <tr>
           <td>
-            <p><img src="../../../../public/img/stomach.png"></p>
+            <p><img src="../../../../public/img/stomach.png" /></p>
           </td>
           <td>腹泻乏力</td>
         </tr>
         <tr>
           <td>
-            <p><img src="../../../../public/img/cough.png"></p>
+            <p><img src="../../../../public/img/cough.png" /></p>
           </td>
           <td>咳嗽有痰</td>
         </tr>
         <tr>
           <td>
-            <p><img src="../../../../public/img/pain.png"></p>
+            <p><img src="../../../../public/img/pain.png" /></p>
           </td>
           <td>腹泻乏力 咳嗽有痰</td>
         </tr>
@@ -105,37 +148,35 @@
     <router />
     <!-- 加载动画 -->
     <div id="bg">
-      <div id="xuan">
-        <span /><span /><span /><span />
-      </div>
+      <div id="xuan"><span /><span /><span /><span /></div>
     </div>
   </div>
 </template>
 <script>
-import Router from './router'
-import mapboxgl from 'mapbox-gl'
-import SelectRegion from './selectRegion'
-import eventBus from '../public/js/EvebtBus'
-import * as echarts from 'echarts'
+import Router from "./router";
+import mapboxgl from "mapbox-gl";
+import SelectRegion from "./selectRegion";
+import eventBus from "../public/js/EvebtBus";
+import * as echarts from "echarts";
 
 export default {
-  name: 'EmotionalAnalysis',
+  name: "EmotionalAnalysis",
   components: {
     Router,
-    SelectRegion
+    SelectRegion,
   },
   data() {
     return {
       json: {
-        name: '中国',
-        where: '',
-        code: ''
+        name: "中国",
+        where: "",
+        code: "",
       },
-      timx: '', // 时间
+      timx: "", // 时间
       pickerOptions: {
-        disabledDate: time => {
-          return time > new Date().getTime()
-        }
+        disabledDate: (time) => {
+          return time > new Date().getTime();
+        },
       },
       uploadUrl: process.env.VUE_APP_BASE_API, // 通讯地址
       websocket: null, // 通讯状态
@@ -145,118 +186,139 @@ export default {
       // 地图
       map: null,
       nulldata: {
-        'type': 'FeatureCollection',
-        'features': []
+        type: "FeatureCollection",
+        features: [],
       },
       ci: 1,
       myChart1: null,
       myChart2: null,
       myChart3: null,
       myChart4: null,
-      input: '',
-      names: ''
-    }
+      input: "",
+      names: "",
+    };
   },
   beforeDestroy() {
     // 页面销毁时
-    eventBus.$off('json')
-    document.getElementById('emotional').style.display = 'none'
+    eventBus.$off("json");
+    document.getElementById("emotional").style.display = "none";
     if (this.websocket !== null) {
-      this.websocket.close(3000, '连接关闭')
+      this.websocket.close(3000, "连接关闭");
     }
-    this.CAdestroy()
+    this.CAdestroy();
   },
   mounted() {
-    var that = this
+    var that = this;
     // 今日时间
-    that.timx = that.checkTime2(new Date())
+    that.timx = that.checkTime2(new Date());
     // 切换时间是否展示
-    if ((new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000)) < (new Date()).getTime()) {
-      document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
-      document.querySelectorAll('.fTime .img')[1].style.opacity = 1
+    if (
+      new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000) <
+      new Date().getTime()
+    ) {
+      document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
+      document.querySelectorAll(".fTime .img")[1].style.opacity = 1;
     } else {
-      document.querySelectorAll('.fTime .img')[1].style.zIndex = -10
-      document.querySelectorAll('.fTime .img')[1].style.opacity = 0
+      document.querySelectorAll(".fTime .img")[1].style.zIndex = -10;
+      document.querySelectorAll(".fTime .img")[1].style.opacity = 0;
     }
     // 建立通讯连接
-    if ('WebSocket' in window) {
-      var data = '/' + this.email + '/' + this.name
-      that.websocket = new WebSocket('ws:' + this.uploadUrl.match(/http:(\S*)/)[1] + 'webSocket/' + this.channel + data)
+    if ("WebSocket" in window) {
+      var data = "/" + this.email + "/" + this.name;
+      that.websocket = new WebSocket(
+        "ws:" +
+          this.uploadUrl.match(/http:(\S*)/)[1] +
+          "webSocket/" +
+          this.channel +
+          data
+      );
     } else {
       that.$message({
-        message: '该浏览器不支持在线聊天！',
-        type: 'warning'
-      })
+        message: "该浏览器不支持在线聊天！",
+        type: "warning",
+      });
     }
     // 当页面可以建立通讯时
     if (that.websocket !== null) {
-    // 连接完成时触发
-      that.websocket.onopen = function() {
-        console.log('通讯-连接成功')
-      }
+      // 连接完成时触发
+      that.websocket.onopen = function () {
+        console.log("通讯-连接成功");
+      };
       // 接收到服务器消息时
       that.websocket.onmessage = (e) => {
-        var muster = JSON.parse(e.data.replace(/'/g, '"'))
-        var data = {}
-        data.name = muster.name
-        data.time = muster.message.time
-        data.x = muster.message.x
-        data.y = muster.message.y
-        data.tel = muster.message.tel
-        data.result = muster.message.result
-        console.log(muster.message.result)
-        if (muster.message.result !== '无异常特征' || muster.message.tel * 1 > 37 || muster.message.tel * 1 < 36) {
+        var muster = JSON.parse(e.data.replace(/'/g, '"'));
+        var data = {};
+        data.name = muster.name;
+        data.time = muster.message.time;
+        data.x = muster.message.x;
+        data.y = muster.message.y;
+        data.tel = muster.message.tel;
+        data.result = muster.message.result;
+        console.log(muster.message.result);
+        if (
+          muster.message.result !== "无异常特征" ||
+          muster.message.tel * 1 > 37 ||
+          muster.message.tel * 1 < 36
+        ) {
           // console.log(muster)
-          this.addpoint(data)
+          this.addpoint(data);
           that.$notify({
             message:
-          `<div class="PMsa">
-            <img class="PMsaI" src="` + that.uploadUrl + `/imgs/jg" />
+              `<div class="PMsa">
+            <img class="PMsaI" src="` +
+              that.uploadUrl +
+              `/imgs/jg" />
             <p class="PMsaP">查看详情</p>
             <div class="PMsaR">
               <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: black;font-weight: bold;letter-spacing: 2px;">打卡异常</p>
-              <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: #ff824c;font-weight: bold;">姓名: ` + muster.name + `</P>
-              <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: #ff824c;font-weight: bold;overflow: hidden;">种类: ` + muster.message.result + `</P>
-              <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: #ff824c;font-weight: bold;font-size: 12px;">时间: ` + muster.message.time + `</P>
+              <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: #ff824c;font-weight: bold;">姓名: ` +
+              muster.name +
+              `</P>
+              <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: #ff824c;font-weight: bold;overflow: hidden;">种类: ` +
+              muster.message.result +
+              `</P>
+              <p style="text-align: center;height: 25px;line-height: 25px;font-family: KuHei;color: #ff824c;font-weight: bold;font-size: 12px;">时间: ` +
+              muster.message.time +
+              `</P>
             </div>
           </div>`,
             offset: 100,
             dangerouslyUseHTMLString: true,
             onClick() {
-              that.fly(data)
-            }
-          })
+              that.fly(data);
+            },
+          });
         }
-      }
+      };
       // 与服务器连接变更时
       that.websocket.onerror = (e) => {
         that.$message({
-          message: '连接发生改变！',
-          type: 'warning'
-        })
-      }
+          message: "连接发生改变！",
+          type: "warning",
+        });
+      };
       // 连接发生错误时
       that.websocket.onerror = (e) => {
         that.$message({
-          message: '连接发生错误！',
-          type: 'warning'
-        })
-      }
+          message: "连接发生错误！",
+          type: "warning",
+        });
+      };
     }
     // 地图
-    this.int()
+    this.int();
     // 城市选择
-    eventBus.$on('json', json => {
-      that.json.name = json.name
-      that.json.where = json.where
-      that.json.code = json.code
-      if (that.json.name !== '中国') {
-        document.getElementById('legend').style.display = 'block'
-        that.getJson()
+    eventBus.$on("json", (json) => {
+      that.json.name = json.name;
+      that.json.where = json.where;
+      that.json.code = json.code;
+      if (that.json.name !== "中国") {
+        document.getElementById("legend").style.display = "block";
+        that.getJson();
         // 地图定位
-        that.getbianJson(1)
+        that.getbianJson(1);
       }
-    })
+    });
     // 数据
   },
   methods: {
@@ -267,854 +329,946 @@ export default {
         speed: 2,
         curve: 1,
         easing(t) {
-          return t
-        }
-      })
+          return t;
+        },
+      });
     },
     int() {
-      var that = this
-      mapboxgl.accessToken = 'pk.eyJ1Ijoid3VqaW5odWkwIiwiYSI6ImNrdDFoZWphNDBhaGszMXBoazZ1dWdwMWkifQ.AX5nvyCpK8yKsCqyz36rsw' // 你的accessToken
+      var that = this;
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoid3VqaW5odWkwIiwiYSI6ImNrdDFoZWphNDBhaGszMXBoazZ1dWdwMWkifQ.AX5nvyCpK8yKsCqyz36rsw"; // 你的accessToken
       this.map = new mapboxgl.Map({
-        container: 'poteMap', // 地图容器的id
+        container: "poteMap", // 地图容器的id
         center: [107.01292828127248, 34.12077517311424], // 中心点
         zoom: 3, // 地图初始化时的层级
         maxZoom: 22,
         style: {
-          'version': 8,
-          'sources': {
-            'raster-tiles': {
-              'type': 'raster',
-              'tiles': [
-                'https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}'
+          version: 8,
+          sources: {
+            "raster-tiles": {
+              type: "raster",
+              tiles: [
+                "https://map.geoq.cn/arcgis/rest/services/ChinaOnlineStreetPurplishBlue/MapServer/tile/{z}/{y}/{x}",
               ],
-              'tileSize': 256
-            }
+              tileSize: 256,
+            },
           },
-          'layers': [
+          layers: [
             {
-              'id': 'simple-tiles',
-              'type': 'raster',
-              'source': 'raster-tiles',
-              'minzoom': 0,
-              'maxzoom': 22
-            }
+              id: "simple-tiles",
+              type: "raster",
+              source: "raster-tiles",
+              minzoom: 0,
+              maxzoom: 22,
+            },
           ],
-          'glyphs': 'mapbox://fonts/mapbox/{fontstack}/{range}.pbf'
-        }
-      })
-      this.map.on('load', () => {
-        that.getbianJson(0)
+          glyphs: "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
+        },
+      });
+      this.map.on("load", () => {
+        that.getbianJson(0);
         // eslint-disable-next-line handle-callback-err
-        that.map.loadImage('/img/temperature.png', function(error, image) {
-          that.map.addImage('cat4', image)
-        })
+        that.map.loadImage("/img/temperature.png", function (error, image) {
+          that.map.addImage("cat4", image);
+        });
         // eslint-disable-next-line handle-callback-err
-        that.map.loadImage('/img/cough.png', function(error, image) {
-          that.map.addImage('cat1', image)
-        })
+        that.map.loadImage("/img/cough.png", function (error, image) {
+          that.map.addImage("cat1", image);
+        });
         // eslint-disable-next-line handle-callback-err
-        that.map.loadImage('/img/stomach.png', function(error, image) {
-          that.map.addImage('cat2', image)
-        })
+        that.map.loadImage("/img/stomach.png", function (error, image) {
+          that.map.addImage("cat2", image);
+        });
         // eslint-disable-next-line handle-callback-err
-        that.map.loadImage('/img/healthy.png', function(error, image) {
-          that.map.addImage('cat0', image)
-        })
-        that.map.loadImage('/img/pain.png', function(error, image) {
-          if (error) throw error
-          that.map.addImage('cat3', image)
-          that.map.addSource('earthquakes', {
-            type: 'geojson',
-            data: that.nulldata
-          })
+        that.map.loadImage("/img/healthy.png", function (error, image) {
+          that.map.addImage("cat0", image);
+        });
+        that.map.loadImage("/img/pain.png", function (error, image) {
+          if (error) throw error;
+          that.map.addImage("cat3", image);
+          that.map.addSource("earthquakes", {
+            type: "geojson",
+            data: that.nulldata,
+          });
           that.map.addLayer({
-            'id': 'points',
-            'type': 'symbol',
-            'source': 'earthquakes',
-            'layout': {
-              'icon-image': ['concat', 'cat', ['get', 'type']],
-              'icon-size': 0.1
-            }
-          })
+            id: "points",
+            type: "symbol",
+            source: "earthquakes",
+            layout: {
+              "icon-image": ["concat", "cat", ["get", "type"]],
+              "icon-size": 0.1,
+            },
+          });
           // 点击邮箱
-          that.map.on('click', 'points', function(e) {
-            console.log(e.features[0].properties.email)
-            if (e.features[0].properties.email === '' || e.features[0].properties.email === undefined) {
-              e.features[0].properties.email = 'admin@admin.com'
+          that.map.on("click", "points", function (e) {
+            console.log(e.features[0].properties.email);
+            if (
+              e.features[0].properties.email === "" ||
+              e.features[0].properties.email === undefined
+            ) {
+              e.features[0].properties.email = "admin@admin.com";
             }
-            that.CHistory(e.features[0].properties.email)
-          })
-        })
-      })
+            that.CHistory(e.features[0].properties.email);
+          });
+        });
+      });
     },
     getJson() {
-      var that = this
-      var data = {}
-      that.nulldata.features = []
-      data.where = that.json.where
-      data.name = that.json.name
-      data.timx = that.checkTime3(new Date((new Date(that.timx)).getTime() + 24 * 60 * 60 * 1000))
-      data.timz = that.checkTime3(new Date(that.timx))
+      var that = this;
+      var data = {};
+      that.nulldata.features = [];
+      data.where = that.json.where;
+      data.name = that.json.name;
+      data.timx = that.checkTime3(
+        new Date(new Date(that.timx).getTime() + 24 * 60 * 60 * 1000)
+      );
+      data.timz = that.checkTime3(new Date(that.timx));
       // 时间
-      var datz = {}
-      datz.where = that.json.where
-      datz.name = that.json.name
-      datz.timx = that.checkTime3(new Date((new Date(that.timx)).getTime()))
-      datz.timz = that.checkTime3(new Date((new Date(datz.timx)).getTime() - 14 * 24 * 60 * 60 * 1000))
-      that.$store.dispatch('ncity/CClockIn', datz).then((datas) => {
-        that.$store.dispatch('ncity/ClockIn', data).then((dataz) => {
-          var TMs = [[], []]
+      var datz = {};
+      datz.where = that.json.where;
+      datz.name = that.json.name;
+      datz.timx = that.checkTime3(new Date(new Date(that.timx).getTime()));
+      datz.timz = that.checkTime3(
+        new Date(new Date(datz.timx).getTime() - 14 * 24 * 60 * 60 * 1000)
+      );
+      that.$store.dispatch("ncity/CClockIn", datz).then((datas) => {
+        that.$store.dispatch("ncity/ClockIn", data).then((dataz) => {
+          var TMs = [[], []];
           for (let i = 0; i < datas.length; i++) {
-            datas[i].time = that.checkTime5(new Date(datas[i].time))
-            TMs[0].push(datas[i].time)
-            TMs[1].push(datas[i].value)
+            datas[i].time = that.checkTime5(new Date(datas[i].time));
+            TMs[0].push(datas[i].time);
+            TMs[1].push(datas[i].value);
           }
           // 左右
-          var TWb = [{ value: 0, name: '正常' }, { value: 0, name: '异常' }] // 体温-正常|异常
-          var REs = [{ value: 0, name: '无异常特征' }, { value: 0, name: '咳嗽有痰' }, { value: 0, name: '腹泻乏力' }, { value: 0, name: '咳嗽/乏力' }] // 身体异常
+          var TWb = [
+            { value: 0, name: "正常" },
+            { value: 0, name: "异常" },
+          ]; // 体温-正常|异常
+          var REs = [
+            { value: 0, name: "无异常特征" },
+            { value: 0, name: "咳嗽有痰" },
+            { value: 0, name: "腹泻乏力" },
+            { value: 0, name: "咳嗽/乏力" },
+          ]; // 身体异常
           for (let i = 0; i < dataz.length; i++) {
-            dataz[i].time = that.checkTime4(new Date(dataz[i].time))
-            var type = 0
+            dataz[i].time = that.checkTime4(new Date(dataz[i].time));
+            var type = 0;
             if (dataz[i].tel * 1 > 37.4 || dataz[i].tel * 1 < 35.7) {
-              TWb[1].value++
+              TWb[1].value++;
             } else {
-              TWb[0].value++
+              TWb[0].value++;
               // type = 0
             }
-            if (dataz[i].result === '无异常特征') {
-              REs[0].value++
-              type = 0
+            if (dataz[i].result === "无异常特征") {
+              REs[0].value++;
+              type = 0;
             } else if (dataz[i].tel * 1 > 37.4 || dataz[i].tel * 1 < 35.7) {
-              type = 4
-            } else if (dataz[i].result === '咳嗽有痰 ') {
-              REs[1].value++
-              type = 1
-            } else if (dataz[i].result === '腹泻乏力 ') {
-              REs[2].value++
-              type = 2
+              type = 4;
+            } else if (dataz[i].result === "咳嗽有痰 ") {
+              REs[1].value++;
+              type = 1;
+            } else if (dataz[i].result === "腹泻乏力 ") {
+              REs[2].value++;
+              type = 2;
             } else {
-              REs[3].value++
-              type = 3
+              REs[3].value++;
+              type = 3;
             }
             that.nulldata.features.push({
-              'type': 'Feature',
-              'properties': {
+              type: "Feature",
+              properties: {
                 email: dataz[i].email,
                 name: dataz[i].name,
                 time: dataz[i].time,
                 result: dataz[i].result,
                 tel: dataz[i].tel,
-                type: type
+                type: type,
                 // 'description': '<p><a href="' + datas[i].sourceUrl + '" target="_blank">' +
                 // datas[i].title.slice(0, 12) + '...' + '</a></p><p class="wenben">' + datas[i].summary + '</p><p class="time">' +
                 // '时间：' + data.time + '</p>' + '<p class="laiyuan">来源：' + datas[i].infoSource + '</p><span id="dian" class="qinggan">情感分析</span>',
                 // 'place': datas[i].place
               },
-              'geometry': {
-                'type': 'Point',
-                'coordinates': [dataz[i].x, dataz[i].y]
-              }
-            })
+              geometry: {
+                type: "Point",
+                coordinates: [dataz[i].x, dataz[i].y],
+              },
+            });
           }
-          that.map.getSource('earthquakes').setData(that.nulldata)
-          this.CAdestroy()
-          this.Temper(TWb)
-          this.Unusual(REs)
-          this.CClockIn(TMs)
-        })
-      })
+          that.map.getSource("earthquakes").setData(that.nulldata);
+          this.CAdestroy();
+          this.Temper(TWb);
+          this.Unusual(REs);
+          this.CClockIn(TMs);
+        });
+      });
     },
     // 体温-正常|异常
     Temper(datas) {
-      var that = this
-      that.myChart1 = echarts.init(document.getElementById('temper'))
+      var that = this;
+      that.myChart1 = echarts.init(document.getElementById("temper"));
       const option = {
         // 标题
         title: {
-          text: '体温状况',
-          left: 'center',
+          text: "体温状况",
+          left: "center",
           padding: 10,
           textStyle: {
-            color: 'rgb(210, 210, 210)',
-            fontFamily: 'KuHei',
-            fontWeight: 'bolder',
-            fontSize: '16px'
-          }
+            color: "rgb(210, 210, 210)",
+            fontFamily: "KuHei",
+            fontWeight: "bolder",
+            fontSize: "16px",
+          },
         },
         tooltip: {
-          trigger: 'item',
-          formatter: '{b}: {d}%',
+          trigger: "item",
+          formatter: "{b}: {d}%",
           textStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
             fontSize: 14,
-            fontFamily: 'KuHei'
+            fontFamily: "KuHei",
           },
-          confine: true
+          confine: true,
         },
         legend: {
-          top: '2.5%',
-          left: 'right',
-          orient: 'vertical',
-          textStyle: { fontSize: 13, color: 'rgba(243,243,243,.9)', fontFamily: 'KuHei' }
+          top: "2.5%",
+          left: "right",
+          orient: "vertical",
+          textStyle: {
+            fontSize: 13,
+            color: "rgba(243,243,243,.9)",
+            fontFamily: "KuHei",
+          },
         },
         series: [
           {
-            name: '体温状况',
-            type: 'pie', // 环形图的type和饼图相同
-            center: ['50%', '60%'],
-            radius: ['45%', '70%'], // 饼图的半径，第一个为内半径，第二个为外半径
+            name: "体温状况",
+            type: "pie", // 环形图的type和饼图相同
+            center: ["50%", "60%"],
+            radius: ["45%", "70%"], // 饼图的半径，第一个为内半径，第二个为外半径
             startAngle: 150, // 起始角度
             avoidLabelOverlap: false,
-            color: [
-              '#caffbf',
-              '#ffb3ae'
-            ],
+            color: ["#caffbf", "#ffb3ae"],
             label: {
               normal: {
                 show: true,
                 textStyle: {
                   fontSize: 12,
-                  fontFamily: 'KuHei'
-                }
+                  fontFamily: "KuHei",
+                },
               },
-              emphasis: { show: true }
+              emphasis: { show: true },
             },
             labelLine: {
               normal: {
                 show: true,
-                length: 10
+                length: 10,
               },
               emphasis: {
-                show: true
-              }
+                show: true,
+              },
             },
-            data: datas
-          }
-        ]
-      }
-      window.addEventListener('resize', function() {
-        var chart = echarts.init(document.getElementById('temper'))
+            data: datas,
+          },
+        ],
+      };
+      window.addEventListener("resize", function () {
+        var chart = echarts.init(document.getElementById("temper"));
         if (chart) {
-          chart.resize() // 不报错
+          chart.resize(); // 不报错
         }
-      })
-      that.myChart1.setOption(option)
+      });
+      that.myChart1.setOption(option);
       // 点击事件
-      that.myChart1.on('click', function(params) {
-      })
+      that.myChart1.on("click", function (params) {});
     },
     // 身体异常
     Unusual(datas) {
-      var that = this
-      that.myChart2 = echarts.init(document.getElementById('unusual'))
+      var that = this;
+      that.myChart2 = echarts.init(document.getElementById("unusual"));
       const option = {
         // 标题
         title: {
-          text: '身体异常',
-          left: 'center',
+          text: "身体异常",
+          left: "center",
           padding: 10,
           textStyle: {
-            color: 'rgb(210, 210, 210)',
-            fontFamily: 'KuHei',
-            fontWeight: 'bolder',
-            fontSize: '16px'
-          }
+            color: "rgb(210, 210, 210)",
+            fontFamily: "KuHei",
+            fontWeight: "bolder",
+            fontSize: "16px",
+          },
         },
         tooltip: {
-          trigger: 'item',
-          formatter: '{b}: {d}%',
+          trigger: "item",
+          formatter: "{b}: {d}%",
           textStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
             fontSize: 14,
-            fontFamily: 'KuHei'
+            fontFamily: "KuHei",
           },
-          confine: true
+          confine: true,
         },
         legend: {
-          top: '2.5%',
-          left: 'right',
-          orient: 'vertical',
-          textStyle: { fontSize: 13, color: 'rgba(243,243,243,.9)', fontFamily: 'KuHei' }
+          top: "2.5%",
+          left: "right",
+          orient: "vertical",
+          textStyle: {
+            fontSize: 13,
+            color: "rgba(243,243,243,.9)",
+            fontFamily: "KuHei",
+          },
         },
         series: [
           {
-            name: '身体异常',
-            type: 'pie', // 环形图的type和饼图相同
-            center: ['50%', '60%'],
-            radius: ['45%', '70%'], // 饼图的半径，第一个为内半径，第二个为外半径
+            name: "身体异常",
+            type: "pie", // 环形图的type和饼图相同
+            center: ["50%", "60%"],
+            radius: ["45%", "70%"], // 饼图的半径，第一个为内半径，第二个为外半径
             startAngle: 150, // 起始角度
             avoidLabelOverlap: false,
-            color: [
-              '#caffbf',
-              '#bee1e6',
-              '#64dfdf',
-              '#ecbcfd'
-            ],
+            color: ["#caffbf", "#bee1e6", "#64dfdf", "#ecbcfd"],
             label: {
               normal: {
                 show: true,
                 textStyle: {
                   fontSize: 12,
-                  fontFamily: 'KuHei'
-                }
+                  fontFamily: "KuHei",
+                },
               },
-              emphasis: { show: true }
+              emphasis: { show: true },
             },
             labelLine: {
               normal: {
                 show: true,
-                length: 10
+                length: 10,
               },
               emphasis: {
-                show: true
-              }
+                show: true,
+              },
             },
-            data: datas
-          }
-        ]
-      }
-      window.addEventListener('resize', function() {
-        var chart = echarts.init(document.getElementById('unusual'))
+            data: datas,
+          },
+        ],
+      };
+      window.addEventListener("resize", function () {
+        var chart = echarts.init(document.getElementById("unusual"));
         if (chart) {
-          chart.resize() // 不报错
+          chart.resize(); // 不报错
         }
-      })
-      that.myChart2.setOption(option)
+      });
+      that.myChart2.setOption(option);
       // 点击事件
-      that.myChart2.on('click', function(params) {
-      })
+      that.myChart2.on("click", function (params) {});
     },
     // 周期打卡情况
     CClockIn(datas) {
-      var that = this
-      that.myChart3 = echarts.init(document.getElementById('history'))
+      var that = this;
+      that.myChart3 = echarts.init(document.getElementById("history"));
       const option = {
         // 标题
         title: {
-          text: '身体异常',
-          left: 'center',
+          text: "身体异常",
+          left: "center",
           padding: 10,
           textStyle: {
-            color: 'rgb(210, 210, 210)',
-            fontFamily: 'KuHei',
-            fontWeight: 'bolder',
-            fontSize: '16px'
-          }
+            color: "rgb(210, 210, 210)",
+            fontFamily: "KuHei",
+            fontWeight: "bolder",
+            fontSize: "16px",
+          },
         },
         tooltip: {
-          trigger: 'axis',
-          formatter: function(params) {
-            var rez = params[0].name + '<br/>' +
-              '<span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:rgb(248, 165, 0);"></span>' + '打卡数' + '：' + '<span style="font-weight: bold">' + params[0].data + '</span>'
-            return rez
+          trigger: "axis",
+          formatter: function (params) {
+            var rez =
+              params[0].name +
+              "<br/>" +
+              '<span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:rgb(248, 165, 0);"></span>' +
+              "打卡数" +
+              "：" +
+              '<span style="font-weight: bold">' +
+              params[0].data +
+              "</span>";
+            return rez;
           },
           textStyle: {
-            fontWeight: 'bold',
+            fontWeight: "bold",
             fontSize: 14,
-            fontFamily: 'KuHei'
+            fontFamily: "KuHei",
           },
           confine: true,
-          transitionDuration: 0
+          transitionDuration: 0,
         },
         grid: {
-          left: '3%',
-          right: '3%',
-          bottom: '18%',
-          top: '15%',
-          containLabel: true
+          left: "3%",
+          right: "3%",
+          bottom: "18%",
+          top: "15%",
+          containLabel: true,
         },
         dataZoom: [
           {
             show: true,
-            type: 'slider',
-            height: '25px',
-            bottom: '5%',
+            type: "slider",
+            height: "25px",
+            bottom: "5%",
             start: 0,
-            end: 100
-          }
+            end: 100,
+          },
         ],
         xAxis: {
-          type: 'category',
+          type: "category",
           data: datas[0],
           axisLabel: {
             show: true,
-            color: '#fff'
-          }
+            color: "#fff",
+          },
         },
         yAxis: {
-          type: 'value',
+          type: "value",
           scale: true,
           splitLine: false,
-          name: '次',
+          name: "次",
           axisLabel: {
             show: true,
-            color: '#fff'
-          }
+            color: "#fff",
+          },
         },
         series: [
           {
             data: datas[1],
-            type: 'bar'
+            type: "bar",
           },
           {
             data: datas[1],
-            type: 'line'
-          }
-        ]
-      }
-      window.addEventListener('resize', function() {
-        var chart = echarts.init(document.getElementById('history'))
+            type: "line",
+          },
+        ],
+      };
+      window.addEventListener("resize", function () {
+        var chart = echarts.init(document.getElementById("history"));
         if (chart) {
-          chart.resize() // 不报错
+          chart.resize(); // 不报错
         }
-      })
-      that.myChart3.setOption(option)
+      });
+      that.myChart3.setOption(option);
       // 点击事件
-      that.myChart3.on('click', function(params) {
-      })
+      that.myChart3.on("click", function (params) {});
     },
     // 查询用户
     find() {
-      var that = this
-      if (that.input.replace(/ /g, '') === '') {
+      var that = this;
+      if (that.input.replace(/ /g, "") === "") {
         that.$message({
-          message: '用户名不能为空！',
-          type: 'warning'
-        })
-      } else if (that.json.name === '' || that.json.name === '中国') {
+          message: "用户名不能为空！",
+          type: "warning",
+        });
+      } else if (that.json.name === "" || that.json.name === "中国") {
         that.$message({
-          message: '请选择城市！',
-          type: 'warning'
-        })
+          message: "请选择城市！",
+          type: "warning",
+        });
       } else {
-        var data = {}
-        data.where = that.json.where
-        data.name = that.json.name
-        data.value = that.input
-        that.$store.dispatch('ncity/GUser', data).then((dataz) => {
-          that.$refs.plxTable.reloadData(dataz)
-          document.getElementById('popop').style.display = 'block'
-        })
+        var data = {};
+        data.where = that.json.where;
+        data.name = that.json.name;
+        data.value = that.input;
+        that.$store.dispatch("ncity/GUser", data).then((dataz) => {
+          that.$refs.plxTable.reloadData(dataz);
+          document.getElementById("popop").style.display = "block";
+        });
       }
     },
     // 关闭用户列表
     closeP() {
-      document.getElementById('popop').style.display = 'none'
+      document.getElementById("popop").style.display = "none";
     },
     // 移动
     moveop(event) {
-      var that = this
-      const popop = document.getElementById('popop')
-      const x = event.pageX - popop.offsetLeft
-      const y = event.pageY - popop.offsetTop
-      this.canMove = true
-      document.onmouseup = function() {
-        that.canMove = false
-        document.onmousemove = null
-        document.onmouseup = null
-      }
-      document.onmousemove = function(e) {
+      var that = this;
+      const popop = document.getElementById("popop");
+      const x = event.pageX - popop.offsetLeft;
+      const y = event.pageY - popop.offsetTop;
+      this.canMove = true;
+      document.onmouseup = function () {
+        that.canMove = false;
+        document.onmousemove = null;
+        document.onmouseup = null;
+      };
+      document.onmousemove = function (e) {
         if (that.canMove) {
-          var left = e.clientX - x
-          var top = e.clientY - y
-          if (left < 340) left = popop.offsetWidth / 2 + 40
-          if (top < 220) top = popop.offsetHeight / 2
-          var maxLeft = window.innerWidth - popop.offsetWidth / 2
-          var maxTop = window.innerHeight / 2 + popop.offsetHeight
-          if (left > maxLeft) left = maxLeft
-          if (top > maxTop) top = maxTop
-          popop.style.left = left + 'px'
-          popop.style.top = top + 'px'
+          var left = e.clientX - x;
+          var top = e.clientY - y;
+          if (left < 340) left = popop.offsetWidth / 2 + 40;
+          if (top < 220) top = popop.offsetHeight / 2;
+          var maxLeft = window.innerWidth - popop.offsetWidth / 2;
+          var maxTop = window.innerHeight / 2 + popop.offsetHeight;
+          if (left > maxLeft) left = maxLeft;
+          if (top > maxTop) top = maxTop;
+          popop.style.left = left + "px";
+          popop.style.top = top + "px";
         }
-      }
+      };
     },
     // 个人历史体温
     CHistory(e) {
-      var that = this
-      that.ci = 2
-      that.CAdestroy1()
-      that.closeP()
-      var data = {}
-      data.where = that.json.where
-      data.name = that.json.name
-      data.email = e
-      data.timx = that.checkTime3(new Date((new Date(that.timx)).getTime()))
-      data.timz = that.checkTime3(new Date((new Date(data.timx)).getTime() - 14 * 24 * 60 * 60 * 1000))
-      that.$store.dispatch('ncity/CHistory', data).then((dataz) => {
-        that.$refs.c.setActiveItem(1)
-        var datas = [[], []]
-        that.names = dataz[0].name
+      var that = this;
+      that.ci = 2;
+      that.CAdestroy1();
+      that.closeP();
+      var data = {};
+      data.where = that.json.where;
+      data.name = that.json.name;
+      data.email = e;
+      data.timx = that.checkTime3(new Date(new Date(that.timx).getTime()));
+      data.timz = that.checkTime3(
+        new Date(new Date(data.timx).getTime() - 14 * 24 * 60 * 60 * 1000)
+      );
+      that.$store.dispatch("ncity/CHistory", data).then((dataz) => {
+        that.$refs.c.setActiveItem(1);
+        var datas = [[], []];
+        that.names = dataz[0].name;
         for (let i = 0; i < dataz.length; i++) {
-          dataz[i].time = that.checkTime5(new Date(dataz[i].time))
-          datas[0].push(dataz[i].time)
-          datas[1].push(dataz[i].tel)
+          dataz[i].time = that.checkTime5(new Date(dataz[i].time));
+          datas[0].push(dataz[i].time);
+          datas[1].push(dataz[i].tel);
         }
-        that.myChart4 = echarts.init(document.getElementById('Ptemper'))
+        that.myChart4 = echarts.init(document.getElementById("Ptemper"));
         const option = {
           visualMap: [
             {
               show: false,
-              type: 'continuous',
+              type: "continuous",
               seriesIndex: 0,
               min: 36,
               max: 37,
               inRange: {
-                color: ['#00dbde', '#fc00ff']
-              }
-            }
+                color: ["#00dbde", "#fc00ff"],
+              },
+            },
           ],
           title: {
-            text: that.names + '-个人14天记录',
-            left: 'center',
+            text: that.names + "-个人14天记录",
+            left: "center",
             padding: 10,
             textStyle: {
-              color: 'rgb(210, 210, 210)',
-              fontFamily: 'KuHei',
-              fontWeight: 'bolder',
-              fontSize: '16px'
-            }
+              color: "rgb(210, 210, 210)",
+              fontFamily: "KuHei",
+              fontWeight: "bolder",
+              fontSize: "16px",
+            },
           },
           tooltip: {
-            trigger: 'axis',
-            formatter: function(params) {
+            trigger: "axis",
+            formatter: function (params) {
               // console.log(params)
-              var rez = params[0].name + '<br/>' +
-              params[0].marker + '体温' + '：' + '<span style="font-weight: bold">' + params[0].data + '</span>'
-              return rez
+              var rez =
+                params[0].name +
+                "<br/>" +
+                params[0].marker +
+                "体温" +
+                "：" +
+                '<span style="font-weight: bold">' +
+                params[0].data +
+                "</span>";
+              return rez;
             },
             textStyle: {
-              fontWeight: 'bold',
+              fontWeight: "bold",
               fontSize: 14,
-              fontFamily: 'KuHei'
+              fontFamily: "KuHei",
             },
             confine: true,
-            transitionDuration: 0
+            transitionDuration: 0,
           },
           xAxis: {
-            type: 'category',
+            type: "category",
             data: datas[0],
             axisLabel: {
               show: true,
-              color: '#fff'
-            }
+              color: "#fff",
+            },
           },
           yAxis: {
-            type: 'value',
+            type: "value",
             scale: true,
             splitLine: false,
-            name: '℃',
+            name: "℃",
             axisLabel: {
               show: true,
-              color: '#fff'
-            }
+              color: "#fff",
+            },
           },
           grid: {
-            left: '3%',
-            right: '3%',
-            bottom: '18%',
-            top: '15%',
-            containLabel: true
+            left: "3%",
+            right: "3%",
+            bottom: "18%",
+            top: "15%",
+            containLabel: true,
           },
           dataZoom: [
             {
               show: true,
-              type: 'slider',
-              height: '25px',
-              bottom: '5%',
+              type: "slider",
+              height: "25px",
+              bottom: "5%",
               start: 0,
-              end: 100
-            }
+              end: 100,
+            },
           ],
           series: [
             {
-              type: 'line',
+              type: "line",
               showSymbol: false,
               data: datas[1],
               itemStyle: {
                 normal: {
                   lineStyle: {
-                    width: 5 // 设置线条粗细
-                  }
-                }
-              }
-            }
-          ]
-        }
-        window.addEventListener('resize', function() {
-          var chart = echarts.init(document.getElementById('Ptemper'))
+                    width: 5, // 设置线条粗细
+                  },
+                },
+              },
+            },
+          ],
+        };
+        window.addEventListener("resize", function () {
+          var chart = echarts.init(document.getElementById("Ptemper"));
           if (chart) {
-            chart.resize() // 不报错
+            chart.resize(); // 不报错
           }
-        })
-        that.myChart4.setOption(option)
+        });
+        that.myChart4.setOption(option);
         // 点击事件
-        that.myChart4.on('click', function(params) {
-        })
-      })
+        that.myChart4.on("click", function (params) {});
+      });
     },
     // 创建与销毁盒子
     CAdestroy() {
-      if (this.myChart1 !== null && this.myChart2 !== null && this.myChart3 !== null && this.myChart4 !== null) {
-        this.myChart1.clear()
-        this.myChart1.dispose()
-        this.myChart2.clear()
-        this.myChart2.dispose()
-        this.myChart3.clear()
-        this.myChart3.dispose()
-        this.myChart4.clear()
-        this.myChart4.dispose()
+      if (
+        this.myChart1 !== null &&
+        this.myChart2 !== null &&
+        this.myChart3 !== null &&
+        this.myChart4 !== null
+      ) {
+        this.myChart1.clear();
+        this.myChart1.dispose();
+        this.myChart2.clear();
+        this.myChart2.dispose();
+        this.myChart3.clear();
+        this.myChart3.dispose();
+        this.myChart4.clear();
+        this.myChart4.dispose();
       }
     },
     CAdestroy1() {
       if (this.myChart4 !== null) {
-        this.myChart4.clear()
-        this.myChart4.dispose()
+        this.myChart4.clear();
+        this.myChart4.dispose();
       }
     },
     // 请求边界数据
     getbianJson(e) {
-      var that = this
-      that.$store.dispatch('ndatapanel/QJson', that.json.name).then((dataz) => {
-        that.boundary = dataz
+      var that = this;
+      that.$store.dispatch("ndatapanel/QJson", that.json.name).then((dataz) => {
+        that.boundary = dataz;
         // 数据
         if (e === 0) {
-          that.bian(dataz, 0)
+          that.bian(dataz, 0);
         } else if (e === 1) {
-          that.bian(that.boundary, 1) // 清除原始边界
+          that.bian(that.boundary, 1); // 清除原始边界
         }
-      })
+      });
     },
     // 边界
     bian(dataz, e) {
-      var that = this
-      var bound = []
+      var that = this;
+      var bound = [];
       if (e === 1) {
         if (that.length !== undefined) {
           for (let i = 0; i < that.length; i++) {
-            that.map.removeLayer('maine' + i) // 清除范围
-            that.map.removeSource('maine' + i)
+            that.map.removeLayer("maine" + i); // 清除范围
+            that.map.removeSource("maine" + i);
           }
         } else {
-          that.map.removeLayer('maine') // 清除范围
-          that.map.removeSource('maine')
+          that.map.removeLayer("maine"); // 清除范围
+          that.map.removeSource("maine");
         }
       }
       if (dataz.json.features.length !== undefined) {
-        if (that.json.name !== '中国') {
+        if (that.json.name !== "中国") {
           for (let i = 0; i < dataz.json.features.length; i++) {
-            const ele = dataz.json.features[i].geometry.coordinates
+            const ele = dataz.json.features[i].geometry.coordinates;
             for (let j = 0; j < ele.length; j++) {
-              const element = ele[j][0]
+              const element = ele[j][0];
               for (let z = 0; z < element.length; z++) {
-                const element3 = element[z]
-                bound.push(element3)
+                const element3 = element[z];
+                bound.push(element3);
               }
             }
             that.map.addLayer({
-              'id': 'maine' + i,
-              'type': 'fill',
-              'source': {
-                'type': 'geojson',
-                'data': dataz.json.features[i].geometry
+              id: "maine" + i,
+              type: "fill",
+              source: {
+                type: "geojson",
+                data: dataz.json.features[i].geometry,
               },
-              'layout': {},
-              'paint': {
-                'fill-color': '#088',
-                'fill-opacity': 0.2
-              }
-            })
+              layout: {},
+              paint: {
+                "fill-color": "#088",
+                "fill-opacity": 0.2,
+              },
+            });
           }
           // eslint-disable-next-line no-undef
-          var line = turf.lineString(bound)
+          var line = turf.lineString(bound);
           // eslint-disable-next-line no-undef
-          var bbox = turf.bbox(line)
+          var bbox = turf.bbox(line);
           that.map.fitBounds(bbox, {
-            padding: { bottom: 60 }
-          })
-          that.length = dataz.json.features.length
+            padding: { bottom: 60 },
+          });
+          that.length = dataz.json.features.length;
         } else {
-          var hball = []
-          var features = []
+          var hball = [];
+          var features = [];
           // console.log(china_con)
-          const hbfeatures = [[dataz.json.features[2].geometry.coordinates[0][0]], [dataz.json.features[2].geometry.coordinates[0][1]], dataz.json.features[2].geometry.coordinates[1]]
+          const hbfeatures = [
+            [dataz.json.features[2].geometry.coordinates[0][0]],
+            [dataz.json.features[2].geometry.coordinates[0][1]],
+            dataz.json.features[2].geometry.coordinates[1],
+          ];
           for (let index = 0; index < hbfeatures.length; index++) {
-            const element = hbfeatures[index]
-            hball.push({ id: 33 + index, type: 'Feature', properties: { name: '河北省' }, geometry: { coordinates: element, type: 'Polygon' }})
+            const element = hbfeatures[index];
+            hball.push({
+              id: 33 + index,
+              type: "Feature",
+              properties: { name: "河北省" },
+              geometry: { coordinates: element, type: "Polygon" },
+            });
           }
           for (let index = 0; index < dataz.json.features.length; index++) {
-            const element = dataz.json.features[index]
+            const element = dataz.json.features[index];
             if (index === 2) {
-              features.push(hball[0])
-              features.push(hball[1])
-              features.push(hball[2])
+              features.push(hball[0]);
+              features.push(hball[1]);
+              features.push(hball[2]);
             } else {
-              features.push(element)
+              features.push(element);
             }
           }
           var qtbian = {
-            'type': 'FeatureCollection',
-            'features': features
-          }
+            type: "FeatureCollection",
+            features: features,
+          };
           that.map.addLayer({
-            'id': 'maine0',
-            'type': 'fill',
-            'source': {
-              'type': 'geojson',
-              'data': qtbian
+            id: "maine0",
+            type: "fill",
+            source: {
+              type: "geojson",
+              data: qtbian,
             },
-            'layout': {},
-            'paint': {
-              'fill-color': '#088',
-              'fill-opacity': 0.2
-            }
-          })
-          that.length = 1
+            layout: {},
+            paint: {
+              "fill-color": "#088",
+              "fill-opacity": 0.2,
+            },
+          });
+          that.length = 1;
         }
       } else {
         that.map.addLayer({
-          'id': 'maine',
-          'type': 'fill',
-          'source': {
-            'type': 'geojson',
-            'data': dataz.json.features.geometry
+          id: "maine",
+          type: "fill",
+          source: {
+            type: "geojson",
+            data: dataz.json.features.geometry,
           },
-          'layout': {},
-          'paint': {
-            'fill-color': '#088',
-            'fill-opacity': 0.2
-          }
-        })
+          layout: {},
+          paint: {
+            "fill-color": "#088",
+            "fill-opacity": 0.2,
+          },
+        });
         // eslint-disable-next-line no-undef
-        const line1 = turf.lineString(dataz.json.features.geometry.coordinates[0][0])
+        const line1 = turf.lineString(
+          dataz.json.features.geometry.coordinates[0][0]
+        );
         // eslint-disable-next-line no-undef
-        const bbox1 = turf.bbox(line1)
+        const bbox1 = turf.bbox(line1);
         that.map.fitBounds(bbox1, {
-          padding: { bottom: 60 }
-        })
-        that.length = dataz.json.features.length
+          padding: { bottom: 60 },
+        });
+        that.length = dataz.json.features.length;
       }
-      console.log(that.length)
+      console.log(that.length);
     },
     addpoint(data) {
-      var that = this
-      var type = 0
-      if (data.result === '无异常特征') {
-        type = 0
-      } else if (data.result === '乏力腹泻 ') {
-        type = 2
-      } else if (data.result === '咳嗽有痰 ') {
-        type = 1
-      } else if (data.result === '咳嗽有痰 乏力腹泻 ') {
-        type = 3
+      var that = this;
+      var type = 0;
+      if (data.result === "无异常特征") {
+        type = 0;
+      } else if (data.result === "乏力腹泻 ") {
+        type = 2;
+      } else if (data.result === "咳嗽有痰 ") {
+        type = 1;
+      } else if (data.result === "咳嗽有痰 乏力腹泻 ") {
+        type = 3;
       }
       that.nulldata.features.push({
-        'type': 'Feature',
-        'properties': {
+        type: "Feature",
+        properties: {
           email: data.email,
           name: data.name,
           time: data.time,
           result: data.result,
           tel: data.tel,
-          type: type
+          type: type,
           // 'description': '<p><a href="' + datas[i].sourceUrl + '" target="_blank">' +
           // datas[i].title.slice(0, 12) + '...' + '</a></p><p class="wenben">' + datas[i].summary + '</p><p class="time">' +
           // '时间：' + data.time + '</p>' + '<p class="laiyuan">来源：' + datas[i].infoSource + '</p><span id="dian" class="qinggan">情感分析</span>',
           // 'place': datas[i].place
         },
-        'geometry': {
-          'type': 'Point',
-          'coordinates': [data.x, data.y]
-        }
-      })
-      that.map.getSource('earthquakes').setData(that.nulldata)
+        geometry: {
+          type: "Point",
+          coordinates: [data.x, data.y],
+        },
+      });
+      that.map.getSource("earthquakes").setData(that.nulldata);
     },
     // 选择时间时触发
     STime() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
-        this.timx = this.checkTime2(new Date())
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
+        this.timx = this.checkTime2(new Date());
       } else {
-        if ((new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000)) < (new Date()).getTime()) {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
-          document.querySelectorAll('.fTime .img')[1].style.opacity = 1
+        if (
+          new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000) <
+          new Date().getTime()
+        ) {
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
+          document.querySelectorAll(".fTime .img")[1].style.opacity = 1;
         } else {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = -10
-          document.querySelectorAll('.fTime .img')[1].style.opacity = 0
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = -10;
+          document.querySelectorAll(".fTime .img")[1].style.opacity = 0;
         }
         // 请求数据
-        this.getJson()
+        this.getJson();
       }
     },
     // 减少时间
     ReduceTime() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
       } else {
-        this.timx = this.checkTime2(new Date((new Date(this.timx)).getTime() - 24 * 60 * 60 * 1000))
-        document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
-        document.querySelectorAll('.fTime .img')[1].style.opacity = 1
+        this.timx = this.checkTime2(
+          new Date(new Date(this.timx).getTime() - 24 * 60 * 60 * 1000)
+        );
+        document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
+        document.querySelectorAll(".fTime .img")[1].style.opacity = 1;
         // 请求数据
-        this.getJson()
+        this.getJson();
       }
     },
     // 增加时间
     IncreaseTime() {
-      if (this.json.name === '' || this.json.name === '中国') {
+      if (this.json.name === "" || this.json.name === "中国") {
         this.$message({
-          message: '请选择城市！',
-          type: 'warning',
-          showClose: true
-        })
+          message: "请选择城市！",
+          type: "warning",
+          showClose: true,
+        });
       } else {
-        this.timx = this.checkTime2(new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000))
-        if ((new Date((new Date(this.timx)).getTime() + 24 * 60 * 60 * 1000)) < (new Date()).getTime()) {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = 0
-          document.querySelectorAll('.fTime .img')[1].style.opacity = 1
+        this.timx = this.checkTime2(
+          new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000)
+        );
+        if (
+          new Date(new Date(this.timx).getTime() + 24 * 60 * 60 * 1000) <
+          new Date().getTime()
+        ) {
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = 0;
+          document.querySelectorAll(".fTime .img")[1].style.opacity = 1;
         } else {
-          document.querySelectorAll('.fTime .img')[1].style.zIndex = -10
-          document.querySelectorAll('.fTime .img')[1].style.opacity = 0
+          document.querySelectorAll(".fTime .img")[1].style.zIndex = -10;
+          document.querySelectorAll(".fTime .img")[1].style.opacity = 0;
         }
         // 请求数据
-        this.getJson()
+        this.getJson();
       }
     },
     // 时间处理
     checkTime(i) {
       if (i < 10) {
-        i = '0' + i
+        i = "0" + i;
       }
-      return i
+      return i;
     },
     // 时间处理2
     checkTime2(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate()) + ' ' + that.checkTime(i.getHours()) + ':' + that.checkTime(i.getMinutes())
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate()) +
+        " " +
+        that.checkTime(i.getHours()) +
+        ":" +
+        that.checkTime(i.getMinutes())
+      );
     },
     // 时间处理3
     checkTime3(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate()) + ' ' + '00' + ':' + '00'
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate()) +
+        " " +
+        "00" +
+        ":" +
+        "00"
+      );
     },
     // 时间处理4
     checkTime4(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate()) + ' ' + that.checkTime(i.getHours()) + ':' + that.checkTime(i.getMinutes()) + ':' + that.checkTime(i.getSeconds())
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate()) +
+        " " +
+        that.checkTime(i.getHours()) +
+        ":" +
+        that.checkTime(i.getMinutes()) +
+        ":" +
+        that.checkTime(i.getSeconds())
+      );
     },
     // 时间处理5
     checkTime5(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate())
-    }
-  }
-}
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate())
+      );
+    },
+  },
+};
 </script>
 <style scoped>
 #emotional {
@@ -1136,7 +1290,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   color: #fff;
@@ -1153,7 +1307,7 @@ export default {
   position: relative;
 }
 #emotional #setup .fTime::after {
-  content: '';
+  content: "";
   right: 0;
   top: -1px;
   height: 100%;
@@ -1166,7 +1320,7 @@ export default {
   display: none;
 }
 #emotional #setup .fTime >>> .el-input__inner {
-  background-color: rgba(255, 255, 255, 0) ;
+  background-color: rgba(255, 255, 255, 0);
   border: none;
   font-family: KuHei;
   color: #fff;
@@ -1217,7 +1371,7 @@ export default {
   top: 0;
 }
 #emotional #setup .find::after {
-  content: '';
+  content: "";
   left: 0;
   top: -1px;
   height: 100%;
@@ -1258,7 +1412,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   background-color: rgba(40, 43, 57, 1);
   z-index: 11;
 }
@@ -1302,9 +1456,21 @@ export default {
   height: 395px;
   overflow: hidden;
 }
-#emotional #popop .center >>> .elx-table.border--default .elx-table--header-wrapper,
-#emotional #popop .center >>> .elx-table.border--full .elx-table--header-wrapper,
-#emotional #popop .center >>> .elx-table.border--outer .elx-table--header-wrapper,
+#emotional
+  #popop
+  .center
+  >>> .elx-table.border--default
+  .elx-table--header-wrapper,
+#emotional
+  #popop
+  .center
+  >>> .elx-table.border--full
+  .elx-table--header-wrapper,
+#emotional
+  #popop
+  .center
+  >>> .elx-table.border--outer
+  .elx-table--header-wrapper,
 #emotional #popop .center >>> .elx-table .elx-table--body-wrapper,
 #emotional #popop .center >>> .elx-table .elx-table--footer-wrapper {
   background-color: #ff000000;
@@ -1325,7 +1491,12 @@ export default {
 #emotional #popop .center >>> .elx-table .elx-table--border-line {
   border: none;
 }
-#emotional #popop .center >>> .elx-table .elx-table--header-wrapper .elx-table--header-border-line {
+#emotional
+  #popop
+  .center
+  >>> .elx-table
+  .elx-table--header-wrapper
+  .elx-table--header-border-line {
   border: none;
 }
 #emotional #popop .center >>> .elx-table.border--full .elx-body--column,
@@ -1333,9 +1504,21 @@ export default {
 #emotional #popop .center >>> .elx-table.border--full .elx-header--column {
   background: rgba(255, 255, 255, 0);
 }
-#emotional #popop .center >>> .elx-table.border--default .elx-table--header-wrapper,
-#emotional #popop .center >>> .elx-table.border--full .elx-table--header-wrapper,
-#emotional #popop .center >>> .elx-table.border--outer .elx-table--header-wrapper {
+#emotional
+  #popop
+  .center
+  >>> .elx-table.border--default
+  .elx-table--header-wrapper,
+#emotional
+  #popop
+  .center
+  >>> .elx-table.border--full
+  .elx-table--header-wrapper,
+#emotional
+  #popop
+  .center
+  >>> .elx-table.border--outer
+  .elx-table--header-wrapper {
   border-bottom: 2px solid rgb(148, 150, 153) !important;
 }
 #emotional #popop .center >>> .el-button {
@@ -1356,9 +1539,10 @@ export default {
   height: 35%;
   bottom: 3px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  /* border: 1px solid rgba(25, 186, 139, 0.2); */
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background-image: url("../public/img/bn.png");
+  background-size: 100% 100%;
   z-index: 10;
 }
 #emotional #Cmonitor {
@@ -1369,9 +1553,9 @@ export default {
   height: 35%;
   bottom: 3px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background-image: url("../public/img/bn.png");
+  background-size: 100% 100%;
   z-index: 10;
 }
 #emotional #Cmonitor >>> .el-carousel,
@@ -1414,9 +1598,9 @@ export default {
   height: 35%;
   bottom: 3px;
   font-family: KuHei;
-  border: 1px solid rgba(25, 186, 139, 0.2);
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background-size: 100% 100%;
   z-index: 10;
 }
 #emotional #legend {
@@ -1428,7 +1612,7 @@ export default {
   height: 200px;
   border-radius: 3px;
   background-color: rgba(18, 18, 18, 0.4);
-  border: 1px solid rgba(175, 233, 215, 0.4);
+  border: 1px solid rgba(175, 220, 233, 0.4);
   color: #fff;
 }
 #emotional #legend table {
@@ -1469,10 +1653,14 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
+}
+#emotional #setup::after {
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
 }
 #emotional #setup::before,
 #emotional #Lmonitor::before,
@@ -1484,10 +1672,14 @@ export default {
   left: -1px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
+}
+#emotional #setup::before {
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
 }
 /**===== xuan =====*/
 #bg {
@@ -1510,7 +1702,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;
@@ -1549,7 +1741,7 @@ export default {
   100% {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 @-webkit-keyframes square3 {
@@ -1563,7 +1755,7 @@ export default {
   }
   100% {
     -webkit-transform: rotate(60deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 /** END of xuan */

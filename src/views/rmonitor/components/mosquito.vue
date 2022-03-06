@@ -355,6 +355,7 @@ export default {
   bottom: 3px;
   font-family: KuHei;
   border: 1px solid rgba(25, 186, 139, 0.2);
+  
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   z-index: 20;
 }

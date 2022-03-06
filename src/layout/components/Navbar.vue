@@ -19,7 +19,7 @@
       </el-col>
       <el-col :span="8">
         <div class="contents">
-          <p>流行疾病大数据监测与智能分析系统</p>
+          <p>疾病流行多维可视化引擎系统</p>
         </div>
       </el-col>
       <el-col :span="7">
@@ -274,9 +274,10 @@ export default {
   min-height: 100%;
   width: 100%;
   background: url("./public/top.png")  no-repeat center center;   /*加载背景图*/   /* 背景图不平铺 */
-  background-size: cover;  /* 让背景图基于容器大小伸缩 */
+  background-size: 50% 100%;  /* 让背景图基于容器大小伸缩 */
+  background-position: 50% 100%;
   /* background-attachment: fixed;        当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-color: rgb(11, 18, 46);   /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  background-color: rgb(20, 31, 68);   /* 设置背景颜色，背景图加载过程中会显示背景色 */
 }
 .navbar .harf {
   font-size: 14px;

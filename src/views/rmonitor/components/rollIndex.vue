@@ -458,7 +458,7 @@ export default {
   width: 305px;
   height: calc(100% - 10px);
   z-index: 10;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 1px solid rgba(38, 106, 233, 0.3);
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
 }
@@ -479,7 +479,7 @@ export default {
   background-color: rgba(244, 172, 183, 0.2);
 }
 #rollindex .top .xl {
-  background-color: rgba(167, 206, 203, 0.2);
+  background-color: rgba(38, 106, 233, 0.3);
 }
 /* 头部 */
 #rollindex .top {
@@ -491,6 +491,8 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   padding-top: 5px;
+  /* background-image: url("../public/img/bk.png");
+  background-size: 100% 100%; */
 }
 #rollindex .top li {
   height: 110px;
