@@ -377,7 +377,7 @@ ul, p {
   list-style-type: none;
 }
 .xuan {
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
 }
 /* 城市 */
 #selectRegion .city {
@@ -390,7 +390,7 @@ ul, p {
   top: 5px;
   /* background-color: rgba(40, 43, 57, 0.8); */
   background-color: rgba(18, 18, 18, 0.4);
-  border: 1px solid rgba(175, 233, 215, 0.4);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   color: #fff;
   font-family: KuHei;
   font-size: 14px;
@@ -405,7 +405,7 @@ ul, p {
   top: -2px;
   width: 25px;
   font-size: 15px;
-  border-right: 1px solid rgba(175, 233, 215, 0.4);
+  border-right: 2px solid rgba(38, 106, 233, 0.3);
   cursor: pointer;
 }
 #selectRegion .city li:nth-child(2) {
@@ -422,14 +422,14 @@ ul, p {
   top: -2px;
   width: 35px;
   font-size: 18px;
-  border-left: 1px solid rgba(175, 233, 215, 0.4);
+  border-left: 2px solid rgba(38, 106, 233, 0.3);
 }
 /* 弹出层 */
 #selectRegion #choice {
   opacity: 0;
   position: absolute;
   z-index: -1000;
-  border: 1px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   background-color: rgba(40, 43, 57, 1);
   top: 50%;
   left: 50%;
@@ -494,7 +494,7 @@ ul, p {
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header {
   border: none;
-  background-color: #ff797900;
+  background-color: rgb(209, 69, 2)00;
 }
 #selectRegion #choice .bottom >>> .el-tabs__item {
   margin: 0;
@@ -504,10 +504,10 @@ ul, p {
   color: #fff;
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
   background-color: rgba(40, 43, 57, 1);
   border: none;
-  border-bottom: 2px solid #ff7979;
+  border-bottom: 2px solid rgb(209, 69, 2);
   font-weight: bold;
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item+.el-tabs__item,
@@ -560,7 +560,7 @@ ul, p {
   border-radius: 3px;
 }
 #selectRegion #choice .bottom li:hover {
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
 }
 /* 底部 */
 #selectRegion #choice .center {

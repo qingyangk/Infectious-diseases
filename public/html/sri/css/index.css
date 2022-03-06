@@ -47,8 +47,9 @@ p {
     width: calc(50% - 45px) !important;
     height: 70px;
     top: 5px;
-    border: 2px solid rgba(25, 186, 139, 0.2);
-    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    /* border: 2px solid rgba(25, 186, 139, 0.2); */
+    background: url("../img/bn.png") ;
+    background-size: 100% 100%;
     left: 45px;
     z-index: 10;
 }
@@ -99,8 +100,9 @@ p {
     position: absolute;
     width: calc(50% - 45px) !important;
     height: 180px;
-    border: 2px solid rgba(25, 186, 139, 0.2);
-    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    /* border: 2px solid rgba(25, 186, 139, 0.2); */
+    background: url("../img/bn.png") ;
+    background-size: 100% 100%;
     left: 45px;
     top: 85px;
     z-index: 10;
@@ -195,8 +197,9 @@ p {
     width: calc(50% - 45px) !important;
     height: calc(100% - 555px);
     top: 275px;
-    border: 2px solid rgba(25, 186, 139, 0.2);
-    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    /* border: 2px solid rgba(25, 186, 139, 0.2); */
+    background: url("../img/bn.png") ;
+    background-size: 100% 100%;
     left: 45px;
     z-index: 10;
 }
@@ -309,8 +312,9 @@ p {
     width: calc(50% - 45px) !important;
     left: 45px;
     bottom: 16px;
-    border: 2px solid rgba(25, 186, 139, 0.2);
-    background: url("../img/bg.png") rgba(255, 255, 255, 0.1);
+    /* border: 2px solid rgba(25, 186, 139, 0.2); */
+    background: url("../img/bn.png") ;
+    background-size: 100% 100%;
     z-index: 10;
 }
 
@@ -340,8 +344,8 @@ p {
     right: -2px;
     height: 10px;
     width: 10px;
-    border-bottom: 2px solid #02a6b5;
-    border-right: 2px solid #02a6b5;
+    /* border-bottom: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5; */
     transition: all 1.5s;
     z-index: 0;
 }
@@ -356,8 +360,8 @@ p {
     left: -2px;
     height: 10px;
     width: 10px;
-    border-top: 2px solid #02a6b5;
-    border-left: 2px solid #02a6b5;
+    /* border-top: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5; */
     transition: all 1.5s;
     z-index: 0;
 }

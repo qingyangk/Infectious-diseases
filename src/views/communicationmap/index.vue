@@ -1802,9 +1802,10 @@ export default {
   left: 45px;
   top: 50%;
   transform: translate(0, -50%);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bn.png") ;
+  background-size: 100% 100%;
   color: #fff;
   font-family: KuHei;
   z-index: 10;
@@ -2337,7 +2338,7 @@ export default {
   font-family: KuHei;
   font-size: 14px;
   border-radius: 2px;
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
 }
 /* 右侧部分-顶部 */
 #Communicationmap #right .pack {
@@ -2346,9 +2347,10 @@ export default {
   right: 5px;
   top: 5px;
   height: calc(40% - 5px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* border: 2px solid rgba(38, 106, 233, 0.3); */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bn.png");
+  background-size: 100% 100%;
 }
 /* 右侧部分-头部 */
 #Communicationmap #right .top {
@@ -2357,9 +2359,10 @@ export default {
   width: calc(100% - 10px);
   right: 5px;
   top: calc(40% + 5px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* border: 2px solid rgba(38, 106, 233, 0.3); */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bn.png") ;
+  background-size: 100% 100%;
 }
 #Communicationmap #right .top .lable {
   position: absolute;
@@ -2424,9 +2427,10 @@ export default {
   width: calc(100% - 10px);
   right: 5px;
   top: calc(40% + 80px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* border: 2px solid rgba(38, 106, 233, 0.3); */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bn.png") ;
+  background-size: 100% 100%;
 }
 #Communicationmap #right .bottom .find {
   position: absolute;
@@ -2581,8 +2585,8 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -2596,8 +2600,8 @@ export default {
   left: -2px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }

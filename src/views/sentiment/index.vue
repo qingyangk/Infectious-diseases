@@ -1041,7 +1041,7 @@ export default {
   width: 100%;
   height: 35px;
   line-height: 35px;
-  background: rgba(18, 18, 18, 0.5);
+  background: rgba(79, 119, 165, 0.5);
   z-index: 10;
   color: #fff;
   font-family: KuHei;
@@ -1070,7 +1070,7 @@ export default {
 #sentiment #left {
   position: absolute;
   width: calc(100% - 355px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   background-color: rgba(40, 43, 57, 0.1);
   left: 45px;
   height: calc(45% + 35px);
@@ -1082,8 +1082,8 @@ export default {
   top: 5px;
   left: 5px;
   width: calc(100% - 315px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
 }
 #sentiment #left .right {
   position: absolute;
@@ -1091,14 +1091,14 @@ export default {
   top: 5px;
   right: 5px;
   width: 300px;
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
 }
 /* 中间 */
 #sentiment #center {
   position: absolute;
   width: calc(100% - 355px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   background-color: rgba(40, 43, 57, 0.1);
   height: calc(100% - 45% - 45px);
   bottom: 5px;
@@ -1108,8 +1108,8 @@ export default {
   display: inline-block;
   vertical-align: top;
   width: calc(100% / 3 - 6.67px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
   position: absolute;
   top: 5px;
   height: calc(100% - 10px);
@@ -1141,7 +1141,7 @@ export default {
   z-index: 1;
   padding: 5px;
   background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 300px;
   height: calc(100% - 5px);
   color: #fff;
@@ -1152,8 +1152,8 @@ export default {
 #sentiment #right .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
   height: 140px;
   text-align: center;
 }
@@ -1221,8 +1221,8 @@ export default {
 #sentiment #right .publiz {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
   height: calc(100% - 155px);
   text-align: center;
   top: 150px;

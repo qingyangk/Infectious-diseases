@@ -952,7 +952,7 @@ export default {
             source: 'draw',
             layout: {},
             paint: {
-              'line-color': '#ff7979',
+              'line-color': 'rgb(209, 69, 2)',
               'line-width': 1,
               'line-opacity': 0.7
             }
@@ -2303,9 +2303,9 @@ export default {
   cursor: pointer;
   border-radius: 2px;
   color: rgb(202, 202, 202);
-  /* background-color: rgba(40, 43, 57, 0.65); */
-  background-color: rgba(18, 18, 18, 0.4);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* background-color: rgba(79, 133, 177, 0.3); */
+  background-color: rgba(79, 133, 177, 0.3);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   transition: all 0.5s;
   margin-bottom: 5px;
 }
@@ -2320,7 +2320,7 @@ export default {
   z-index: 10;
   padding: 5px;
   background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 300px;
   height: calc(100% - 5px);
   color: #fff;
@@ -2331,8 +2331,8 @@ export default {
 #emotional #left .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   height: 140px;
 }
 #emotional #left .publiz {
@@ -2380,17 +2380,17 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: #ff797998;
+  background-color: rgb(209, 69, 2)98;
   border: 1px solid rgba(255, 255, 255, 0.8);
   transition: all 0.5s;
   cursor: pointer;
   letter-spacing: 5px;
 }
 #emotional #left .public .zhong p {
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
 }
 #emotional #left .public .xuanz p:hover {
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
 }
 /* 右侧样式 */
 #emotional #right {
@@ -2400,7 +2400,7 @@ export default {
   z-index: 1;
   padding: 5px;
   background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 300px;
   height: calc(100% - 5px);
   color: #fff;
@@ -2411,8 +2411,8 @@ export default {
 #emotional #right .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   height: 140px;
 }
 #emotional #right .public:nth-child(1) {
@@ -2495,8 +2495,8 @@ export default {
   top: calc(100% + 40px);
   right: 50%;
   transform: translateX(calc(50% + 20px));
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   z-index: 10;
 }
 #emotional #sequential .tool ul {
@@ -2507,8 +2507,8 @@ export default {
 #emotional #sequential .tool li {
   display: inline-block;
   vertical-align: top;
-  background-color: rgba(40, 43, 57, 0.65);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  background-color: rgba(79, 133, 177, 0.3);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 100px;
   height: 35px;
   text-align: center;
@@ -2541,8 +2541,8 @@ export default {
   top: calc(100% + 40px);
   right: 50%;
   transform: translateX(calc(50% + 20px));
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   z-index: 10;
 }
 #emotional #table .tool ul {
@@ -2553,8 +2553,8 @@ export default {
 #emotional #table .tool li {
   display: inline-block;
   vertical-align: top;
-  background-color: rgba(40, 43, 57, 0.65);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  background-color: rgba(79, 133, 177, 0.3);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 100px;
   height: 35px;
   text-align: center;
@@ -2575,8 +2575,8 @@ export default {
 #emotional #table .toor li {
   display: inline-block;
   vertical-align: top;
-  background-color: rgba(40, 43, 57, 0.65);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  background-color: rgba(79, 133, 177, 0.3);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   width: 100px;
   height: 35px;
   text-align: center;
@@ -2648,15 +2648,15 @@ export default {
   transition: all 0.5s;
 }
 #emotional #table .bottom a:hover {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
 }
 /* 标注集窗口 */
 #emotional #speech {
   position: absolute;
   width: 550px;
   height: 400px;
-  border: 1px solid rgba(25, 186, 139, 0.5);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  border: 1px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -2731,8 +2731,8 @@ export default {
 #EMap >>> .mapboxgl-popup-content {
   padding: 10px;
   text-align: center;
-  border: 1px solid rgba(25, 186, 139, 0.5);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  border: 1px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   color: #fff;
 }
 #EMap >>> .mapboxgl-popup-content a::before {
@@ -2798,8 +2798,8 @@ export default {
   position: absolute;
   width: 350px;
   height: 335px;
-  border: 1px solid rgba(25, 186, 139, 0.5);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  border: 1px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   z-index: 91;
   left: 50%;
   transform: translateX(calc(-50%));
@@ -2862,8 +2862,8 @@ export default {
   top: 0;
   height: 200px;
   border-radius: 3px;
-  background-color: rgba(18, 18, 18, 0.4);
-  border: 1px solid rgba(175, 233, 215, 0.4);
+  background-color: rgba(38, 106, 233, 0.3);
+  border: 1px solid rgba(79, 133, 177, 0.3);
   color: #fff;
 }
 #emotional #legend table {
@@ -2914,7 +2914,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: #ff7979;
+  background-color: rgb(209, 69, 2);
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

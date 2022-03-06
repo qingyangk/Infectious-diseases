@@ -385,7 +385,7 @@ export default {
   font-family: KuHei;
   font-size: 14px;
   border-radius: 2px;
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
 }
 #reiht .top {
   position: absolute;
@@ -393,9 +393,10 @@ export default {
   left: 5px;
   top: 5px;
   height: calc(35% - 5px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  /* border: 2px solid rgba(25, 186, 139, 0.2); */
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") ;
+  background-size: 100% 100%;
 }
 .x {
   display: none;
@@ -444,9 +445,9 @@ export default {
   left: 5px;
   top: calc(35% + 5px);
   height: calc(65% - 10px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") ;
+  background-size: 100% 100%;
 }
 #reiht .centers .Shang ul,
 #reiht .centers .Shang p {
@@ -556,11 +557,11 @@ export default {
   top: 53.3%;
 }
 #reiht .centers .Shang .public:nth-child(4) >>> .el-radio__input.is-checked+.el-radio__label {
-  color: #ff7979;
+  color: rgb(209, 69, 2);
 }
 #reiht .centers .Shang .public:nth-child(4) >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: #ff7979;
-  background: #ff7979;
+  border-color: rgb(209, 69, 2);
+  background: rgb(209, 69, 2);
 }
 #reiht .centers .Shang .public:nth-last-child(2) {
   border-top: 2px dashed rgba(219, 219, 219, 0.555);
@@ -602,8 +603,8 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -615,8 +616,8 @@ export default {
   left: -1px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }

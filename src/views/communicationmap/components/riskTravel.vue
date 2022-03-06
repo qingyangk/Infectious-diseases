@@ -1146,7 +1146,7 @@ export default {
   font-family: KuHei;
   font-size: 14px;
   border-radius: 2px;
-  border: 2px solid rgba(25, 186, 139, 0.2);
+  border: 2px solid rgba(38, 106, 233, 0.3);
   padding: 5px;
 }
 /* 头部 */
@@ -1154,8 +1154,8 @@ export default {
   height: 40px;
   line-height: 40px;
   width: 100%;
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);;
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   position: relative;
   text-align: center;
   letter-spacing: 5px;
@@ -1167,8 +1167,8 @@ export default {
 #Travel .Mapwaper .body {
   width: 100%;
   height: 140px;
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);;
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);;
   position: relative;
   text-align: center;
   margin-bottom: 5px;
@@ -1255,8 +1255,8 @@ export default {
 #Travel .Mapwaper .bottom {
   width: calc(100% - 10px);
   height: calc(100% - 200px);
-  border: 2px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);;
+  border: 2px solid rgba(38, 106, 233, 0.3);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);;
   position: absolute;
 }
 #Travel .Mapwaper .bottom .content {
