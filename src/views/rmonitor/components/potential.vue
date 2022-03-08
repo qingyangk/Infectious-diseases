@@ -1702,7 +1702,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

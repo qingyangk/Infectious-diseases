@@ -75,7 +75,7 @@
         </tr>
         <tr>
           <td>
-            <p><span style="background-color: rgb(209, 69, 2)" /></p>
+            <p><span style="background-color: #ff7979" /></p>
           </td>
           <td>2000 ~ MAX</td>
         </tr>
@@ -526,7 +526,7 @@ export default {
       this.myChart = echarts.init(document.getElementById("chart"));
       // eslint-disable-next-line no-undef
       var option = {
-        color: ["rgb(209, 69, 2)", "rgb(194, 196, 89)", "#3A84FF"],
+        color: ["#ff7979", "rgb(194, 196, 89)", "#3A84FF"],
         grid: {
           top: "12%",
           left: "2%",
@@ -648,7 +648,7 @@ export default {
         "#48bfe3",
         "#5390d9",
         "#6930c3",
-        "rgb(209, 69, 2)",
+        "#ff7979",
       ];
       if (this.json.name === "中国") {
         this.map.setPaintProperty("maine0", "fill-color", [
@@ -1042,9 +1042,9 @@ export default {
             type: "line",
             itemStyle: {
               normal: {
-                color: "rgb(209, 69, 2)",
+                color: "#ff7979",
                 lineStyle: {
-                  color: "rgb(209, 69, 2)",
+                  color: "#ff7979",
                   width: 1,
                 },
                 areaStyle: {
@@ -1362,7 +1362,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

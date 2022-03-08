@@ -135,11 +135,11 @@ export default {
 }
 #listDiseases .Lpublic:hover {
   color: #fff;
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 #listDiseases .xuan {
   color: #fff;
-  background-color: rgb(209, 69, 2) !important;
+  background-color: #ff7979 !important;
 }
 </style>
 // --------------------------------------- 分割线
@@ -179,9 +179,9 @@ export default {
 /* 悬浮 */
 #listDiseases >>> .el-tabs__item.is-active,
 #listDiseases >>> .el-tabs__item:hover {
-  color: rgb(209, 69, 2);
+  color: #ff7979;
 }
 #listDiseases >>> .el-tabs__active-bar {
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 </style>

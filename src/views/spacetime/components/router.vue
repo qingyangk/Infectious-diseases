@@ -398,7 +398,7 @@ export default {
   z-index: 10;
 }
 #router .xuan {
-  color: rgb(209, 69, 2) !important;
+  color: #ff7979 !important;
 }
 #router ul {
   margin: 0;
@@ -609,11 +609,11 @@ export default {
   top: 53.3%;
 }
 #reiht .centers .Shang .public:nth-child(4) >>> .el-radio__input.is-checked+.el-radio__label {
-  color: rgb(209, 69, 2);
+  color: #ff7979;
 }
 #reiht .centers .Shang .public:nth-child(4) >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: rgb(209, 69, 2);
-  background: rgb(209, 69, 2);
+  border-color: #ff7979;
+  background: #ff7979;
 }
 #reiht .centers .Shang .public:nth-last-child(2) {
   border-top: 2px dashed rgba(219, 219, 219, 0.555);
@@ -694,7 +694,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

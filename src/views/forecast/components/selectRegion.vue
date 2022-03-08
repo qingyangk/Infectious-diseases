@@ -377,7 +377,7 @@ ul, p {
   list-style-type: none;
 }
 .xuan {
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 /* 城市 */
 #selectRegion .city {
@@ -494,7 +494,7 @@ ul, p {
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header {
   border: none;
-  background-color: rgb(209, 69, 2)00;
+  background-color: #ff797900;
 }
 #selectRegion #choice .bottom >>> .el-tabs__item {
   margin: 0;
@@ -504,10 +504,10 @@ ul, p {
   color: #fff;
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
-  color: rgb(209, 69, 2);
+  color: #ff7979;
   background-color: rgba(40, 43, 57, 1);
   border: none;
-  border-bottom: 2px solid rgb(209, 69, 2);
+  border-bottom: 2px solid #ff7979;
   font-weight: bold;
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item+.el-tabs__item,
@@ -560,7 +560,7 @@ ul, p {
   border-radius: 3px;
 }
 #selectRegion #choice .bottom li:hover {
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 /* 底部 */
 #selectRegion #choice .center {

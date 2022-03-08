@@ -952,7 +952,7 @@ export default {
             source: 'draw',
             layout: {},
             paint: {
-              'line-color': 'rgb(209, 69, 2)',
+              'line-color': '#ff7979',
               'line-width': 1,
               'line-opacity': 0.7
             }
@@ -2380,17 +2380,17 @@ export default {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background-color: rgb(209, 69, 2)98;
+  background-color: #ff797998;
   border: 1px solid rgba(255, 255, 255, 0.8);
   transition: all 0.5s;
   cursor: pointer;
   letter-spacing: 5px;
 }
 #emotional #left .public .zhong p {
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 #emotional #left .public .xuanz p:hover {
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 /* 右侧样式 */
 #emotional #right {
@@ -2648,7 +2648,7 @@ export default {
   transition: all 0.5s;
 }
 #emotional #table .bottom a:hover {
-  color: rgb(209, 69, 2);
+  color: #ff7979;
 }
 /* 标注集窗口 */
 #emotional #speech {
@@ -2914,7 +2914,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

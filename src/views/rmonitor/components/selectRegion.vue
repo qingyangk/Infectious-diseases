@@ -393,7 +393,7 @@ p {
   list-style-type: none;
 }
 .xuan {
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
 }
 /* 城市 */
 #selectRegion .city {
@@ -526,10 +526,10 @@ p {
   >>> .el-tabs--border-card
   > .el-tabs__header
   .el-tabs__item.is-active {
-  color: rgb(209, 69, 2);
+  color: #ff7979;
   background-color: rgba(40, 43, 57, 1);
   border: none;
-  border-bottom: 2px solid rgb(209, 69, 2);
+  border-bottom: 2px solid #ff7979;
   font-weight: bold;
 }
 #selectRegion

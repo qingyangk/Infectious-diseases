@@ -1422,7 +1422,7 @@ export default {
                   style: 'circle',
                   size: 10,
                   // 点颜色
-                  color: 'rgb(209, 69, 26)'
+                  color: '#ff7979'
                 }
                 centerGraphic = new Graphic({
                   geometry: centerPoint,

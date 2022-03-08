@@ -996,11 +996,11 @@ export default {
   top: 53.3%;
 }
 #Trip #setup .fMonitor >>> .el-radio__input.is-checked + .el-radio__label {
-  color: rgb(209, 69, 2);
+  color: #ff7979;
 }
 #Trip #setup .fMonitor >>> .el-radio__input.is-checked .el-radio__inner {
-  border-color: rgb(209, 69, 2);
-  background: rgb(209, 69, 2);
+  border-color: #ff7979;
+  background: #ff7979;
 }
 /* 播放 */
 #Trip #setup .play {
@@ -1107,7 +1107,7 @@ export default {
 #bg #xuan span {
   width: 25px;
   height: 25px;
-  background-color: rgb(209, 69, 2);
+  background-color: #ff7979;
   display: inline-block;
   -webkit-animation: square3 1.7s infinite ease-in-out both;
   animation: square3 1.7s infinite ease-in-out both;

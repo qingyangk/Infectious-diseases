@@ -142,11 +142,11 @@ export default {
 }
 #transmission .Lpublic:hover {
   color: #fff;
-  background-color: rgb(209, 69, 26);
+  background-color: #ff7979;
 }
 #transmission .xuan {
   color: #fff;
-  background-color: rgb(209, 69, 26) !important;
+  background-color: #ff7979 !important;
 }
 </style>
 // --------------------------------------- 分割线
@@ -187,9 +187,9 @@ export default {
 /* 悬浮 */
 #transmission >>> .el-tabs__item.is-active,
 #transmission >>> .el-tabs__item:hover {
-  color: rgb(209, 69, 26);
+  color: #ff7979;
 }
 #transmission >>> .el-tabs__active-bar {
-  background-color: rgb(209, 69, 26);
+  background-color: #ff7979;
 }
 </style>
