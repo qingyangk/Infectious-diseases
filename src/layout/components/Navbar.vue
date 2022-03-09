@@ -277,7 +277,7 @@ export default {
   background-size: 50% 100%;  /* 让背景图基于容器大小伸缩 */
   background-position: 50% 100%;
   /* background-attachment: fixed;        当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-color: rgb(20, 31, 68);   /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  background-color: rgb(21, 62, 109);   /* 设置背景颜色，背景图加载过程中会显示背景色 */
 }
 .navbar .harf {
   font-size: 14px;

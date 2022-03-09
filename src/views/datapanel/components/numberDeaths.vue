@@ -173,7 +173,7 @@ export default {
           type: 'bar',
           showBackground: false,
           itemStyle: {
-            color: '#ff7979'
+            color: 'rgb(60, 224, 211)'
           },
           backgroundStyle: {
             color: 'rgba(180, 180, 180, 0.2)'

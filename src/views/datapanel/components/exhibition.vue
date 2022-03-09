@@ -272,7 +272,7 @@ export default {
   height: 80px;
   margin: 0 12.5px 15px 12.5px;
   text-align: center;
-  background-image: url("../components/public/img/bk.png");
+  /* background-image: url("../components/public/img/bk.png"); */
   /* no-repeat center center; */
   background-size: 100% 100%;
   /* border: 1px solid rgba(180, 180, 180, 0.5); */
@@ -280,6 +280,7 @@ export default {
   font-size: 17px;
   font-weight: bold;
 }
+
 #exhibition .ecenter {
   height: 77px;
 }
@@ -320,6 +321,10 @@ export default {
   /* background-color: rgb(194, 196, 89); */
   width: 100%;
   height: 8px;
+}
+.mType .mProbability .mQuantity .dProbability .yQuantity{
+  background-image: url("../components/public/img/bn.png");
+  background-size: 100% 100%;
 }
 #exhibition .publiv .mQuantity {
   /* background-color: #ec5c19ee; */
@@ -419,14 +424,14 @@ export default {
 }
 #exhibition .yang {
   position: relative;
-  color: rgb(209, 69, 26);
+  color: #ff7979;
 }
 #exhibition .yang::before {
   position: absolute;
   content: '▶';
   width: 20px;
   height: 20px;
-  color: rgb(209, 69, 26);
+  color: #ff7979;
   left: 25%;
   top: 50%;
   transform: translateY(calc(50% - 24px));
@@ -437,7 +442,7 @@ export default {
   content: '◀';
   width: 20px;
   height: 20px;
-  color: rgb(209, 69, 26);
+  color: #ff7979;
   right: 25%;
   top: 50%;
   transform: translateY(calc(50% - 24px));
