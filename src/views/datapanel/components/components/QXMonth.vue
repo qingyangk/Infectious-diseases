@@ -56,7 +56,7 @@ export default {
       var that = this
       this.myChart = echarts.init(document.getElementById('QXMonth'))
       const option = {
-        color: ['rgb(194, 196, 89)', 'rgb(253, 141, 0)', '#ff7979'],
+        color: ['rgb(60, 224, 211)', 'rgb(253, 141, 0)', '#ff7979'],
         title: {
           text: that.data.time + '-' + this.data.name + '-月份统计',
           left: 'center',

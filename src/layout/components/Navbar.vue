@@ -19,7 +19,8 @@
       </el-col>
       <el-col :span="8">
         <div class="contents">
-          <p>疾病流行多维可视化引擎系统</p>
+          <!-- <p>疾病流行多维可视化引擎系统</p> -->
+          <p>传染疾病精准防控与智能分析系统</p>
         </div>
       </el-col>
       <el-col :span="7">
@@ -273,19 +274,19 @@ export default {
   position: relative;
   min-height: 100%;
   width: 100%;
-  background: url("./public/top.png")  no-repeat center center;   /*加载背景图*/   /* 背景图不平铺 */
-  background-size: 50% 100%;  /* 让背景图基于容器大小伸缩 */
-  background-position: 50% 100%;
+  background: url("./public/tit.png")  no-repeat center center;   /*加载背景图*/   /* 背景图不平铺 */
+  background-size: 55% 90%;  /* 让背景图基于容器大小伸缩 */
+  background-position: 50% 90%;
   /* background-attachment: fixed;        当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-color: rgb(21, 62, 109);   /* 设置背景颜色，背景图加载过程中会显示背景色 */
+  background-color: rgb(21, 62, 109);  /* 设置背景颜色，背景图加载过程中会显示背景色 */
 }
 .navbar .harf {
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff;
 }
 .navbar .lefts {
   height: 50px;
-  line-height: 46px;
+  line-height: 52px;
   text-align: center;
   font-family: KuHei;
 }
@@ -322,9 +323,10 @@ export default {
 }
 .navbar .rights {
   height: 50px;
-  line-height: 46px;
+  line-height: 52px;
   text-align: center;
   font-family: KuHei;
+  /* margin-top: 10px; */
 }
 .navbar .harf {
   margin: 0 15px;
@@ -338,9 +340,10 @@ export default {
   position: absolute;
   content: '';
   height: 3px;
-  width: 115%;
-  bottom: 5px;
-  background: #ff7979;
+  width: 108%;
+  bottom: 8px;
+  background: #ff7979
+;
 }
 </style>
 <style scoped>
@@ -353,14 +356,14 @@ export default {
   margin-right: 18px;
   font-size: 20px;
   color: #cccccc;
-  margin-top: 14px;
+  margin-top: 18px;
   cursor: pointer;
 }
 .navbar .users {
   position: absolute;
   color: #ccc;
   font-size: 20px;
-  height: calc(100% - 1px);
+  height: calc(100% + 5px);
   cursor: pointer;
   margin: 0;
 }

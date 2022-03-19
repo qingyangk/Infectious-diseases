@@ -2305,7 +2305,7 @@ export default {
   color: rgb(202, 202, 202);
   /* background-color: rgba(79, 133, 177, 0.3); */
   background-color: rgba(79, 133, 177, 0.3);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;
 }
@@ -2319,8 +2319,8 @@ export default {
   left: 45px;
   z-index: 10;
   padding: 5px;
-  background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* background-color: rgba(40, 43, 57, 0.1); */
+  /* border: 1.5px solid #0fafeb; */
   width: 300px;
   height: calc(100% - 5px);
   color: #fff;
@@ -2331,8 +2331,9 @@ export default {
 #emotional #left .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(38, 106, 233, 0.3);
-  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
+  /* border: 1.5px solid #0fafeb; */
+  background: url("../public/img/bn.png") ;
+  background-size: 100% 100%;
   height: 140px;
 }
 #emotional #left .publiz {
@@ -2400,7 +2401,7 @@ export default {
   z-index: 1;
   padding: 5px;
   background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* border: 1.5px solid #0fafeb; */
   width: 300px;
   height: calc(100% - 5px);
   color: #fff;
@@ -2411,8 +2412,9 @@ export default {
 #emotional #right .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(38, 106, 233, 0.3);
-  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
+  /* border: 1.5px solid #0fafeb; */
+  background: url("../public/img/bn.png") ;
+  background-size: 100% 100%;
   height: 140px;
 }
 #emotional #right .public:nth-child(1) {
@@ -2495,8 +2497,8 @@ export default {
   top: calc(100% + 40px);
   right: 50%;
   transform: translateX(calc(50% + 20px));
-  border: 2px solid rgba(38, 106, 233, 0.3);
-  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
+  /* border: 1.5px solid #0fafeb; */
+  background: url("../public/img/bg.png") ;
   z-index: 10;
 }
 #emotional #sequential .tool ul {
@@ -2507,8 +2509,8 @@ export default {
 #emotional #sequential .tool li {
   display: inline-block;
   vertical-align: top;
-  background-color: rgba(79, 133, 177, 0.3);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* background-color: rgba(79, 133, 177, 0.3); */
+  /* border: 1.5px solid #0fafeb; */
   width: 100px;
   height: 35px;
   text-align: center;
@@ -2541,8 +2543,8 @@ export default {
   top: calc(100% + 40px);
   right: 50%;
   transform: translateX(calc(50% + 20px));
-  border: 2px solid rgba(38, 106, 233, 0.3);
-  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
+  /* border: 1.5px solid #0fafeb; */
+  background: url("../public/img/bg.png") ;
   z-index: 10;
 }
 #emotional #table .tool ul {
@@ -2553,8 +2555,8 @@ export default {
 #emotional #table .tool li {
   display: inline-block;
   vertical-align: top;
-  background-color: rgba(79, 133, 177, 0.3);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* background-color: rgba(79, 133, 177, 0.3);
+  border: 1.5px solid #0fafeb; */
   width: 100px;
   height: 35px;
   text-align: center;
@@ -2575,8 +2577,8 @@ export default {
 #emotional #table .toor li {
   display: inline-block;
   vertical-align: top;
-  background-color: rgba(79, 133, 177, 0.3);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* background-color: rgba(79, 133, 177, 0.3); */
+  /* border: 1.5px solid #0fafeb; */
   width: 100px;
   height: 35px;
   text-align: center;
@@ -2655,7 +2657,7 @@ export default {
   position: absolute;
   width: 550px;
   height: 400px;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   top: 100%;
   left: 50%;
@@ -2731,7 +2733,7 @@ export default {
 #EMap >>> .mapboxgl-popup-content {
   padding: 10px;
   text-align: center;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   color: #fff;
 }
@@ -2798,8 +2800,8 @@ export default {
   position: absolute;
   width: 350px;
   height: 335px;
-  border: 1px solid rgba(38, 106, 233, 0.3);
-  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
+  /* border: 1px solid #0fafeb;
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3); */
   z-index: 91;
   left: 50%;
   transform: translateX(calc(-50%));
@@ -2835,8 +2837,8 @@ export default {
   right: -2px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -2848,9 +2850,9 @@ export default {
   top: -2px;
   left: -2px;
   height: 10px;
-  width: 10px;
+  /* width: 10px;
   border-top: 2px solid #02a6b5;
-  border-left: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -2862,8 +2864,8 @@ export default {
   top: 0;
   height: 200px;
   border-radius: 3px;
-  background-color: rgba(38, 106, 233, 0.3);
-  border: 1px solid rgba(79, 133, 177, 0.3);
+  /* background-color: #0fafeb;
+  border: 1px solid rgba(79, 133, 177, 0.3); */
   color: #fff;
 }
 #emotional #legend table {

@@ -272,11 +272,12 @@ export default {
   height: 80px;
   margin: 0 12.5px 15px 12.5px;
   text-align: center;
-  /* background-image: url("../components/public/img/bk.png"); */
+  background: url("../components/public/img/bg1.png") no-repeat;
   /* no-repeat center center; */
-  background-size: 100% 100%;
+  background-size: 81% 100%;
+  background-position-x: 60%;
   /* border: 1px solid rgba(180, 180, 180, 0.5); */
-  color: rgba(134, 230, 233, 0.9);
+  color: #ffff;
   font-size: 17px;
   font-weight: bold;
 }

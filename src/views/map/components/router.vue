@@ -346,7 +346,7 @@ export default {
   width: 40px;
   text-align: center;
   height: calc(100%);
-  background-color: rgba(11, 18, 46);
+  background-color: rgb(31 65 120);
   top: 0;
   left: 0;
   z-index: 10;
@@ -385,7 +385,7 @@ export default {
   font-family: KuHei;
   font-size: 14px;
   border-radius: 2px;
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* border: 1.5px solid #0fafeb; */
 }
 #reiht .top {
   position: absolute;

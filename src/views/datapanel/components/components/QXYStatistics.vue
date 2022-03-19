@@ -38,7 +38,7 @@ export default {
       const that = this
       const myChart = echarts.init(document.getElementById('QXYStatistics'))
       const option = {
-        color: ['rgb(194, 196, 89)', 'rgb(253, 141, 0)', '#ff7979', '#9c5333'],
+        color: ['rgb(60, 224, 211)', 'rgb(253, 141, 0)', '#ff7979', '#9c5333'],
         title: {
           text: this.data.name + '-年份统计',
           left: 'center',

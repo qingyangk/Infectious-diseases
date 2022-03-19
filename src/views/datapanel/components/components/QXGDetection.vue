@@ -3,7 +3,7 @@
     <div v-if="s !== 0" id="top">
       <ul>
         <li class="public">
-          <p style="background-color: rgb(194, 196, 89);" class="col" />
+          <!-- <p style="background-color: rgb(194, 196, 89);" class="col" /> -->
           <div class="cent">
             <p class="ppublic yang" @click="qie('诊断')">诊断病例</p>
             <p>{{ diagnosis }}</p>
@@ -11,7 +11,7 @@
           </div>
         </li>
         <li class="public">
-          <p style="background-color: rgb(253, 141, 0);" class="col" />
+          <!-- <p style="background-color: rgb(253, 141, 0);" class="col" /> -->
           <div class="cent">
             <p class="ppublic" @click="qie('重症')">重症病例</p>
             <p>{{ severe }}</p>
@@ -19,7 +19,7 @@
           </div>
         </li>
         <li class="public">
-          <p style="background-color: rgb(255, 121, 121);" class="col" />
+          <!-- <p style="background-color: rgb(255, 121, 121);" class="col" /> -->
           <div class="cent">
             <p class="ppublic" @click="qie('死亡')">死亡病例</p>
             <p>{{ death }}</p>
@@ -320,6 +320,8 @@ display: none;
   bottom: 0;
   left: 0;
   background-color: rgba(18, 18, 18, 0.4);
+  background-image: url("../public/img/ba.png");
+  background-size: 100% 100%;
   text-align: center;
   color: rgba(238, 234, 234, 0.9);
 }
@@ -329,6 +331,8 @@ display: none;
   height: 25px;
   line-height: 25px;
   color: rgba(238, 234, 234, 0.9);
+  background-image: url("../public/img/ba.png");
+  background-size: 100% 100%;
   font-size: 14px;
   font-weight: bold;
   font-family: YaHei;

@@ -321,14 +321,14 @@ export default {
   100% {
     width: 800px;
     height: 420px;
-    background-color: rgba(40, 43, 57, 1);
+    background-color: rgb(21 62 109);
   }
 }
 @keyframes nappear { /* 隐藏动画 */
   0% {
     width: 800px;
     height: 420px;
-    background-color: rgba(40, 43, 57, 1);
+    background-color: rgb(21 62 109);
   }
   50% {
     width: 800px;
@@ -366,7 +366,7 @@ ul, p {
   right: 310px !important;
   /* background-color: rgba(40, 43, 57, 0.8); */
   background-color: rgba(18, 18, 18, 0.4);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   color: #fff;
   font-family: KuHei;
   font-size: 14px;
@@ -381,7 +381,7 @@ ul, p {
   top: -2px;
   width: 25px;
   font-size: 15px;
-  border-right: 2px solid rgba(38, 106, 233, 0.3);
+  border-right: 1.5px solid #0fafeb;
   cursor: pointer;
 }
 #selectRegion .city li:nth-child(2) {
@@ -398,15 +398,15 @@ ul, p {
   top: -2px;
   width: 35px;
   font-size: 18px;
-  border-left: 2px solid rgba(38, 106, 233, 0.3);
+  border-left: 1.5px solid #0fafeb;
 }
 /* 弹出层 */
 #selectRegion #choice {
   opacity: 0;
   position: absolute;
   z-index: -1000;
-  border: 2px solid rgba(38, 106, 233, 0.3);
-  background-color: rgba(40, 43, 57, 1);
+  border: 1.5px solid #0fafeb;
+  background-color: rgb(21 62 109);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -458,7 +458,7 @@ ul, p {
   border-bottom-right-radius: 3px;
   border: none;
   border-bottom: 1px solid rgb(148, 150, 153);
-  background-color: rgba(40, 43, 57, 1);
+  background-color: rgb(21 62 109);
 }
 /* 卡片头部 */
 #selectRegion #choice .bottom >>> .el-tabs__nav {
@@ -481,7 +481,7 @@ ul, p {
 }
 #selectRegion #choice .bottom >>> .el-tabs--border-card>.el-tabs__header .el-tabs__item.is-active {
   color: #ff7979;
-  background-color: rgba(40, 43, 57, 1);
+  background-color: rgb(21 62 109);
   border: none;
   border-bottom: 2px solid #ff7979;
   font-weight: bold;

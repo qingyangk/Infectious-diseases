@@ -101,7 +101,7 @@ export default {
   width: 40px;
   text-align: center;
   height: calc(100%);
-  background-color: rgba(11, 18, 46);
+  background-color: rgb(31 65 120);
   top: 0;
   left: 0;
   z-index: 10;

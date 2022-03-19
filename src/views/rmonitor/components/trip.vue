@@ -906,7 +906,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   /* z-index: 20; */
 }
@@ -1046,7 +1046,7 @@ export default {
   height: 35%;
   bottom: 3px;
   font-family: KuHei;
-  /* border: 1px solid rgba(38, 106, 233, 0.3); */
+  /* border: 1px solid #0fafeb; */
   background: url("../public/img/bn.png") rgba(18, 18, 18, 0.2);
   background-size: 100% 100%;
   z-index: 20;

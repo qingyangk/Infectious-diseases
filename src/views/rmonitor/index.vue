@@ -4,35 +4,35 @@
     <div id="type">
       <ul>
         <li>
-          <span class="Tspan" style="background-color: #f4978e;" />
+          <!-- <span class="Tspan" style="background-color: #f4978e;" /> -->
           <p class="publis xunt" @click="qie('体温')">体温异常</p>
           <div class="numbers">
             {{ temperatureS }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
           </div>
         </li>
         <li>
-          <span class="Tspan" style="background-color: #a7cecb;" />
+          <!-- <span class="Tspan" style="background-color: #a7cecb;" /> -->
           <p class="publis" @click="qie('心率')">心率异常</p>
           <div class="numbers">
             {{ heartrateS }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
           </div>
         </li>
         <li>
-          <span class="Tspan" style="background-color: #ffc09f;" />
+          <!-- <span class="Tspan" style="background-color: #ffc09f;" /> -->
           <p class="publis" @click="qie('高压')">高压异常</p>
           <div class="numbers">
             {{ highpressureS }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
           </div>
         </li>
         <li>
-          <span class="Tspan" style="background-color: #f4acb7;" />
+          <!-- <span class="Tspan" style="background-color: #f4acb7;" /> -->
           <p class="publis" @click="qie('低压')">低压异常</p>
           <div class="numbers">
             {{ lowpressureS }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
           </div>
         </li>
         <li v-if="json.monitor === '隔离'">
-          <span class="Tspan" style="background-color: #99c1de;" />
+          <!-- <span class="Tspan" style="background-color: #99c1de;" /> -->
           <p class="publis" @click="Quarantine()">轨迹异常<i class="el-icon-notebook-2" style="position: absolute;right: 40px;top: 50%;transform: translateY(-46.5%);font-size: 20px;" /></p>
           <div class="numbers">
             {{ trajectory }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
@@ -1548,7 +1548,7 @@ export default {
 }
 #rmonitor #type li {
   /* background-color: rgba(18, 18, 18, 0.4); */
-  background-image: url("./public/img/bk.png");
+  background-image: url("./public/img/ba.png");
   background-size: 100% 100%;
   height: 90px;
   margin: 5px 0;
@@ -1587,7 +1587,7 @@ export default {
   content: '▶';
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: #ff7979;
   left: 15%;
   top: 0;
   animation: fade-in2 1s linear infinite; /* 调用动画 */
@@ -1597,7 +1597,7 @@ export default {
   content: '◀';
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: #ff7979;
   right: 15%;
   top: 0;
   animation: fade-in1 1s linear infinite; /* 调用动画 */
@@ -1644,8 +1644,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(38, 106, 233, 0.3);
-  background-color: rgba(40, 43, 57, 1);
+  border: 1px solid #0fafeb;
+  background-color: rgb(21 62 109);
   z-index: 11;
 }
 #rmonitor #popop .top {
@@ -1743,7 +1743,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
 }
@@ -1846,6 +1846,10 @@ export default {
   font-size: 18px;
   letter-spacing: 5px;
 }
+#rmonitor #functionBar{
+  background-image: url("./public/img/bn.png");
+  background-size: 100% 100%;
+}
 #rmonitor #functionBar .help {
   position: absolute;
   width: 150px;
@@ -1904,7 +1908,7 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 11;
   background-color: rgba(40, 43, 57, 0.8);
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   border-radius: 3px;
 }
 #rmonitor #setup .top {
@@ -2009,7 +2013,7 @@ export default {
 }
 #rmonitor #setup .center li .neibu >>> .el-radio__input.is-checked .el-radio__inner {
   border-color: #ff7979;
-  background: #ff79799;
+  background: #ff7979;
 }
 #rmonitor #setup .center li .neibu .neirong p >>> .el-input__suffix {
   margin-top: -7px;
@@ -2043,10 +2047,10 @@ export default {
   bottom: 5px;
   height: 20%;
   font-family: KuHei;
-  border: 2.1px solid rgba(38, 106, 233, 0.3);
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
-  /* background-image: url("./public/img/ba.png");
-  background-size: 100% 100%; */
+  /* border: 2.1px solid #0fafeb; */
+  background: url("./public/img/bg.png") ;
+  background-image: url("./public/img/bn.png");
+  background-size: 100% 100%;
 }
 /* 修饰 */
 #rmonitor #functionBar::after,

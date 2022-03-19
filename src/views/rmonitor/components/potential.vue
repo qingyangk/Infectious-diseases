@@ -1290,7 +1290,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   color: #fff;
@@ -1412,8 +1412,8 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid rgba(38, 106, 233, 0.3);
-  background-color: rgba(40, 43, 57, 1);
+  border: 1px solid #0fafeb;
+  background-color: rgb(21 62 109);
   z-index: 11;
 }
 #emotional #popop .top {

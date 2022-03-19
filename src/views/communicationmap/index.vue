@@ -4,7 +4,7 @@
     <div class="exhibition">
       <ul>
         <li>
-          <span class="Tspan" style="background-color: #C2C459;" />
+          <!-- <span class="Tspan" style="background-color: #C2C459;" /> -->
           <p class="publis">确诊患者</p>
           <div class="numbers">
             {{ diagnosis }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
@@ -1755,7 +1755,8 @@ export default {
   z-index: 10;
 }
 #Communicationmap .exhibition li {
-  background-color: rgba(18, 18, 18, 0.4);
+  background: url("./public/img/ba.png")rgba(79, 133, 177, 0.3);
+  background-size: 100% 100%;
   height: 90px;
   margin: 5px 0;
   position: relative;
@@ -1802,7 +1803,7 @@ export default {
   left: 45px;
   top: 50%;
   transform: translate(0, -50%);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* border: 1.5px solid #0fafeb; */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bn.png") ;
   background-size: 100% 100%;
@@ -2235,13 +2236,13 @@ export default {
   transition: all 1s;
 }
 #Communicationmap #relationShip >>> .btns:hover {
-  background-color: rgba(40, 43, 57, 1);
+  background-color: rgb(21 62 109);
   color: rgba(255, 255, 255, 1);
   border-color: rgba(219, 219, 219, 0.8);
 }
 #Communicationmap #relationShip #addrelationship {
   position: absolute;
-  background: rgba(40, 43, 57, 1);
+  background: rgb(21 62 109);
   top: 0;
   left: 0;
   width: 100%;
@@ -2322,7 +2323,7 @@ export default {
   transition: all 1s;
 }
 #Communicationmap #relationShip #addrelationship table th >>> .el-button:hover {
-  background-color: rgba(40, 43, 57, 1);
+  background-color: rgb(21 62 109);
   color: rgba(255, 255, 255, 1);
   border-color: rgba(219, 219, 219, 0.8);
 }
@@ -2337,8 +2338,8 @@ export default {
   color: #fff;
   font-family: KuHei;
   font-size: 14px;
-  border-radius: 2px;
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border-radius: 1.5px;
+  /* border: 1.5px solid #0fafeb; */
 }
 /* 右侧部分-顶部 */
 #Communicationmap #right .pack {
@@ -2347,7 +2348,7 @@ export default {
   right: 5px;
   top: 5px;
   height: calc(40% - 5px);
-  /* border: 2px solid rgba(38, 106, 233, 0.3); */
+  /* border: 1.5px solid #0fafeb; */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bn.png");
   background-size: 100% 100%;
@@ -2359,7 +2360,7 @@ export default {
   width: calc(100% - 10px);
   right: 5px;
   top: calc(40% + 5px);
-  /* border: 2px solid rgba(38, 106, 233, 0.3); */
+  /* border: 1.5px solid #0fafeb; */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bn.png") ;
   background-size: 100% 100%;
@@ -2427,7 +2428,7 @@ export default {
   width: calc(100% - 10px);
   right: 5px;
   top: calc(40% + 80px);
-  /* border: 2px solid rgba(38, 106, 233, 0.3); */
+  /* border: 1.5px solid #0fafeb; */
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bn.png") ;
   background-size: 100% 100%;

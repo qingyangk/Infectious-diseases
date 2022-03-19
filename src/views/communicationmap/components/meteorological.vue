@@ -783,7 +783,7 @@ export default {
   border-radius: 2px;
   color: rgb(202, 202, 202);
   background-color: rgba(40, 43, 57, 0.65);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;
 }

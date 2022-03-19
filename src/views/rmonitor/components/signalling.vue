@@ -945,7 +945,7 @@ export default {
   color: rgb(202, 202, 202);
   /* background-color: rgba(40, 43, 57, 0.65); */
   background-color: rgba(18, 18, 18, 0.4);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;
 }
@@ -963,7 +963,7 @@ export default {
   font-family: KuHei;
   /* border: 1px solid rgba(25, 186, 139, 0.2);
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4); */
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   color: #fff;
 }
@@ -1106,7 +1106,7 @@ export default {
   height: 10%;
   bottom: 3px;
   font-family: KuHei;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
   z-index: 20;
   color: #fff;

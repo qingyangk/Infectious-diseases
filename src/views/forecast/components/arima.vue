@@ -1197,7 +1197,7 @@ export default {
   height: 45px;
   line-height: 45px;
   font-family: KuHei;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bg.png") rgba(19, 72, 172, 0.3);
   /* z-index: 20; */
 }
@@ -1227,7 +1227,7 @@ export default {
   height: 100%;
   left: 0;
   width: calc(40% - 2.5px);
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   background: url("../public/img/bn.png") ;
   background-size: 100% 100%;
   z-index: 20;
@@ -1244,7 +1244,7 @@ export default {
   height: 100%;
   left: 0;
   width: 33%;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   z-index: 20;
   background: url("../public/img/bn.png") ;
   background-size: 100% 100%;
@@ -1254,7 +1254,7 @@ export default {
   height: 100%;
   left: calc(33.5% - 2.5px);
   width: 33%;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   z-index: 20;
   background: url("../public/img/bn.png") ;
   background-size: 100% 100%;
@@ -1264,7 +1264,7 @@ export default {
   height: 100%;
   right: 5px;
   width: 33%;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   z-index: 20;
   background: url("../public/img/bn.png") ;
   background-size: 100% 100%;
@@ -1310,7 +1310,7 @@ export default {
   height: 240px;
   border-radius: 3px;
   background-color: rgba(18, 18, 18, 0.4);
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  border: 1px solid #0fafeb;
   color: #fff;
 }
 #sentiment #legend table {
@@ -1498,7 +1498,7 @@ export default {
   border-radius: 2px;
   color: rgb(202, 202, 202);
   background-color: rgba(40, 43, 57, 0.65);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;
 }

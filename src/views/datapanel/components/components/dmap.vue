@@ -152,7 +152,7 @@ export default {
             fontWeight: 'bold'
           },
           inRange: {
-            color: ['lightskyblue', 'yellow', 'orangered']
+            color: [ 'rgba(235, 235, 235,0.8)','#0cb5f0', '#ff7979']
           }
         },
         select: {

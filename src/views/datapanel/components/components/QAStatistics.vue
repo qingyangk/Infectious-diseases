@@ -52,7 +52,7 @@ export default {
       const that = this
       this.myChart = echarts.init(document.getElementById('QAStatistics'))
       const option = {
-        color: ['rgb(194, 196, 89)', 'rgb(253, 141, 0)', '#ff7979'],
+        color: ['rgb(60, 224, 211)', '#0030ff', '#ff7979'],
         title: {
           text: that.data.time + '-' + this.data.name + '-年龄统计',
           left: 'center',

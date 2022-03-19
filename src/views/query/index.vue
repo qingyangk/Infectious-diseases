@@ -1765,8 +1765,8 @@ export default {
   border-radius: 2px;
   color: rgb(202, 202, 202);
   /* background-color: rgba(40, 43, 57, 0.65); */
-  background-color: rgba(18, 18, 18, 0.4);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  background-color: rgba(79, 133, 177, 0.3);
+  border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;
 }
@@ -1783,8 +1783,8 @@ export default {
   transform: translate(-50%, -50%);
   width: 400px;
   height: 200px;
-  background-color: rgba(40, 43, 57, 1);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  background-color: rgb(21 62 109);
+  border: 1.5px solid #0fafeb;
   font-family: KuHei;
   color: rgb(202, 202, 202);
 }
@@ -1899,7 +1899,7 @@ export default {
   font-family: KuHei;
   font-size: 14px;
   border-radius: 2px;
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* border: 1.5px solid #0fafeb; */
 }
 #query .condition .top {
   position: absolute;
@@ -1907,7 +1907,7 @@ export default {
   left: 5px;
   top: 5px;
   height: calc(40% - 5px);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  /* border: 1.5px solid #0fafeb; */
   /* background: url("./public/img/bx.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bx.png") ;
   background-size: 100% 100%;
@@ -1946,7 +1946,7 @@ export default {
   z-index: 10;
   padding: 5px;
   background-color: rgba(40, 43, 57, 0.1);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   width: 300px;
   height: calc(100% - 10px);
   color: #fff;
@@ -1957,7 +1957,7 @@ export default {
 #query .chart .public {
   position: absolute;
   width: calc(100% - 10px);
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
   height: calc((100% / 3) - 6.67px);
@@ -2017,7 +2017,7 @@ export default {
   bottom: 5px;
   left: 310px;
   padding: 5px;
-  border: 2px solid rgba(38, 106, 233, 0.3);
+  border: 1.5px solid #0fafeb;
   color: #fff;
   transition: all 1s;
 }

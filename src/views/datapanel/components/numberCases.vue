@@ -135,7 +135,7 @@ export default {
           },
           splitLine: {
             lineStyle: {
-              color: 'rgba(204, 204, 204, 0.3)'
+              color: '#ff7979'
             }
           }
         },
@@ -173,7 +173,7 @@ export default {
           type: 'bar',
           showBackground: false,
           itemStyle: {
-            color: 'rgb(60, 224, 211)'
+            color: '#ff7979'
           },
           backgroundStyle: {
             color: 'rgba(180, 180, 180, 0.2)'

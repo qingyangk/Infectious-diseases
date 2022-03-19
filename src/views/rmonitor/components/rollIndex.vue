@@ -458,7 +458,7 @@ export default {
   width: 305px;
   height: calc(100% - 10px);
   z-index: 10;
-  border: 1px solid rgba(38, 106, 233, 0.3);
+  /* border: 1px solid #0fafeb; */
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
   background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
 }
@@ -479,7 +479,7 @@ export default {
   background-color: rgba(244, 172, 183, 0.2);
 }
 #rollindex .top .xl {
-  background-color: rgba(38, 106, 233, 0.3);
+  background-color: #0fafeb;
 }
 /* 头部 */
 #rollindex .top {
@@ -491,8 +491,8 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   padding-top: 5px;
-  /* background-image: url("../public/img/bk.png");
-  background-size: 100% 100%; */
+  background-image: url("../public/img/bn.png");
+  background-size: 100% 100%;
 }
 #rollindex .top li {
   height: 110px;
@@ -501,7 +501,7 @@ export default {
   height: 100px;
   margin-bottom: 10px;
   width: calc(100%);
-  border: 1px solid rgb(200, 200, 200, 0.6);
+  /* border: 1px solid rgb(200, 200, 200, 0.6); */
   position: relative;
   display: inline-block;
   border-style: dashed;
@@ -611,8 +611,8 @@ export default {
   right: -1px;
   height: 10px;
   width: 10px;
-  border-bottom: 2px solid #02a6b5;
-  border-right: 2px solid #02a6b5;
+  /* border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5; */
   transition: all 1.5s;
   z-index: 0;
 }
@@ -623,9 +623,9 @@ export default {
   left: -2px;
   height: 10px;
   width: 10px;
-  border-top: 2px solid #02a6b5;
+  /* border-top: 2px solid #02a6b5;
   border-left: 2px solid #02a6b5;
-  transition: all 1.5s;
+  transition: all 1.5s; */
   z-index: 0;
 }
 /* 弹窗 */
@@ -635,8 +635,8 @@ export default {
   width: 550px;
   height: 400px;
   z-index: 20;
-  border: 1px solid rgba(25, 186, 139, 0.2);
-  background-color: rgba(40, 43, 57, 1);
+  /* border: 1px solid rgba(25, 186, 139, 0.2); */
+  background-color: rgb(21 62 109);
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
