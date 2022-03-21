@@ -94,7 +94,7 @@ export default {
             showDataShadow: false,
             right: '94%'
           }],
-        color: ['rgb(194, 196, 89)', 'rgb(253, 141, 0)', '#ff7979'],
+        color: ['rgb(194, 196, 89)', 'rgb(83 183 244)', '#ff7979'],
         xAxis: {
           type: 'value',
           axisLine: {

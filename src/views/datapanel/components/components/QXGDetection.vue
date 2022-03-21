@@ -415,14 +415,14 @@ display: none;
 }
 #QXGDetection #top .public .cent .yang {
   position: relative;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ff7979;
 }
 #QXGDetection #top .public .cent .yang::before {
   position: absolute;
   content: '▶';
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: #ff7979;
   left: 15%;
   top: 50%;
   transform: translateY(calc(50% - 22px));
@@ -433,7 +433,7 @@ display: none;
   content: '◀';
   width: 20px;
   height: 20px;
-  color: #fff;
+  color: #ff7979;
   right: 15%;
   top: 50%;
   transform: translateY(calc(50% - 22px));

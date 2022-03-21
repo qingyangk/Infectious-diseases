@@ -2,8 +2,9 @@
   <div id="login" class="login-container">
     <div class="logintop">
       <!-- <div class="title">新冠疫情多尺度智能监测预警系统</div> -->
-      <div class="title">流行疾病大数据监测与智能分析系统</div>
-      <div class="titleEng">Epidemic Big Data Monitoring Intelligent Analysis system</div>
+      <div class="title">传染疾病精准防控与智能分析系统</div>
+      <!-- <div class="titleEng">Epidemic Big Data Monitoring Intelligent Analysis system</div> -->
+      <div class="titleEng">Precise prevention and control of infectious diseases and intelligent analysis system</div>
       <div class="titleButton" @click="login()">进 入</div>
     </div>
     <div class="loginbody">
