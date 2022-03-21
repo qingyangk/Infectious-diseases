@@ -37,7 +37,7 @@ export default {
         min: 0, // 最小值
         zoom: 0, // 层级-判断是否有九段线
         dataType: '诊断', // 查询类型 诊断、重症、死亡
-        time: 'ALL', // 时间
+        time: '', // 时间
         timec: 0 // 分年和分月 ALL为全部 0 4 7 substring(convert(varchar(30), time, 120), 1, *) x为传回数据库的*
       },
       // 省名 + 市名 + 县名 + 街道名
@@ -113,7 +113,7 @@ export default {
       const option = {
         // 标题
         title: {
-          text: that.data.time + '-' + that.data.name + '-' + that.data.type + '-' + that.data.dataType,
+          text: that.data.time  + that.data.name + '-' + that.data.type + '-' + that.data.dataType,
           left: 'center',
           padding: 10,
           textStyle: {

@@ -15,7 +15,7 @@ export default {
         name: '', // 地名
         table: '', // 数据库名称
         where: '', // 层级
-        time: 'ALL', // 时间
+        time: '', // 时间
         timec: 0 // 分年和分月 ALL为全部 0 4 7 substring(convert(varchar(30), time, 120), 1, *) x为传回数据库的*
       },
       name: [],
@@ -53,7 +53,7 @@ export default {
       this.myChart = echarts.init(document.getElementById('QXARegion'))
       const option = {
         title: {
-          text: that.data.time + '-' + this.data.name + '-行政区统计',
+          text: that.data.time  + this.data.name + '-行政区统计',
           left: 'center',
           padding: 10,
           textStyle: {

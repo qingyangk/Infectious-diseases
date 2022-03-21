@@ -16,7 +16,7 @@ export default {
         table: '', // 数据库名称
         where: '', // 层级
         degree: 0, // 程度
-        time: 'ALL', // 时间
+        time: '', // 时间
         timec: 0 // 分年和分月 ALL为全部 0 4 7 substring(convert(varchar(30), time, 120), 1, *) x为传回数据库的*
       },
       diagnosis: [0, 0, 0, 0],
@@ -56,9 +56,9 @@ export default {
       var that = this
       this.myChart = echarts.init(document.getElementById('QXQuarter'))
       const option = {
-        color: ['rgb(60, 224, 211)', 'rgb(253, 141, 0)', '#ff7979'],
+        color: ['#0cb5f0', 'rgb(253, 141, 0)', '#ff7979'],
         title: {
-          text: that.data.time + '-' + this.data.name + '-季节统计',
+          text: that.data.time  + this.data.name + '-季节统计',
           left: 'center',
           padding: 10,
           textStyle: {

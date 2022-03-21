@@ -14,7 +14,7 @@ export default {
       json: {
         name: '中国',
         where: 0,
-        time: 'ALL',
+        time: '',
         timec: '流行疾病', // 分年和分月 ALL为全部 0 4 7 substring(convert(varchar(30), time, 120), 1, *) x为传回数据库的*
         type: '流行疾病',
         detailed: 0 // 判断是否进行详细疾病展示
@@ -101,7 +101,7 @@ export default {
       const option = {
         // 标题
         title: {
-          text: that.json.time + '-' + that.json.name + '-' + that.json.type + '-' + '发病率',
+          text: that.json.time + that.json.name + '-' + that.json.type + '-' + '发病率',
           left: 'center',
           padding: 10,
           textStyle: {
@@ -170,7 +170,7 @@ export default {
           type: 'line',
           showBackground: true,
           itemStyle: {
-            color: 'rgba(253, 141, 0)'
+            color: '#ff7979'
           },
           backgroundStyle: {
             color: 'rgba(180, 180, 180, 0.2)'

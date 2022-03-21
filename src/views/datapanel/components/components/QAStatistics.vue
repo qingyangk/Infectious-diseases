@@ -15,7 +15,7 @@ export default {
         name: '', // 地名
         table: '', // 数据库名称
         where: '', // 层级
-        time: 'ALL', // 时间
+        time: '', // 时间
         timec: 0 // 分年和分月 ALL为全部 0 4 7 substring(convert(varchar(30), time, 120), 1, *) x为传回数据库的*
       },
       age: [],
@@ -52,9 +52,9 @@ export default {
       const that = this
       this.myChart = echarts.init(document.getElementById('QAStatistics'))
       const option = {
-        color: ['rgb(60, 224, 211)', '#0030ff', '#ff7979'],
+        color: ['#0cb5f0', '#0030ff', '#ff7979'],
         title: {
-          text: that.data.time + '-' + this.data.name + '-年龄统计',
+          text: that.data.time  + this.data.name + '-年龄统计',
           left: 'center',
           padding: 10,
           textStyle: {

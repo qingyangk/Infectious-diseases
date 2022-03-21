@@ -32,7 +32,7 @@ export default {
         type: '流行疾病', // 疾病名称
         dataType: '发病数', // 查询类型 发病数、死亡数、发病率、死亡率
         where: 0, // 范围层级
-        time: 'ALL', // 时间
+        time: '', // 时间
         timec: 0, // 分年和分月 ALL为全部 0 4 7 substring(convert(varchar(30), time, 120), 1, *) x为传回数据库的*
         max: 0, // 最大值
         min: 0, // 最小值
@@ -143,7 +143,7 @@ export default {
       const option = {
         // 标题
         title: {
-          text: that.data.time + '-' + that.data.name + '-' + that.data.type + '-' + that.data.dataType,
+          text: that.data.time  + that.data.name + '-' + that.data.type + '-' + that.data.dataType,
           left: 'center',
           padding: 10,
           textStyle: {
