@@ -16,8 +16,8 @@
             <p>
               <ul>
                 <li>{{ value.name }}</li>
-                <li><i :class="value.ico" /></li>
-                <li style="font-family: DIGIT;font-size: 25px;">{{ value.valux }}</li>
+                <!-- <li><i :class="value.ico" /></li> -->
+                <!-- <li style="font-family: DIGIT;font-size: 25px;">{{ value.valux }}</li> -->
               </ul>
             </p>
             <p :class="value.clasz">{{ value.value }}</p>
