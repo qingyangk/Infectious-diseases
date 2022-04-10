@@ -687,7 +687,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 90;
-  background-color: rgba(40, 43, 57, 0.65);
+  background-color: rgba(79, 133, 177, 0.3);
   top: 0;
 }
 #table >>> .elx-table.border--full .elx-body--column,

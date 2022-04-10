@@ -943,8 +943,8 @@ export default {
   cursor: pointer;
   border-radius: 2px;
   color: rgb(202, 202, 202);
-  /* background-color: rgba(40, 43, 57, 0.65); */
-  background-color: rgba(18, 18, 18, 0.4);
+  /* background-color: rgba(79, 133, 177, 0.3); */
+  background-color: rgba(79, 133, 177, 0.3);
   border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;
@@ -962,9 +962,9 @@ export default {
   line-height: 45px;
   font-family: KuHei;
   /* border: 1px solid rgba(25, 186, 139, 0.2);
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4); */
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3); */
   border: 1px solid #0fafeb;
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   color: #fff;
 }
 /* 标题 */
@@ -1107,7 +1107,7 @@ export default {
   bottom: 3px;
   font-family: KuHei;
   border: 1px solid #0fafeb;
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   z-index: 20;
   color: #fff;
   display: flex;

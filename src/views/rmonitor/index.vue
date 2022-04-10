@@ -1547,7 +1547,7 @@ export default {
   z-index: 10;
 }
 #rmonitor #type li {
-  /* background-color: rgba(18, 18, 18, 0.4); */
+  /* background-color: rgba(79, 133, 177, 0.3); */
   background-image: url("./public/img/ba.png");
   background-size: 100% 100%;
   height: 90px;
@@ -1745,7 +1745,7 @@ export default {
   font-family: KuHei;
   border: 1px solid #0fafeb;
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
 }
 #rmonitor #functionBar .fTime {
   position: absolute;

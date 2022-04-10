@@ -364,7 +364,7 @@ ul, p {
   top: 0px;
   right: 410px !important;
   /* background-color: rgba(40, 43, 57, 0.8); */
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgba(79, 133, 177, 0.3);
   border: 1.5px solid #0fafeb;
   color: #fff;
   font-family: KuHei;

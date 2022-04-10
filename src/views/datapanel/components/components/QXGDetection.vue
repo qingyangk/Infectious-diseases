@@ -319,7 +319,7 @@ display: none;
   height: calc(100% - 10px);
   bottom: 0;
   left: 0;
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgba(79, 133, 177, 0.3);
   background-image: url("../public/img/ba.png");
   background-size: 100% 100%;
   text-align: center;
@@ -503,7 +503,7 @@ display: none;
 }
 /* 下拉框全局样式 */
 #QXGDetection #botton >>> .el-select-dropdown {
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgba(79, 133, 177, 0.3);
   border: 1px solid rgba(180, 180, 180, 0.5);
   top: 30px !important;
 }

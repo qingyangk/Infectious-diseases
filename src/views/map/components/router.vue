@@ -511,7 +511,7 @@ export default {
   content: none;
 }
 #reiht .centers .Shang .public .right >>> .el-select-dropdown {
-  background-color: rgba(40, 43, 57, 0.65);
+  background-color: rgba(79, 133, 177, 0.3);
 }
 #reiht .centers .Shang .public .right >>> .el-select-dropdown__item {
   text-align: center;

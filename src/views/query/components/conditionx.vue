@@ -404,7 +404,7 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.8);
 }
 #conditionx ul .cpublic:nth-child(4) .right >>> .el-select-dropdown {
-  background-color: rgba(40, 43, 57, 0.65);
+  background-color: rgba(79, 133, 177, 0.3);
 }
 #conditionx ul .cpublic:nth-child(4) .right >>> .el-select-dropdown__wrap,
 #conditionx ul .cpublic:nth-child(4) .right >>> .el-scrollbar {

@@ -1764,7 +1764,7 @@ export default {
   cursor: pointer;
   border-radius: 2px;
   color: rgb(202, 202, 202);
-  /* background-color: rgba(40, 43, 57, 0.65); */
+  /* background-color: rgba(79, 133, 177, 0.3); */
   background-color: rgba(79, 133, 177, 0.3);
   border: 1.5px solid #0fafeb;
   transition: all 0.5s;
@@ -1959,7 +1959,7 @@ export default {
   width: calc(100% - 10px);
   border: 1.5px solid #0fafeb;
   /* background: url("./public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("./public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("./public/img/bg.png") rgba(79, 133, 177, 0.3);
   height: calc((100% / 3) - 6.67px);
 }
 #query .chart .public:nth-child(2) {
@@ -2013,7 +2013,7 @@ export default {
   position: absolute;
   width: calc(100% - 720px);
   height: 245px;
-  background-color: rgba(57, 40, 46, 0.65);
+  background-color: rgba(79, 133, 177, 0.3);
   bottom: 5px;
   left: 310px;
   padding: 5px;

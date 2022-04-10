@@ -37,7 +37,7 @@ export default {
     that.getJson()
     // 返回全部
     eventBus.$on('returnAll', returnAll => {
-      this.json.time = 'ALL'
+      this.json.time = ''
       this.json.timec = '流行疾病'
       this.json.type = '流行疾病'
       this.json.detailed = 0
@@ -61,7 +61,7 @@ export default {
     eventBus.$on('maptype', (maptype) => {
       this.end = 100
       that.json.type = maptype
-      that.json.time = 'ALL'
+      that.json.time = ''
       // 查询事件
       that.json.detailed = 1
       that.CAdestroy()
@@ -70,7 +70,7 @@ export default {
     eventBus.$on('maptypc', (maptypc) => {
       this.end = 100
       that.json.type = maptypc
-      that.json.time = 'ALL'
+      that.json.time = ''
       // 查询事件
       that.json.detailed = 1
       that.CAdestroy()

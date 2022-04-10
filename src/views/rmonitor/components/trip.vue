@@ -907,7 +907,7 @@ export default {
   line-height: 45px;
   font-family: KuHei;
   border: 1px solid #0fafeb;
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   /* z-index: 20; */
 }
 /* 标题 */

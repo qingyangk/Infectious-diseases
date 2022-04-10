@@ -160,7 +160,7 @@ export default {
   position: absolute;
   top: 5px;
   width: calc(100% - 10px);
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgba(79, 133, 177, 0.3);
 }
 #listDiseases >>> .el-tabs__nav {
   width: 100%;

@@ -192,7 +192,7 @@ export default {
           legendEnabled: false
         })
         that.shijian = new FeatureLayer({
-          url: 'http://114.98.239.36:6080/arcgis/rest/services/ShaanXiDisease/ShaanXiPts/MapServer',
+          url: 'http://114.98.239.36:6080/arcgis/rest/services/ShaanXiDisease/ShaanXiPts/MapServer  ',
           renderer: norrender,
           title: '陕西省手足口病患者',
           popupTemplate: popupTemplate

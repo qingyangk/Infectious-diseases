@@ -440,7 +440,7 @@ export default {
   top: 5px;
   height: calc(35% - 5px);
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(79, 133, 177, 0.3);
   background-size: 100% 100%;
 }
 .x {
@@ -558,7 +558,7 @@ export default {
   content: none;
 }
 #reiht .centers .Shang .public .right >>> .el-select-dropdown {
-  background-color: rgba(40, 43, 57, 0.65);
+  background-color: rgba(79, 133, 177, 0.3);
 }
 #reiht .centers .Shang .public .right >>> .el-select-dropdown__item {
   text-align: center;

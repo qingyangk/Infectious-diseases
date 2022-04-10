@@ -124,7 +124,7 @@ export default {
     // 返回全部
     eventBus.$on('returnAll', (returnAll) => {
       that.data.type = returnAll
-      that.data.time = 'ALL'
+      that.data.time = ''
       that.data.timec = 0
       // 加载时-给查询类型页面传疾病名称
       this.myChart.clear()

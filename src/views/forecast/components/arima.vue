@@ -1309,7 +1309,7 @@ export default {
   top: 0;
   height: 240px;
   border-radius: 3px;
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgba(79, 133, 177, 0.3);
   border: 1px solid #0fafeb;
   color: #fff;
 }
@@ -1497,7 +1497,7 @@ export default {
   cursor: pointer;
   border-radius: 2px;
   color: rgb(202, 202, 202);
-  background-color: rgba(40, 43, 57, 0.65);
+  background-color: rgba(79, 133, 177, 0.3);
   border: 1.5px solid #0fafeb;
   transition: all 0.5s;
   margin-bottom: 5px;

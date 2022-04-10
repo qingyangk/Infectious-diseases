@@ -1292,7 +1292,7 @@ export default {
   font-family: KuHei;
   border: 1px solid #0fafeb;
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   color: #fff;
 }
 #emotional #setup .fTime {
@@ -1599,7 +1599,7 @@ export default {
   bottom: 3px;
   font-family: KuHei;
   /* background: url("../public/img/bg.png") rgba(255, 255, 255, 0.1); */
-  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(79, 133, 177, 0.3);
   background-size: 100% 100%;
   z-index: 10;
 }
@@ -1611,7 +1611,7 @@ export default {
   bottom: calc(35% + 57px);
   height: 200px;
   border-radius: 3px;
-  background-color: rgba(18, 18, 18, 0.4);
+  background-color: rgba(79, 133, 177, 0.3);
   border: 1px solid rgba(175, 220, 233, 0.4);
   color: #fff;
 }

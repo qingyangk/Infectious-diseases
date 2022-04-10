@@ -6,14 +6,14 @@
     <div class="exhibition">
       <ul>
         <li>
-          <span class="Tspan" style="background-color: #C2C459;" />
+          <!-- <span class="Tspan" style="background-color: #C2C459;" /> -->
           <p class="publis">接种人数</p>
           <div class="numbers">
             {{ number }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);">人</span>
           </div>
         </li>
         <li>
-          <span class="Tspan" style="background-color: #b8f2e6;" />
+          <!-- <span class="Tspan" style="background-color: #b8f2e6;" /> -->
           <p class="publis">接种率</p>
           <div class="numbers">
             {{ numberLv }}<span style="font-size: 20px;font-family: 'KuHei';padding-left:5px;display: inline-block;vertical-align: top;color: rgb(180, 180, 180);" />
@@ -1403,6 +1403,8 @@ export default {
   margin: 0;
   padding: 0;
   list-style-type: none;
+  width: 100%;
+    height: 100%;
 }
 /* 展示 */
 #vaccines .exhibition {
@@ -1411,14 +1413,18 @@ export default {
   top: 5px;
   color: rgb(180, 180, 180);
   width: 220px;
-  height: auto;
+  height: 156px;
   text-align: center;
 }
 #vaccines .exhibition li {
-  background-color: rgba(18, 18, 18, 0.4);
-  height: 90px;
-  margin-bottom: 15px;
-  position: relative;
+  background-color: rgba(79, 133, 177, 0.3);
+  background: url("../public/img/ba.png");
+  background-size: 100%,100%;
+    background-position-y: 100%;
+    width: 72%;
+    height: 62%;
+    /* margin-bottom: 15px; */
+    position: relative;
 }
 #vaccines .exhibition li .Tspan {
   position: absolute;
@@ -1462,7 +1468,7 @@ export default {
   top: 5px;
   height: calc(40% - 5px);
   /* border: 2px solid rgba(25, 186, 139, 0.2); */
-  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(79, 133, 177, 0.3);
   background-size: 100% 100%;
 }
 /* 参数 */
@@ -1475,7 +1481,7 @@ export default {
   line-height: 45px;
   font-family: KuHei;
   border: 1px solid #0fafeb;
-  background: url("../public/img/bg.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bg.png") rgba(79, 133, 177, 0.3);
   color: #fff;
 }
 /* 标题 */
@@ -1622,7 +1628,7 @@ export default {
   left: 0;
   width: calc(100% - 405px);
   /* border: 1px solid #0fafeb; */
-  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(79, 133, 177, 0.3);
   background-size: 100% 100%;
   z-index: 20;
 }
@@ -1641,7 +1647,7 @@ export default {
   height: 100%;
   right: 0;
   width: 400px;
-  background: url("../public/img/bn.png") rgba(18, 18, 18, 0.4);
+  background: url("../public/img/bn.png") rgba(79, 133, 177, 0.3);
   background-size: 100% 100%;
   z-index: 20;
 }
