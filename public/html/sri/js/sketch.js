@@ -79,7 +79,7 @@ function setup() {
 
 function preload() {
   // load the original image
-  img = loadImage("http://localhost:9091/imgs/bg")
+  img = loadImage("http://124.221.111.73:9091/imgs/bg")
   createCanvas(720, 610);
 }
 
