@@ -64,7 +64,7 @@ export default {
 }
 /* 时间选择器 */
 .el-picker-panel {
-  background-color: rgba(40, 43, 57, 0.95) !important;
+  background-color: rgba(21, 62, 109, 0.9) !important;
   color: #fff !important;
 }
 .el-picker-panel .el-picker-panel__icon-btn,
@@ -81,10 +81,10 @@ export default {
 }
 .el-year-table td.disabled .cell,
 .el-month-table td.disabled .cell {
-  background-color: rgb(27, 29, 39) !important;
+  background-color: rgba(222, 222, 222,0.9) !important;
 }
 .el-picker-panel__footer {
-  background-color: rgb(27, 29, 39) !important;
+  background-color: rgba(222, 222, 222,0.9) !important;
   text-align: center;
   justify-content: center;
   align-items: center;

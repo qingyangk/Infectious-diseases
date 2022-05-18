@@ -4,35 +4,64 @@
     <div id="router">
       <ul>
         <li>
-          <el-tooltip class="item" effect="dark" content="标准差椭圆" placement="right-end">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="标准差椭圆"
+            placement="right-end"
+          >
             <el-link :underline="false" href="/#/spacetime/index">
               <span class="imgz"><icon-svg icon-class="icon-tuoyuanti" /></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
-          <el-tooltip class="item" effect="dark" content="冷热点分析" placement="right-end">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="冷热点分析"
+            placement="right-end"
+          >
             <el-link :underline="false" href="/#/spacetime/lengre">
               <span class="imgz"><icon-svg icon-class="icon-heatmap" /></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
-          <el-tooltip class="item" effect="dark" content="新兴时空热点分析" placement="right-end">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="新兴时空热点分析"
+            placement="right-end"
+          >
             <el-link :underline="false" href="/#/spacetime/xinxing">
-              <span class="imgz"><icon-svg icon-class="icon-shikong-kongjian" /></span>
+              <span class="imgz"
+                ><icon-svg icon-class="icon-shikong-kongjian"
+              /></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
-          <el-tooltip class="item" effect="dark" content="局部自相关" placement="right-end">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="局部自相关"
+            placement="right-end"
+          >
             <el-link :underline="false" href="/#/spacetime/jvbu">
-              <span class="imgz"><icon-svg icon-class="icon-zengliangkongjianzixiangguan" /></span>
+              <span class="imgz"
+                ><icon-svg icon-class="icon-zengliangkongjianzixiangguan"
+              /></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
-          <el-tooltip class="item" effect="dark" content="地理加权回归" placement="right-end">
+          <el-tooltip
+            class="item"
+            effect="dark"
+            content="地理加权回归"
+            placement="right-end"
+          >
             <el-link :underline="false" href="/#/spacetime/dili">
               <span class="imgz"><icon-svg icon-class="icon-earth" /></span>
             </el-link>
@@ -54,33 +83,64 @@
           <ul>
             <li class="public">
               <div class="left">
-                <span style="font-size: 13px;color: rgb(200, 200, 200);">开始时间：</span>
+                <span style="font-size: 13px; color: rgb(200, 200, 200)"
+                  >开始时间：</span
+                >
               </div>
               <div class="right">
-                <el-date-picker v-model="json.STime" :type="date" placeholder="选择开始日期" :picker-options="pickerOptions1" :editable="false" @change="SAT()" />
+                <el-date-picker
+                  v-model="json.STime"
+                  :type="date"
+                  placeholder="选择开始日期"
+                  :picker-options="pickerOptions1"
+                  :editable="false"
+                  @change="SAT()"
+                />
               </div>
             </li>
             <li class="public">
               <div class="left">
-                <span style="font-size: 13px;color: rgb(200, 200, 200);">结束时间：</span>
+                <span style="font-size: 13px; color: rgb(200, 200, 200)"
+                  >结束时间：</span
+                >
               </div>
               <div class="right">
-                <el-date-picker v-model="json.ETime" :type="date" placeholder="选择结束日期" :picker-options="pickerOptions2" :editable="false" @change="END()" />
+                <el-date-picker
+                  v-model="json.ETime"
+                  :type="date"
+                  placeholder="选择结束日期"
+                  :picker-options="pickerOptions2"
+                  :editable="false"
+                  @change="END()"
+                />
               </div>
             </li>
             <li class="public">
               <div class="left">
-                <span style="font-size: 13px;color: rgb(200, 200, 200);">城市尺度：</span>
+                <span style="font-size: 13px; color: rgb(200, 200, 200)"
+                  >城市尺度：</span
+                >
               </div>
               <div class="right">
-                <el-select v-model="json.space" placeholder="选择城市尺度" :popper-append-to-body="false">
-                  <el-option v-for="item in space" :key="item.value" :label="item.label" :value="item.value" />
+                <el-select
+                  v-model="json.space"
+                  placeholder="选择城市尺度"
+                  :popper-append-to-body="false"
+                >
+                  <el-option
+                    v-for="item in space"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  />
                 </el-select>
               </div>
             </li>
             <li class="public">
               <div class="left">
-                <span style="font-size: 13px;color: rgb(200, 200, 200);">患病类型：</span>
+                <span style="font-size: 13px; color: rgb(200, 200, 200)"
+                  >患病类型：</span
+                >
               </div>
               <div class="right">
                 <el-radio v-model="json.type" label="诊断">诊断</el-radio>
@@ -90,32 +150,62 @@
             </li>
             <li v-if="additional === 'index'" id="additional" class="public">
               <div class="left">
-                <span style="font-size: 13px;color: rgb(200, 200, 200);">椭圆大小：</span>
+                <span style="font-size: 13px; color: rgb(200, 200, 200)"
+                  >椭圆大小：</span
+                >
               </div>
               <div class="right">
-                <el-select v-model="json.ellipse" placeholder="选择椭圆大小" :popper-append-to-body="false">
-                  <el-option v-for="item in ellipse" :key="item.value" :label="item.label" :value="item.value" />
+                <el-select
+                  v-model="json.ellipse"
+                  placeholder="选择椭圆大小"
+                  :popper-append-to-body="false"
+                >
+                  <el-option
+                    v-for="item in ellipse"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  />
                 </el-select>
               </div>
             </li>
             <li v-if="additional === 'dili'" id="additional" class="public">
               <div class="left">
-                <span style="font-size: 13px;color: rgb(200, 200, 200);">影响因子：</span>
+                <span style="font-size: 13px; color: rgb(200, 200, 200)"
+                  >影响因子：</span
+                >
               </div>
               <div class="right">
-                <el-select v-model="json.influence" placeholder="选择影响因子" :popper-append-to-body="false">
-                  <el-option v-for="item in influence" :key="item.value" :label="item.label" :value="item.value" />
+                <el-select
+                  v-model="json.influence"
+                  placeholder="选择影响因子"
+                  :popper-append-to-body="false"
+                >
+                  <el-option
+                    v-for="item in influence"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  />
                 </el-select>
               </div>
             </li>
-            <li class="public" style="color: rgb(200, 200, 200);">
+            <li class="public" style="color: rgb(200, 200, 200)">
+              <div id="line1"></div>
               <span style="padding-bottom: 10px">
                 {{ name }}
               </span>
-              <span v-if="data.name !== '' && data.type !== '' && data.name !== '中国'">
+              <span
+                v-if="
+                  data.name !== '' && data.type !== '' && data.name !== '中国'
+                "
+              >
                 {{ data.name }} -- {{ data.type }}
               </span>
-              <p v-if="data.STime !== '' && data.ETime !== ''" style="margin: 5px 0;">
+              <p
+                v-if="data.STime !== '' && data.ETime !== ''"
+                style="margin: 5px 0"
+              >
                 时间：{{ data.STime }} 至 {{ data.ETime }}
               </p>
               <span v-if="json.space !== '' && json.type !== ''">
@@ -130,7 +220,10 @@
               </span>
             </li>
             <li class="public">
-              <p class="find" @click="btnSelect()"><i class="el-icon-search" />分析</p>
+              <div id="line2"></div>
+              <p class="find" @click="btnSelect()">
+                <i class="el-icon-search" />分析
+              </p>
             </li>
           </ul>
         </div>
@@ -138,248 +231,258 @@
     </div>
     <!-- 加载动画 -->
     <div id="bg">
-      <div id="xuan">
-        <span /><span /><span /><span />
-      </div>
+      <div id="xuan"><span /><span /><span /><span /></div>
     </div>
   </div>
 </template>
 <script>
-import store from '@/store'
-import { mapGetters, mapState } from 'vuex'
-import SelectRegion from './selectRegion'
-import ListDiseases from './listDiseases'
-import Transmission from './transmission'
-import evebtBum from '../public/js/EvebtBus.js' // 传值
+import store from "@/store";
+import { mapGetters, mapState } from "vuex";
+import SelectRegion from "./selectRegion";
+import ListDiseases from "./listDiseases";
+import Transmission from "./transmission";
+import evebtBum from "../public/js/EvebtBus.js"; // 传值
 
 export default {
-  name: 'Router',
+  name: "Router",
   components: {
     SelectRegion,
     ListDiseases,
-    Transmission
+    Transmission,
   },
   data() {
     return {
       json: {
-        STime: '',
-        ETime: '',
-        space: '市级',
-        type: '诊断',
-        ellipse: '小',
-        influence: '平均气温'
+        STime: "",
+        ETime: "",
+        space: "市级",
+        type: "诊断",
+        ellipse: "小",
+        influence: "平均气温",
       },
       data: {
-        name: '中国',
-        type: '',
-        STime: '',
-        ETime: ''
+        name: "中国",
+        type: "",
+        STime: "",
+        ETime: "",
       },
-      date: 'date', // 时间选择器类型
+      date: "date", // 时间选择器类型
       j: 0, // 右上角左右切换
       space: [
         {
-          value: '市级',
-          label: '市级'
+          value: "市级",
+          label: "市级",
         },
         {
-          value: '县级',
-          label: '县级'
+          value: "县级",
+          label: "县级",
         },
         {
-          value: '街道',
-          label: '街道'
-        }
+          value: "街道",
+          label: "街道",
+        },
       ],
       ellipse: [
         {
-          value: '小',
-          label: '小'
+          value: "小",
+          label: "小",
         },
         {
-          value: '中',
-          label: '中'
+          value: "中",
+          label: "中",
         },
         {
-          value: '大',
-          label: '大'
-        }
+          value: "大",
+          label: "大",
+        },
       ],
       influence: [
         {
-          value: '平均气温',
-          label: '平均气温'
-        }
+          value: "平均气温",
+          label: "平均气温",
+        },
       ],
       pickerOptions1: {
         disabledDate: (time) => {
-          if (this.json.ETime !== '') {
-            return time.getTime() > Date.now() || time.getTime() > this.json.ETime
+          if (this.json.ETime !== "") {
+            return (
+              time.getTime() > Date.now() || time.getTime() > this.json.ETime
+            );
           } else {
-            return time.getTime() > Date.now()
+            return time.getTime() > Date.now();
           }
-        }
+        },
       },
       pickerOptions2: {
         disabledDate: (time) => {
-          return time.getTime() < new Date(this.json.STime).getTime() || time.getTime() > Date.now()
-        }
+          return (
+            time.getTime() < new Date(this.json.STime).getTime() ||
+            time.getTime() > Date.now()
+          );
+        },
       },
-      additional: '',
-      name: ''
-    }
+      additional: "",
+      name: "",
+    };
   },
   computed: {
-    ...mapGetters([
-      'roles'
-    ]),
+    ...mapGetters(["roles"]),
     ...mapState({
-      spacetimedata: state => state.spacetimedata // 想获取到的值
-    })
+      spacetimedata: (state) => state.spacetimedata, // 想获取到的值
+    }),
   },
   created() {
-    var that = this
-    that.json.STime = that.spacetimedata.STime
-    that.data.STime = that.spacetimedata.STime
-    that.json.ETime = that.spacetimedata.ETime
-    that.data.ETime = that.spacetimedata.ETime
-    that.json.space = that.spacetimedata.space
-    that.json.type = that.spacetimedata.type
+    var that = this;
+    that.json.STime = that.spacetimedata.STime;
+    that.data.STime = that.spacetimedata.STime;
+    that.json.ETime = that.spacetimedata.ETime;
+    that.data.ETime = that.spacetimedata.ETime;
+    that.json.space = that.spacetimedata.space;
+    that.json.type = that.spacetimedata.type;
   },
   beforeDestroy() {
-    this.spacetimedata.space = this.json.space
-    this.spacetimedata.type = this.json.type
-    evebtBum.$off('json')
-    evebtBum.$off('typc')
-    evebtBum.$off('type')
+    this.spacetimedata.space = this.json.space;
+    this.spacetimedata.type = this.json.type;
+    evebtBum.$off("json");
+    evebtBum.$off("typc");
+    evebtBum.$off("type");
   },
   mounted() {
-    var that = this
-    setTimeout(function() {
-      evebtBum.$emit('space', that.spacetimedata.space)
-    }, 200)
-    this.jihuo()
-    evebtBum.$on('json', json => {
-      this.data.name = json.name
-    })
+    var that = this;
+    setTimeout(function () {
+      evebtBum.$emit("space", that.spacetimedata.space);
+    }, 200);
+    this.jihuo();
+    evebtBum.$on("json", (json) => {
+      this.data.name = json.name;
+    });
     // 疾病名称
-    evebtBum.$on('typc', typc => {
-      if (typc === '陕西手足口点') {
-        this.data.type = '手足口病'
+    evebtBum.$on("typc", (typc) => {
+      if (typc === "陕西手足口点") {
+        this.data.type = "手足口病";
       } else {
-        this.data.type = typc
+        this.data.type = typc;
       }
-    })
-    evebtBum.$on('type', type => {
-      if (type === '陕西手足口点') {
-        this.data.type = '手足口病'
+    });
+    evebtBum.$on("type", (type) => {
+      if (type === "陕西手足口点") {
+        this.data.type = "手足口病";
       } else {
-        this.data.type = type
+        this.data.type = type;
       }
-    })
-    evebtBum.$on('gai', e => {
+    });
+    evebtBum.$on("gai", (e) => {
       if (e === 0) {
-        document.getElementById('bg').style.display = 'block'
+        document.getElementById("bg").style.display = "block";
       } else {
-        document.getElementById('bg').style.display = 'none'
+        document.getElementById("bg").style.display = "none";
       }
-    })
+    });
   },
   methods: {
     async jihuo() {
       // 获得全部路由
-      var zu = []
-      var routers = await store.dispatch('permission/generateRoutes', this.roles)
-      var children = routers[5].children
+      var zu = [];
+      var routers = await store.dispatch(
+        "permission/generateRoutes",
+        this.roles
+      );
+      var children = routers[5].children;
       for (let i = 0; i < children.length; i++) {
-        zu.push(children[i].path)
+        zu.push(children[i].path);
       }
-      var path = this.$route.path
-      path = path.slice(path.lastIndexOf('/') + 1)
+      var path = this.$route.path;
+      path = path.slice(path.lastIndexOf("/") + 1);
       // 样式
-      var imgzs = document.querySelectorAll('.imgz')
+      var imgzs = document.querySelectorAll(".imgz");
       for (var i = 0; i < imgzs.length; i++) {
-        imgzs[i].classList.remove('xuan')
+        imgzs[i].classList.remove("xuan");
       }
-      imgzs[zu.indexOf(path)].className = 'svg-icon imgz xuan'
-      if (path === 'index' || path === 'dili') {
-        this.additional = path
-        var heights = document.querySelectorAll('.public')
+      imgzs[zu.indexOf(path)].className = "svg-icon imgz xuan";
+      if (path === "index" || path === "dili") {
+        this.additional = path;
+        var heights = document.querySelectorAll(".public");
         for (let i = 0; i < heights.length; i++) {
-          heights[i].style.height = 'calc(100% / 7 - 10px)'
+          heights[i].style.height = "calc(100% / 7 - 10px)";
         }
-        heights[0].style.top = '0'
-        heights[1].style.top = 'calc(100% / 7 * 1 - 10px)'
-        heights[2].style.top = 'calc(100% / 7 * 2 - 20px)'
-        heights[3].style.top = 'calc(100% / 7 * 3 - 30px)'
-        heights[4].style.top = 'calc(100% / 7 * 5 - 50px)'
-        heights[5].style.top = 'calc(100% / 7 * 6 + 10px)'
-        heights[4].style.height = 'calc(100% / 7 + 60px)'
-        heights[5].style.height = 'calc(100% / 7 - 10px)'
+        heights[0].style.top = "0";
+        heights[1].style.top = "calc(100% / 7 * 1 - 10px)";
+        heights[2].style.top = "calc(100% / 7 * 2 - 20px)";
+        heights[3].style.top = "calc(100% / 7 * 3 - 30px)";
+        heights[4].style.top = "calc(100% / 7 * 5 - 50px)";
+        heights[5].style.top = "calc(100% / 7 * 6 + 10px)";
+        heights[4].style.height = "calc(100% / 7 + 60px)";
+        heights[5].style.height = "calc(100% / 7 - 10px)";
       }
       // 判断时间类型
       if (zu.indexOf(path) === 0) {
-        this.date = 'year'
+        this.date = "year";
       } else {
-        this.date = 'date'
+        this.date = "date";
       }
       if (zu.indexOf(path) === 0) {
-        this.name = '标准椭圆差'
+        this.name = "标准椭圆差";
       } else if (zu.indexOf(path) === 1) {
-        this.name = '冷热点分析'
+        this.name = "冷热点分析";
       } else if (zu.indexOf(path) === 2) {
-        this.name = '新兴时空热点分析'
+        this.name = "新兴时空热点分析";
       } else if (zu.indexOf(path) === 3) {
-        this.name = '局部自相关'
+        this.name = "局部自相关";
       } else if (zu.indexOf(path) === 4) {
-        this.name = '地理加权回归'
+        this.name = "地理加权回归";
       }
     },
     huan(e) {
-      this.j = e
-      var s = document.getElementsByClassName('s')[0]
-      var x = document.getElementsByClassName('x')[0]
+      this.j = e;
+      var s = document.getElementsByClassName("s")[0];
+      var x = document.getElementsByClassName("x")[0];
       if (e === 1) {
-        s.style.display = 'none'
-        x.style.display = 'block'
+        s.style.display = "none";
+        x.style.display = "block";
       } else {
-        x.style.display = 'none'
-        s.style.display = 'block'
+        x.style.display = "none";
+        s.style.display = "block";
       }
     },
     // 制图
     btnSelect() {
-      var data = {}
-      data.timz = this.checkTime2(new Date(this.json.STime))
-      data.timx = this.checkTime2(new Date(this.json.ETime))
-      data.spac = this.json.space
-      data.type = this.json.type
-      data.influence = this.json.influence
-      data.ellipse = this.json.ellipse
-      evebtBum.$emit('data', data)
+      var data = {};
+      data.timz = this.checkTime2(new Date(this.json.STime));
+      data.timx = this.checkTime2(new Date(this.json.ETime));
+      data.spac = this.json.space;
+      data.type = this.json.type;
+      data.influence = this.json.influence;
+      data.ellipse = this.json.ellipse;
+      evebtBum.$emit("data", data);
     },
     SAT() {
-      this.data.STime = this.checkTime2(new Date(this.json.STime))
-      this.spacetimedata.STime = this.checkTime2(new Date(this.json.STime))
+      this.data.STime = this.checkTime2(new Date(this.json.STime));
+      this.spacetimedata.STime = this.checkTime2(new Date(this.json.STime));
     },
     END() {
-      this.data.ETime = this.checkTime2(new Date(this.json.ETime))
-      this.spacetimedata.ETime = this.checkTime2(new Date(this.json.ETime))
+      this.data.ETime = this.checkTime2(new Date(this.json.ETime));
+      this.spacetimedata.ETime = this.checkTime2(new Date(this.json.ETime));
     },
     // 时间处理
     checkTime(i) {
       if (i < 10) {
-        i = '0' + i
+        i = "0" + i;
       }
-      return i
+      return i;
     },
     // 时间处理2
     checkTime2(i) {
-      var that = this
-      return i.getFullYear() + '-' + that.checkTime(i.getMonth() + 1) + '-' + that.checkTime(i.getDate())
-    }
-  }
-}
+      var that = this;
+      return (
+        i.getFullYear() +
+        "-" +
+        that.checkTime(i.getMonth() + 1) +
+        "-" +
+        that.checkTime(i.getDate())
+      );
+    },
+  },
+};
 </script>
 <style scoped>
 @font-face {
@@ -505,6 +608,7 @@ export default {
   position: absolute;
   height: calc(100% / 6);
   width: 100%;
+  flex-wrap: nowrap;
 }
 #reiht .centers .Shang .public .left {
   position: absolute;
@@ -546,7 +650,12 @@ export default {
   margin: 0 5px;
   padding: 0;
 }
-#reiht .centers .Shang .public .right >>> .el-input__inner::-webkit-input-placeholder {
+#reiht
+  .centers
+  .Shang
+  .public
+  .right
+  >>> .el-input__inner::-webkit-input-placeholder {
   text-align: center;
   font-family: KuHei;
   color: #fff;
@@ -608,16 +717,42 @@ export default {
   left: 54.2%;
   top: 53.3%;
 }
-#reiht .centers .Shang .public:nth-child(4) >>> .el-radio__input.is-checked+.el-radio__label {
+#reiht
+  .centers
+  .Shang
+  .public:nth-child(4)
+  >>> .el-radio__input.is-checked
+  + .el-radio__label {
   color: #ff7979;
 }
-#reiht .centers .Shang .public:nth-child(4) >>> .el-radio__input.is-checked .el-radio__inner {
+#reiht
+  .centers
+  .Shang
+  .public:nth-child(4)
+  >>> .el-radio__input.is-checked
+  .el-radio__inner {
   border-color: #ff7979;
   background: #ff7979;
 }
-#reiht .centers .Shang .public:nth-last-child(2) {
-  border-top: 2px dashed rgba(219, 219, 219, 0.555);
-  border-bottom: 2px dashed rgba(219, 219, 219, 0.555);
+#line1::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 10%;
+  right: 0;
+  height: 2px;
+  width: 96%;
+  background: rgba(219, 219, 219, 0.555);
+}
+#line2::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 1px;
+  right: 0;
+  height: 2px;
+  width: 96%;
+  background: rgba(219, 219, 219, 0.555);
 }
 #reiht .centers .Shang .public:nth-last-child(2) {
   display: flex;
@@ -733,7 +868,7 @@ export default {
   100% {
     -webkit-transform: rotate(60deg);
     transform: rotate(60deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 @-webkit-keyframes square3 {
@@ -747,7 +882,7 @@ export default {
   }
   100% {
     -webkit-transform: rotate(60deg);
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 /** END of xuan */

@@ -94,10 +94,10 @@ export default {
           align: 'auto',
           textStyle: {
             color: '#ffffff',
-            fontSize: 10
+            fontSize: 13
           },
-          itemWidth: 18,
-          itemGap: 6,
+          itemWidth: 24,
+          itemGap: 14,
           itemHeight: 12
         },
         xAxis: {
