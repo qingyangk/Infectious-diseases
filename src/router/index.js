@@ -101,60 +101,60 @@ export const asyncRoutes = [
   },
 
   // 非急性-城市监测
-  // {
-  //   path: '/rmonitor',
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: 'index',
-  //       name: '城市监测',
-  //       component: () => import('@/views/rmonitor/index'),
-  //       meta: { title: '城市监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     },
-  //     {
-  //       path: 'potential',
-  //       name: '健康打卡',
-  //       component: () => import('@/views/rmonitor/components/potential'),
-  //       meta: { title: '健康打卡', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     },
-  //     {
-  //       path: 'signalling',
-  //       name: '信令监测',
-  //       component: () => import('@/views/rmonitor/components/signalling'),
-  //       meta: { title: '信令监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     },
-  //     {
-  //       path: 'pass',
-  //       name: '关口监测',
-  //       component: () => import('@/views/rmonitor/components/pass'),
-  //       meta: { title: '关口监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     },
-  //     {
-  //       path: 'trip',
-  //       name: '行程访问',
-  //       component: () => import('@/views/rmonitor/components/trip'),
-  //       meta: { title: '行程访问', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     },
-  //     {
-  //       path: 'meteorological',
-  //       name: '气象监测',
-  //       component: () => import('@/views/rmonitor/components/meteorological'),
-  //       meta: { title: '气象监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     },
-  //     {
-  //       path: 'vaccines',
-  //       name: '疫苗监测',
-  //       component: () => import('@/views/rmonitor/components/vaccines'),
-  //       meta: { title: '疫苗监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     }
-  //     // {
-  //     //   path: 'mosquito',
-  //     //   name: '虫媒监测',
-  //     //   component: () => import('@/views/rmonitor/components/mosquito'),
-  //     //   meta: { title: '虫媒监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
-  //     // }
-  //   ]
-  // },
+  {
+    path: '/rmonitor',
+    component: Layout,
+    children: [
+      {
+        path: 'index',
+        name: '城市监测',
+        component: () => import('@/views/rmonitor/index'),
+        meta: { title: '城市监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      },
+      {
+        path: 'potential',
+        name: '健康打卡',
+        component: () => import('@/views/rmonitor/components/potential'),
+        meta: { title: '健康打卡', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      },
+      {
+        path: 'signalling',
+        name: '信令监测',
+        component: () => import('@/views/rmonitor/components/signalling'),
+        meta: { title: '信令监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      },
+      {
+        path: 'pass',
+        name: '关口监测',
+        component: () => import('@/views/rmonitor/components/pass'),
+        meta: { title: '关口监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      },
+      {
+        path: 'trip',
+        name: '行程访问',
+        component: () => import('@/views/rmonitor/components/trip'),
+        meta: { title: '行程访问', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      },
+      {
+        path: 'meteorological',
+        name: '气象监测',
+        component: () => import('@/views/rmonitor/components/meteorological'),
+        meta: { title: '气象监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      },
+      {
+        path: 'vaccines',
+        name: '疫苗监测',
+        component: () => import('@/views/rmonitor/components/vaccines'),
+        meta: { title: '疫苗监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      }
+      // {
+      //   path: 'mosquito',
+      //   name: '虫媒监测',
+      //   component: () => import('@/views/rmonitor/components/mosquito'),
+      //   meta: { title: '虫媒监测', icon: 'el-icon-delete-solid', roles: ['virus'] }
+      // }
+    ]
+  },
 
   // 非急性-专题地图
   {

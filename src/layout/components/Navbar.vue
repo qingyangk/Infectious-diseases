@@ -12,14 +12,13 @@
           <div class="lefts">
             <el-link class="harf activation" type="primary" :underline="false" href="/#/datapanel"><icon-svg icon-class="icon-shishijiance" class="img" /> 数据面板</el-link>
             <el-link class="harf" type="primary" :underline="false" href="/#/query/index"><icon-svg icon-class="icon-chaxun" class="img" /> 查询统计</el-link>
-            <el-link class="harf" type="primary" :underline="false" href="/#/rmonitor/index"><icon-svg icon-class="icon-ziyuan143" class="img" /> 城市监测</el-link>
+            <el-link class="harf" type="primary" :underline="false" href="/#/datamanag/index"><icon-svg icon-class="icon-ziyuan143" class="img" /> 数据管理</el-link>
             <el-link class="harf" type="primary" :underline="false" href="/#/map/index"><icon-svg icon-class="icon-iconditubianji" class="img" /> 专题地图</el-link>
           </div>
         </div>
       </el-col>
       <el-col :span="8">
         <div class="contents">
-          <!-- <p>疾病流行多维可视化引擎系统</p> -->
           <p>传染疾病精准防控与智能分析系统</p>
         </div>
       </el-col>
@@ -169,7 +168,7 @@ export default {
       for (var j = 0; j < harf.length; j++) {
         harf[j].classList.remove('activation')
       }
-      if (this.index < 8) {
+      if (this.index < 9) {
         harf[this.index].className = harf[this.index].className + ' ' + 'activation'
       }
     }
