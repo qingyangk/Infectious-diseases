@@ -6,56 +6,64 @@
         <li>
           <el-tooltip class="item" effect="dark" content="填色图" placement="right-end">
             <el-link :underline="false" href="/#/map/index">
-              <span class="imgz"><icon-svg icon-class="icon-bg-colors" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-bg-colors" />
+              <span class="font1">填色</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="热力图" placement="right-end">
-            <el-link :underline="false" href="/#/map/reli">
-              <span class="imgz"><icon-svg icon-class="icon-relitu2" /></span>
+            <el-link  :underline="false" href="/#/map/reli">
+              <span class="imgz"><icon-svg icon-class="icon-relitu2" />
+              <span class="font1">热力</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="荧光图" placement="right-end">
             <el-link :underline="false" href="/#/map/yingguang">
-              <span class="imgz"><icon-svg icon-class="icon-guangzhao" style="font-size: 35px" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-guangzhao" style="font-size: 35px" />
+              <span class="font1">荧光</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="聚合图" placement="right-end">
-            <el-link :underline="false" href="/#/map/jvhe">
-              <span class="imgz"><icon-svg icon-class="icon-combine" /></span>
+            <el-link  :underline="false" href="/#/map/jvhe">
+              <span class="imgz"><icon-svg icon-class="icon-combine" />
+              <span class="font1">聚合</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="分类图" placement="right-end">
             <el-link :underline="false" href="/#/map/fenglei">
-              <span class="imgz"><icon-svg icon-class="icon-sort" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-sort" />
+              <span class="font1">分类</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="三维图" placement="right-end">
             <el-link :underline="false" href="/#/map/sanwei">
-              <span class="imgz"><icon-svg icon-class="icon-sanweimianzhuanmoxing" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-sanweimianzhuanmoxing" />
+              <span class="font1">三维</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="密度图" placement="right-end">
             <el-link :underline="false" href="/#/map/midu">
-              <span class="imgz"><icon-svg icon-class="icon-dianmidu1" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-dianmidu1" />
+              <span class="font1">密度</span></span>
             </el-link>
           </el-tooltip>
         </li>
         <li>
           <el-tooltip class="item" effect="dark" content="时间图" placement="right-end">
             <el-link :underline="false" href="/#/map/shijian">
-              <span class="imgz"><icon-svg icon-class="icon-shijian" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-shijian" />
+              <span class="font1">时间</span></span>
             </el-link>
           </el-tooltip>
         </li>
@@ -364,9 +372,10 @@ export default {
   transform: translate(-50%, calc(-50%));
 }
 #router ul li {
-  margin: 30px 0;
+  margin: 16px 0;
 }
 #router ul li .imgz {
+  line-height: 1px;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.9);
   transition: all 0.5s;
@@ -697,6 +706,9 @@ export default {
     -webkit-transform: rotate(60deg);
     opacity: .5;
   }
+}
+.font1 {
+  font-size: 7px;
 }
 /** END of xuan */
 </style>

@@ -11,7 +11,8 @@
             placement="right-end"
           >
             <el-link :underline="false" href="/#/spacetime/index">
-              <span class="imgz"><icon-svg icon-class="icon-tuoyuanti" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-tuoyuanti" />
+              <span class="font1">标准</span></span>
             </el-link>
           </el-tooltip>
         </li>
@@ -23,7 +24,8 @@
             placement="right-end"
           >
             <el-link :underline="false" href="/#/spacetime/lengre">
-              <span class="imgz"><icon-svg icon-class="icon-heatmap" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-heatmap" />
+              <span class="font1">冷热</span></span>
             </el-link>
           </el-tooltip>
         </li>
@@ -36,8 +38,8 @@
           >
             <el-link :underline="false" href="/#/spacetime/xinxing">
               <span class="imgz"
-                ><icon-svg icon-class="icon-shikong-kongjian"
-              /></span>
+                ><icon-svg icon-class="icon-shikong-kongjian"/>
+                <span class="font1">新兴</span></span>
             </el-link>
           </el-tooltip>
         </li>
@@ -50,8 +52,8 @@
           >
             <el-link :underline="false" href="/#/spacetime/jvbu">
               <span class="imgz"
-                ><icon-svg icon-class="icon-zengliangkongjianzixiangguan"
-              /></span>
+                ><icon-svg icon-class="icon-zengliangkongjianzixiangguan"/>
+                <span class="font1">相关</span></span>
             </el-link>
           </el-tooltip>
         </li>
@@ -63,7 +65,8 @@
             placement="right-end"
           >
             <el-link :underline="false" href="/#/spacetime/dili">
-              <span class="imgz"><icon-svg icon-class="icon-earth" /></span>
+              <span class="imgz"><icon-svg icon-class="icon-earth" />
+              <span class="font1">加权</span></span>
             </el-link>
           </el-tooltip>
         </li>
@@ -516,6 +519,7 @@ export default {
   margin: 30px 0;
 }
 #router ul li .imgz {
+  line-height: 1px;
   font-size: 25px;
   color: rgba(255, 255, 255, 0.9);
   transition: all 0.5s;
@@ -884,6 +888,9 @@ export default {
     -webkit-transform: rotate(60deg);
     opacity: 0.5;
   }
+}
+.font1 {
+  font-size: 7px;
 }
 /** END of xuan */
 </style>
