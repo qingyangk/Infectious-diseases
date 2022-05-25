@@ -186,13 +186,12 @@ export default {
       }
       // 当前页面路由
       var path = this.$route.path;
-      console.log(path);
       if (path === "/datapanel") {
         path = path.substr(1, path.length - 1);
       } else {
         path = path.slice(1, path.lastIndexOf("/"));
       }
-      if (path === "/datamanag/index") {
+      if (path.includes("datamanag") ) {
         this.index = 2;
       } else {
         this.index = that.route.indexOf(path);
