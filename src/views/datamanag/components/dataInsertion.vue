@@ -48,7 +48,10 @@
           <el-col :span="2">
             <el-button type="primary" size="mini" :icon="icon" @click="clear()">取消选择</el-button>
           </el-col>
-          <el-col :span="16">
+          <el-col :span="2">
+            <el-button type="default" size="mini" icon="el-icon-document-copy">保存数据</el-button>
+          </el-col>
+          <el-col :span="13">
             <div>123</div>
           </el-col>
           <el-col :span="4">
@@ -484,7 +487,6 @@ export default {
         // that.$refs.table.reloadData(this.tableData)
         // 加载至地图
         that.$refs.join.$el.click()
-        console.log(this.tableData)
         // 加载至数据库
         // setTimeout(function() {
         //   that.$refs.editor.$el.click()
@@ -578,7 +580,8 @@ export default {
             }
           }
         }
-        var url = 'http://1.117.71.181:6080/arcgis/rest/services/cs/cspts/FeatureServer/0'
+        // var url = 'http://1.117.71.181:6080/arcgis/rest/services/cs/cspts/FeatureServer/0'
+        var url = 'http://114.98.239.36:6080/arcgis/rest/services/ShaanXiDisease/lk/MapServer'
         var WH_Water = new FeatureLayer({
           url: url,
           renderer: norrender,
@@ -817,5 +820,9 @@ export default {
 }
 .adddate .elx-cell--edit-icon {
   display: none;
+}
+.el-button--default {
+  background: #8b91e3;
+  color: #fff;
 }
 </style>
