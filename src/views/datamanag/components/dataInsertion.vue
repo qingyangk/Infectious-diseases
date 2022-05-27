@@ -49,7 +49,7 @@
             <el-button type="primary" size="mini" :icon="icon" @click="clear()">取消选择</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="default" size="mini" icon="el-icon-document-copy">保存数据</el-button>
+            <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel()">保存数据</el-button>
           </el-col>
           <el-col :span="13">
             <div>123</div>
@@ -310,6 +310,7 @@
 import { loadModules } from 'esri-loader'
 import XLSX from 'xlsx'
 
+
 export default {
   name: 'DataInsertion',
   props: {
@@ -339,7 +340,8 @@ export default {
         { value: '女', label: '女' }
       ],
       // 移动
-      canMove: false
+      canMove: false,
+      alldata:[]
     }
   },
   watch: {
@@ -363,6 +365,13 @@ export default {
     this._Init()
   },
   methods: {
+    saveExcel(data){
+      var that = this
+      that.$store.dispatch('datamang/upTable',data).then((dataz) => {
+        console.log(dataz)
+      }).catch(() => {
+      })
+    },
     // 移动
     moveo(event) {
       var that = this
@@ -483,6 +492,7 @@ export default {
         const exl = XLSX.utils.sheet_to_json(workbook.Sheets[exlname]) // 生成json表格内容
         // 将 JSON 数据挂到 data 里
         this.tableData = exl
+        this.saveExcel(this.tableData);//将数据传入至后端保存
         // this.tableData = this.tableData.slice((this.currentPage - 1) * this.pagesize, this.currentPage * this.pagesize)
         // that.$refs.table.reloadData(this.tableData)
         // 加载至地图

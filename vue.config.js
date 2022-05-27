@@ -46,7 +46,8 @@ module.exports = {
     headers: { 'Access-Control-Allow-Origin': '*' },
     proxy: {
       [process.env.VUE_APP_BASE_API]: {
-        target: 'http://124.221.111.73:9091', // 这里的端口是后端端口1.15.241.95:9091
+        // target: 'http://124.221.111.73:9091', // 这里的端口是后端端口1.15.241.95:9091
+        target: 'http://localhost:9091',
         // 允许跨域
         changeOrigin: true,
         pathRewrite: {

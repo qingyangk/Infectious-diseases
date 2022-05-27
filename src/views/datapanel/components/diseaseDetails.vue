@@ -67,7 +67,7 @@ export default {
     // 加载数据
     get() {
       var that = this
-      that.$store.dispatch('ndatapanel/QDiseaseJson').then((datas) => {
+      that.$store.commit('ndatapanel/QDiseaseJson').then((datas) => {
         that.acute = []
         that.normal = []
         for (var i = 0; i < datas.length; i++) {
