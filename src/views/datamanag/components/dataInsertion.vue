@@ -43,15 +43,21 @@
       <div class="tool">
         <el-row :gutter="5">
           <el-col :span="2">
+            <el-button type="primary" size="mini" :icon="icon" @click="httpRequest()">添加数据</el-button>
+          </el-col>
+          <el-col :span="2">
             <el-button type="success" size="mini" icon="el-icon-refresh">重置表单</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="primary" size="mini" :icon="icon" @click="clear()">取消选择</el-button>
+            <el-button type="primary" size="mini" :icon="icon">取消选择</el-button>
           </el-col>
           <el-col :span="2">
             <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel()">保存数据</el-button>
           </el-col>
-          <el-col :span="13">
+          <el-col :span="2">
+            <el-button type="primary" size="mini" :icon="icon">下载模板</el-button>
+          </el-col>
+          <el-col :span="8">
             <div>123</div>
           </el-col>
           <el-col :span="4">
@@ -366,9 +372,12 @@ export default {
   },
   methods: {
     saveExcel(data){
+      console.log(typeof data)
       var that = this
-      that.$store.dispatch('datamang/upTable',data).then((dataz) => {
-        console.log(dataz)
+      var json = JSON.stringify(data);
+      console.log(json)
+      that.$store.dispatch('ncity/upTable',json).then((dataz) => {
+        // console.log(dataz)
       }).catch(() => {
       })
     },
@@ -493,14 +502,8 @@ export default {
         // 将 JSON 数据挂到 data 里
         this.tableData = exl
         this.saveExcel(this.tableData);//将数据传入至后端保存
-        // this.tableData = this.tableData.slice((this.currentPage - 1) * this.pagesize, this.currentPage * this.pagesize)
-        // that.$refs.table.reloadData(this.tableData)
         // 加载至地图
         that.$refs.join.$el.click()
-        // 加载至数据库
-        // setTimeout(function() {
-        //   that.$refs.editor.$el.click()
-        // }, 10000)
       }
       fileReader.readAsBinaryString(file)
     },

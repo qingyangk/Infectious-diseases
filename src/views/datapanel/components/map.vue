@@ -432,7 +432,7 @@ export default {
 #maps .hierarchy {
   position: absolute;
   bottom: 10px;
-  left: 20px;
+  left: 10px;
   z-index: 10;
 }
 #maps .hierarchy li {

@@ -1,6 +1,6 @@
 import { QPCondition, QHCondition, QCBroadcasting, QQuery, QQuarantine, QTrajectory,
   RQuarters, NOVaccinations, QTPopulation, QTVaccinations, QNOHVaccinations, QVType, QCVRate, QCStroke,
-  ClockIn, CClockIn, CHistory, GUser } from '@/api/ncity'
+  ClockIn, CClockIn, CHistory, GUser,upTable } from '@/api/ncity'
 
 const getDefaultState = () => {
   return {
@@ -215,7 +215,18 @@ const actions = {
         reject(error)
       })
     })
-  }
+  },
+  // 保存表格数据
+  upTable({ commit }, data) {
+    return new Promise((resolve, reject) => {
+        upTable(data).then(response => {
+            // const { dates } = response
+            resolve(response.dates)
+        }).catch(error => {
+            reject(error)
+        })
+    })
+  },
 }
 
 export default {

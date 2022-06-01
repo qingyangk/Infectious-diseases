@@ -10,6 +10,7 @@ import permission from './modules/permission'
 import city from './modules/city'
 import ndatapanel from './modules/ndatapanel' // 新首页
 import ncity from './modules/ncity' // 新城市管理
+import datamang from './modules/datamang' // 新城市管理
 import communication from './modules/communication' // 新传播调查
 import sentiment from './modules/sentiment' // 舆情分析
 import mapdata from './modules/mapdata' // 专题地图全局
@@ -31,7 +32,8 @@ const store = new Vuex.Store({
     communication,
     sentiment,
     mapdata,
-    spacetimedata
+    spacetimedata,
+    datamang
   },
   getters
 })

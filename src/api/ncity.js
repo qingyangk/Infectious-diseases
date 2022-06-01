@@ -165,3 +165,12 @@ export function GUser(data) {
     params: { 'where': data.where, 'name': data.name, 'value': data.value }
   })
 }
+
+// 保存表格数据
+export function upTable(data1) {
+  return request({
+    url: '/data/upTable',
+    method: 'post',
+    data: JSON.parse(data1)
+  })
+}

@@ -1,4 +1,4 @@
-import { upTable } from '@/api/data'
+import { upTable } from '@/api/datamang'
 
 
 const getDefaultState = () => {
