@@ -7,26 +7,6 @@
       <div id="editorDiv" />
       <div id="lengthDiv" />
     </div>
-    <!-- 小工具 -->
-    <div class="gadget">
-      <ul>
-        <el-tooltip class="item" effect="light" content="放大" placement="right">
-          <li>
-            <i class="el-icon-share" />
-          </li>
-        </el-tooltip>
-        <el-tooltip class="item" effect="light" content="缩小" placement="right">
-          <li>
-            <i class="el-icon-share" />
-          </li>
-        </el-tooltip>
-        <el-tooltip class="item" effect="light" content="Home" placement="right">
-          <li>
-            <i class="el-icon-share" />
-          </li>
-        </el-tooltip>
-      </ul>
-    </div>
     <!-- 加载Excel+地图加点+插入数据库 -->
     <div id="hezi">
       <div class="upload">
@@ -52,10 +32,10 @@
             <el-button type="primary" size="mini" :icon="icon">取消选择</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel()">保存数据</el-button>
+            <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel">保存数据</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="primary" size="mini" :icon="icon">下载模板</el-button>
+            <el-button type="primary" size="mini" :icon="icon" @click="download">下载模板</el-button>
           </el-col>
           <el-col :span="8">
             <div>123</div>
@@ -315,6 +295,7 @@
 <script>
 import { loadModules } from 'esri-loader'
 import XLSX from 'xlsx'
+import axios from 'axios'
 
 
 export default {
@@ -381,6 +362,21 @@ export default {
       }).catch(() => {
       })
     },
+    download () {          
+    axios.get("file/sample.xls", {   //静态资源文件夹public            
+        responseType: 'blob',          
+    }).then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));            
+        const link = document.createElement('a');            
+        let fname = '示例表.xls';            
+        link.href = url;            
+        link.setAttribute('download', fname);            
+        document.body.appendChild(link);            
+        link.click();          
+    }).catch(error => {            
+        console.log('error:'+JSON.stringify(error))          
+    });        
+},
     // 移动
     moveo(event) {
       var that = this
