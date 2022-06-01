@@ -26,7 +26,7 @@
         </el-upload>
           </el-col>
           <el-col :span="2">
-            <el-button type="success" size="mini" icon="el-icon-refresh">重置表单</el-button>
+            <el-button type="success" size="mini" icon="el-icon-refresh" @click="clear()">取消选择</el-button>
           </el-col>
           <el-col :span="2">
             <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel">保存数据</el-button>
@@ -293,7 +293,7 @@
 import { loadModules } from 'esri-loader'
 import XLSX from 'xlsx'
 import axios from 'axios'
-
+import { Message } from "element-ui";
 
 export default {
   name: 'DataInsertion',
@@ -349,13 +349,18 @@ export default {
     this._Init()
   },
   methods: {
-    saveExcel(data){
-      console.log(typeof data)
+    saveExcel(){
       var that = this
-      var json = JSON.stringify(data);
+      var json = JSON.stringify(this.tableData);
       console.log(json)
       that.$store.dispatch('ncity/upTable',json).then((dataz) => {
-        // console.log(dataz)
+        console.log(dataz.length);
+        Message({
+          showClose: true,
+          message: dataz.msg.toString(),
+          type: 'success',
+          duration: 3 * 1000,
+        });
       }).catch(() => {
       })
     },
@@ -494,7 +499,7 @@ export default {
         const exl = XLSX.utils.sheet_to_json(workbook.Sheets[exlname]) // 生成json表格内容
         // 将 JSON 数据挂到 data 里
         this.tableData = exl
-        this.saveExcel(this.tableData);//将数据传入至后端保存
+        // this.saveExcel();//将数据传入至后端保存
         // 加载至地图
         that.$refs.join.$el.click()
       }
