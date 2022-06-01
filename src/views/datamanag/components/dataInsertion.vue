@@ -30,9 +30,7 @@
     <!-- 加载Excel+地图加点+插入数据库 -->
     <div id="hezi">
       <div class="upload">
-        <el-upload action="" :multiple="false" :show-file-list="false" accept="csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" :http-request="httpRequest">
-          <el-button ref="upload" size="mini" type="primary">上传文件</el-button>
-        </el-upload>
+
       </div>
       <el-button id="join" ref="join" @click="xian()">加点</el-button>
       <el-button id="editor" ref="editor">插入</el-button>
@@ -43,7 +41,9 @@
       <div class="tool">
         <el-row :gutter="5">
           <el-col :span="2">
-            <el-button type="primary" size="mini" :icon="icon" @click="httpRequest()">添加数据</el-button>
+            <el-upload action="" :multiple="false" :show-file-list="false" accept="csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" :http-request="httpRequest">
+          <el-button ref="upload" size="mini" type="primary">上传文件</el-button>
+        </el-upload>
           </el-col>
           <el-col :span="2">
             <el-button type="success" size="mini" icon="el-icon-refresh">重置表单</el-button>

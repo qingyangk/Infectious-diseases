@@ -1,32 +1,9 @@
 <template>
   <div class="datamanag">
-    <!-- 盒子 -->
-    <div v-if="ceng == 0">
-      0
-    </div>
-    <div v-if="ceng == 1">
-      1
-    </div>
     <div v-if="ceng == 2">
       <dataInsertion :ceng="ceng" />
     </div>
     <!-- 按钮 -->
-    <div class="switch">
-      <ul>
-        <li @click="user()">
-          <p>用户管理</p>
-          <icon-svg icon-class="icon-yonghuzhongxin" class="img" />
-        </li>
-        <li @click="guanli()">
-          <p>数据管理</p>
-          <icon-svg icon-class="icon-dongtaishujuchaxun" class="img" />
-        </li>
-        <li @click="shujv()">
-          <p>添加数据</p>
-          <icon-svg icon-class="icon-charuhang" class="img" />
-        </li>
-      </ul>
-    </div>
 
     <!-- <el-button style="z-index: 9999999; position: absolute; right: 0; " @click="xian()">加点</el-button>
     <el-button style="z-index: 9999999; position: absolute; right: 100px; " @click="jian()">减点</el-button> -->
@@ -48,16 +25,10 @@ export default {
   destroyed() {
     document.getElementsByClassName('datamanag')[0].style.display = 'none'
   },
+  mounted(){
+    this.ceng=2;
+  },
   methods: {
-    user() {
-      this.ceng = 0
-    },
-    guanli() {
-      this.ceng = 1
-    },
-    shujv() {
-      this.ceng = 2
-    }
   }
 }
 </script>
