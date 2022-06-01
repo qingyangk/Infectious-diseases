@@ -354,10 +354,10 @@ export default {
       var json = JSON.stringify(this.tableData);
       console.log(json)
       that.$store.dispatch('ncity/upTable',json).then((dataz) => {
-        console.log(dataz.length);
+        console.log(dataz);
         Message({
           showClose: true,
-          message: dataz.msg.toString(),
+          message: dataz.msg,
           type: 'success',
           duration: 3 * 1000,
         });

@@ -221,7 +221,7 @@ const actions = {
     return new Promise((resolve, reject) => {
         upTable(data).then(response => {
             // const { dates } = response
-            resolve(response.dates)
+            resolve(response)
         }).catch(error => {
             reject(error)
         })
