@@ -41,8 +41,8 @@
       <div class="tool">
         <el-row :gutter="5">
           <el-col :span="2">
-            <el-upload action="" :multiple="false" :show-file-list="false" accept="csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" :http-request="httpRequest">
-          <el-button ref="upload" size="mini" type="primary">上传文件</el-button>
+            <el-upload action="" accept="csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" :http-request="httpRequest">
+          <el-button  size="mini" type="primary">上传文件</el-button>
         </el-upload>
           </el-col>
           <el-col :span="2">
