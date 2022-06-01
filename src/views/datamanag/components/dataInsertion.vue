@@ -29,15 +29,12 @@
             <el-button type="success" size="mini" icon="el-icon-refresh">重置表单</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="primary" size="mini" :icon="icon">取消选择</el-button>
-          </el-col>
-          <el-col :span="2">
             <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel">保存数据</el-button>
           </el-col>
           <el-col :span="2">
             <el-button type="primary" size="mini" :icon="icon" @click="download">下载模板</el-button>
           </el-col>
-          <el-col :span="8">
+          <el-col :span="11">
             <div>123</div>
           </el-col>
           <el-col :span="4">
