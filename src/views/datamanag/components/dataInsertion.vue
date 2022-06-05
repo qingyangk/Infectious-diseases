@@ -22,17 +22,17 @@
         <el-row :gutter="5">
           <el-col :span="2">
             <el-upload action="" accept="csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" :http-request="httpRequest">
-          <el-button  size="mini" type="primary">上传文件</el-button>
+          <el-button  size="mini" class="upload" type="primary">上传文件</el-button>
         </el-upload>
           </el-col>
           <el-col :span="2">
-            <el-button type="success" size="mini" icon="el-icon-refresh" @click="clear()">取消选择</el-button>
+            <el-button size="mini" class="cancel" icon="el-icon-refresh" @click="clear()">取消选择</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="default" size="mini" icon="el-icon-document-copy" @click="saveExcel">保存数据</el-button>
+            <el-button size="mini" class="save" icon="el-icon-document-copy" @click="saveExcel">保存数据</el-button>
           </el-col>
           <el-col :span="2">
-            <el-button type="primary" size="mini" :icon="icon" @click="download">下载模板</el-button>
+            <el-button size="mini" class="download" :icon="icon" @click="download">下载模板</el-button>
           </el-col>
           <el-col :span="11">
             <div>123</div>
@@ -806,6 +806,32 @@ export default {
   color: #ffffff;
   font-size: 17px;
 }
+.tool .upload {
+  background-color: rgb(127, 189, 255);
+}
+.tool .cancel {
+  background-color: rgb(61, 125, 189);
+}
+.tool .save {
+  background-color: rgb(106, 151, 164);
+}
+.tool .download {
+  background-color: rgb(19, 175, 218);
+}
+.tool >>> .el-input-group__append {
+  height: 100%;
+  width: 20%;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.tool .el-button {
+  border: none;
+  color: #fff;
+}
+.body >>> .ux-grid{
+  background: rgb(106, 142, 156);
+}
+
 </style>
 <style>
 .adddate .zujian .esri-editor__scroller {
